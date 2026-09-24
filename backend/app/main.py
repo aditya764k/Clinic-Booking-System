@@ -11,6 +11,7 @@ from starlette.middleware.sessions import SessionMiddleware
 
 from app.core.config import settings
 from app.api.auth import router as auth_router
+from app.api.scheduling import router as scheduling_router
 
 app = FastAPI(title="Clinic Appointment API")
 
@@ -30,6 +31,7 @@ app.add_middleware(
 )
 
 app.include_router(auth_router, prefix="/auth")
+app.include_router(scheduling_router)
 
 
 @app.get("/health")
