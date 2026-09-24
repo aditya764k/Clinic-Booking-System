@@ -1,0 +1,1950 @@
+{
+  "directed": false,
+  "multigraph": false,
+  "graph": {
+    "hyperedges": [
+      {
+        "id": "frontend_setup_and_branding",
+        "label": "Frontend Setup and Branding Assets",
+        "nodes": [
+          "vite_config_vite_configuration",
+          "index_global_styles",
+          "vite_logo",
+          "react_logo"
+        ],
+        "relation": "form",
+        "confidence": "INFERRED",
+        "confidence_score": 0.85,
+        "source_file": "frontend/vite.config.ts"
+      },
+      {
+        "id": "backend_environment_and_database",
+        "label": "Backend Configuration and Database Setup",
+        "nodes": [
+          "env_config",
+          "requirements_backend_dependencies",
+          "287c78c5959f_initial_empty_migration_initial_migration"
+        ],
+        "relation": "form",
+        "confidence": "INFERRED",
+        "confidence_score": 0.85,
+        "source_file": "backend/requirements.txt"
+      },
+      {
+        "id": "project_documentation_and_config",
+        "label": "Project Documentation and Environment Templates",
+        "nodes": [
+          "readme_clinic_booking_system",
+          "readme_setup_instructions",
+          "env_example_template"
+        ],
+        "relation": "form",
+        "confidence": "INFERRED",
+        "confidence_score": 0.85,
+        "source_file": "README.md"
+      }
+    ]
+  },
+  "nodes": [
+    {
+      "label": "__init__.py",
+      "file_type": "code",
+      "source_file": "backend/app/__init__.py",
+      "source_location": "L1",
+      "id": "backend_app_init_py",
+      "community": 15,
+      "norm_label": "__init__.py"
+    },
+    {
+      "label": "main.py",
+      "file_type": "code",
+      "source_file": "backend/app/main.py",
+      "source_location": "L1",
+      "id": "backend_app_main_py",
+      "community": 9,
+      "norm_label": "main.py"
+    },
+    {
+      "label": "health_check()",
+      "file_type": "code",
+      "source_file": "backend/app/main.py",
+      "source_location": "L15",
+      "id": "app_main_health_check",
+      "community": 9,
+      "norm_label": "health_check()"
+    },
+    {
+      "label": "identity.py",
+      "file_type": "code",
+      "source_file": "backend/app/models/identity.py",
+      "source_location": "L1",
+      "id": "backend_app_models_identity_py",
+      "community": 0,
+      "norm_label": "identity.py"
+    },
+    {
+      "label": "UserRole",
+      "file_type": "code",
+      "source_file": "backend/app/models/identity.py",
+      "source_location": "L21",
+      "id": "models_identity_userrole",
+      "community": 0,
+      "norm_label": "userrole"
+    },
+    {
+      "label": "str",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "id": "str",
+      "community": 3,
+      "norm_label": "str"
+    },
+    {
+      "label": "User",
+      "file_type": "code",
+      "source_file": "backend/app/models/identity.py",
+      "source_location": "L27",
+      "id": "models_identity_user",
+      "community": 0,
+      "norm_label": "user"
+    },
+    {
+      "label": "Base",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "id": "base",
+      "community": 0,
+      "norm_label": "base"
+    },
+    {
+      "label": "PatientProfile",
+      "file_type": "code",
+      "source_file": "backend/app/models/identity.py",
+      "source_location": "L51",
+      "id": "models_identity_patientprofile",
+      "community": 0,
+      "norm_label": "patientprofile"
+    },
+    {
+      "label": "DoctorProfile",
+      "file_type": "code",
+      "source_file": "backend/app/models/identity.py",
+      "source_location": "L65",
+      "id": "models_identity_doctorprofile",
+      "community": 0,
+      "norm_label": "doctorprofile"
+    },
+    {
+      "label": "Identity models: User, PatientProfile, DoctorProfile",
+      "file_type": "rationale",
+      "source_file": "backend/app/models/identity.py",
+      "source_location": "L1",
+      "id": "models_identity_rationale_1",
+      "community": 0,
+      "norm_label": "identity models: user, patientprofile, doctorprofile"
+    },
+    {
+      "label": "scheduling.py",
+      "file_type": "code",
+      "source_file": "backend/app/models/scheduling.py",
+      "source_location": "L1",
+      "id": "backend_app_models_scheduling_py",
+      "community": 10,
+      "norm_label": "scheduling.py"
+    },
+    {
+      "label": "AppointmentSlot",
+      "file_type": "code",
+      "source_file": "backend/app/models/scheduling.py",
+      "source_location": "L19",
+      "id": "models_scheduling_appointmentslot",
+      "community": 0,
+      "norm_label": "appointmentslot"
+    },
+    {
+      "label": "Scheduling models: AppointmentSlot",
+      "file_type": "rationale",
+      "source_file": "backend/app/models/scheduling.py",
+      "source_location": "L1",
+      "id": "models_scheduling_rationale_1",
+      "community": 10,
+      "norm_label": "scheduling models: appointmentslot"
+    },
+    {
+      "label": "appointment.py",
+      "file_type": "code",
+      "source_file": "backend/app/models/appointment.py",
+      "source_location": "L1",
+      "id": "backend_app_models_appointment_py",
+      "community": 0,
+      "norm_label": "appointment.py"
+    },
+    {
+      "label": "AppointmentStatus",
+      "file_type": "code",
+      "source_file": "backend/app/models/appointment.py",
+      "source_location": "L21",
+      "id": "models_appointment_appointmentstatus",
+      "community": 0,
+      "norm_label": "appointmentstatus"
+    },
+    {
+      "label": "Appointment",
+      "file_type": "code",
+      "source_file": "backend/app/models/appointment.py",
+      "source_location": "L32",
+      "id": "models_appointment_appointment",
+      "community": 0,
+      "norm_label": "appointment"
+    },
+    {
+      "label": "ClinicalNote",
+      "file_type": "code",
+      "source_file": "backend/app/models/appointment.py",
+      "source_location": "L63",
+      "id": "models_appointment_clinicalnote",
+      "community": 0,
+      "norm_label": "clinicalnote"
+    },
+    {
+      "label": "Appointment and ClinicalNote models",
+      "file_type": "rationale",
+      "source_file": "backend/app/models/appointment.py",
+      "source_location": "L1",
+      "id": "models_appointment_rationale_1",
+      "community": 0,
+      "norm_label": "appointment and clinicalnote models"
+    },
+    {
+      "label": "billing.py",
+      "file_type": "code",
+      "source_file": "backend/app/models/billing.py",
+      "source_location": "L1",
+      "id": "backend_app_models_billing_py",
+      "community": 3,
+      "norm_label": "billing.py"
+    },
+    {
+      "label": "InvoiceStatus",
+      "file_type": "code",
+      "source_file": "backend/app/models/billing.py",
+      "source_location": "L21",
+      "id": "models_billing_invoicestatus",
+      "community": 3,
+      "norm_label": "invoicestatus"
+    },
+    {
+      "label": "PaymentMethod",
+      "file_type": "code",
+      "source_file": "backend/app/models/billing.py",
+      "source_location": "L27",
+      "id": "models_billing_paymentmethod",
+      "community": 3,
+      "norm_label": "paymentmethod"
+    },
+    {
+      "label": "Invoice",
+      "file_type": "code",
+      "source_file": "backend/app/models/billing.py",
+      "source_location": "L32",
+      "id": "models_billing_invoice",
+      "community": 0,
+      "norm_label": "invoice"
+    },
+    {
+      "label": "WebhookEvent",
+      "file_type": "code",
+      "source_file": "backend/app/models/billing.py",
+      "source_location": "L65",
+      "id": "models_billing_webhookevent",
+      "community": 0,
+      "norm_label": "webhookevent"
+    },
+    {
+      "label": "Billing models: Invoice, WebhookEvent",
+      "file_type": "rationale",
+      "source_file": "backend/app/models/billing.py",
+      "source_location": "L1",
+      "id": "models_billing_rationale_1",
+      "community": 3,
+      "norm_label": "billing models: invoice, webhookevent"
+    },
+    {
+      "label": "audit.py",
+      "file_type": "code",
+      "source_file": "backend/app/models/audit.py",
+      "source_location": "L1",
+      "id": "backend_app_models_audit_py",
+      "community": 11,
+      "norm_label": "audit.py"
+    },
+    {
+      "label": "AuditLog",
+      "file_type": "code",
+      "source_file": "backend/app/models/audit.py",
+      "source_location": "L16",
+      "id": "models_audit_auditlog",
+      "community": 0,
+      "norm_label": "auditlog"
+    },
+    {
+      "label": "Audit models: AuditLog",
+      "file_type": "rationale",
+      "source_file": "backend/app/models/audit.py",
+      "source_location": "L1",
+      "id": "models_audit_rationale_1",
+      "community": 11,
+      "norm_label": "audit models: auditlog"
+    },
+    {
+      "label": "__init__.py",
+      "file_type": "code",
+      "source_file": "backend/app/models/__init__.py",
+      "source_location": "L1",
+      "id": "backend_app_models_init_py",
+      "community": 12,
+      "norm_label": "__init__.py"
+    },
+    {
+      "label": "Import all models here so that: 1. Alembic autogenerate can discover them via Ba",
+      "file_type": "rationale",
+      "source_file": "backend/app/models/__init__.py",
+      "source_location": "L1",
+      "id": "models_init_rationale_1",
+      "community": 12,
+      "norm_label": "import all models here so that: 1. alembic autogenerate can discover them via ba"
+    },
+    {
+      "label": "__init__.py",
+      "file_type": "code",
+      "source_file": "backend/app/core/__init__.py",
+      "source_location": "L1",
+      "id": "backend_app_core_init_py",
+      "community": 16,
+      "norm_label": "__init__.py"
+    },
+    {
+      "label": "database.py",
+      "file_type": "code",
+      "source_file": "backend/app/core/database.py",
+      "source_location": "L1",
+      "id": "backend_app_core_database_py",
+      "community": 5,
+      "norm_label": "database.py"
+    },
+    {
+      "label": "Base",
+      "file_type": "code",
+      "source_file": "backend/app/core/database.py",
+      "source_location": "L35",
+      "id": "core_database_base",
+      "community": 0,
+      "norm_label": "base"
+    },
+    {
+      "label": "DeclarativeBase",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "id": "declarativebase",
+      "community": 0,
+      "norm_label": "declarativebase"
+    },
+    {
+      "label": "get_db()",
+      "file_type": "code",
+      "source_file": "backend/app/core/database.py",
+      "source_location": "L39",
+      "id": "core_database_get_db",
+      "community": 5,
+      "norm_label": "get_db()"
+    },
+    {
+      "label": "Database engine, session factory, and declarative Base. All models import Base f",
+      "file_type": "rationale",
+      "source_file": "backend/app/core/database.py",
+      "source_location": "L1",
+      "id": "core_database_rationale_1",
+      "community": 5,
+      "norm_label": "database engine, session factory, and declarative base. all models import base f"
+    },
+    {
+      "label": "FastAPI dependency \u2013 yields a DB session and closes it after the request.",
+      "file_type": "rationale",
+      "source_file": "backend/app/core/database.py",
+      "source_location": "L40",
+      "id": "core_database_rationale_40",
+      "community": 5,
+      "norm_label": "fastapi dependency \u2013 yields a db session and closes it after the request."
+    },
+    {
+      "label": "env.py",
+      "file_type": "code",
+      "source_file": "backend/alembic/env.py",
+      "source_location": "L1",
+      "id": "backend_alembic_env_py",
+      "community": 1,
+      "norm_label": "env.py"
+    },
+    {
+      "label": "run_migrations_offline()",
+      "file_type": "code",
+      "source_file": "backend/alembic/env.py",
+      "source_location": "L37",
+      "id": "alembic_env_run_migrations_offline",
+      "community": 1,
+      "norm_label": "run_migrations_offline()"
+    },
+    {
+      "label": "run_migrations_online()",
+      "file_type": "code",
+      "source_file": "backend/alembic/env.py",
+      "source_location": "L49",
+      "id": "alembic_env_run_migrations_online",
+      "community": 1,
+      "norm_label": "run_migrations_online()"
+    },
+    {
+      "label": "Alembic env.py -- wired to our SQLAlchemy Base and DATABASE_URL from .env",
+      "file_type": "rationale",
+      "source_file": "backend/alembic/env.py",
+      "source_location": "L1",
+      "id": "alembic_env_rationale_1",
+      "community": 1,
+      "norm_label": "alembic env.py -- wired to our sqlalchemy base and database_url from .env"
+    },
+    {
+      "label": "287c78c5959f_initial_empty_migration.py",
+      "file_type": "code",
+      "source_file": "backend/alembic/versions/287c78c5959f_initial_empty_migration.py",
+      "source_location": "L1",
+      "id": "backend_alembic_versions_287c78c5959f_initial_empty_migration_py",
+      "community": 6,
+      "norm_label": "287c78c5959f_initial_empty_migration.py"
+    },
+    {
+      "label": "upgrade()",
+      "file_type": "code",
+      "source_file": "backend/alembic/versions/287c78c5959f_initial_empty_migration.py",
+      "source_location": "L21",
+      "id": "versions_287c78c5959f_initial_empty_migration_upgrade",
+      "community": 6,
+      "norm_label": "upgrade()"
+    },
+    {
+      "label": "downgrade()",
+      "file_type": "code",
+      "source_file": "backend/alembic/versions/287c78c5959f_initial_empty_migration.py",
+      "source_location": "L25",
+      "id": "versions_287c78c5959f_initial_empty_migration_downgrade",
+      "community": 6,
+      "norm_label": "downgrade()"
+    },
+    {
+      "label": "initial_empty_migration  Revision ID: 287c78c5959f Revises:  Create Date: 2026-0",
+      "file_type": "rationale",
+      "source_file": "backend/alembic/versions/287c78c5959f_initial_empty_migration.py",
+      "source_location": "L1",
+      "id": "versions_287c78c5959f_initial_empty_migration_rationale_1",
+      "community": 6,
+      "norm_label": "initial_empty_migration  revision id: 287c78c5959f revises:  create date: 2026-0"
+    },
+    {
+      "label": "d35e04369e67_create_core_domain_tables.py",
+      "file_type": "code",
+      "source_file": "backend/alembic/versions/d35e04369e67_create_core_domain_tables.py",
+      "source_location": "L1",
+      "id": "backend_alembic_versions_d35e04369e67_create_core_domain_tables_py",
+      "community": 7,
+      "norm_label": "d35e04369e67_create_core_domain_tables.py"
+    },
+    {
+      "label": "upgrade()",
+      "file_type": "code",
+      "source_file": "backend/alembic/versions/d35e04369e67_create_core_domain_tables.py",
+      "source_location": "L21",
+      "id": "versions_d35e04369e67_create_core_domain_tables_upgrade",
+      "community": 7,
+      "norm_label": "upgrade()"
+    },
+    {
+      "label": "downgrade()",
+      "file_type": "code",
+      "source_file": "backend/alembic/versions/d35e04369e67_create_core_domain_tables.py",
+      "source_location": "L137",
+      "id": "versions_d35e04369e67_create_core_domain_tables_downgrade",
+      "community": 7,
+      "norm_label": "downgrade()"
+    },
+    {
+      "label": "create core domain tables  Revision ID: d35e04369e67 Revises: 287c78c5959f Creat",
+      "file_type": "rationale",
+      "source_file": "backend/alembic/versions/d35e04369e67_create_core_domain_tables.py",
+      "source_location": "L1",
+      "id": "versions_d35e04369e67_create_core_domain_tables_rationale_1",
+      "community": 7,
+      "norm_label": "create core domain tables  revision id: d35e04369e67 revises: 287c78c5959f creat"
+    },
+    {
+      "label": "__init__.py",
+      "file_type": "code",
+      "source_file": "backend/scripts/__init__.py",
+      "source_location": "L1",
+      "id": "backend_scripts_init_py",
+      "community": 17,
+      "norm_label": "__init__.py"
+    },
+    {
+      "label": "verify_module1.py",
+      "file_type": "code",
+      "source_file": "backend/scripts/verify_module1.py",
+      "source_location": "L1",
+      "id": "backend_scripts_verify_module1_py",
+      "community": 2,
+      "norm_label": "verify_module1.py"
+    },
+    {
+      "label": "hr()",
+      "file_type": "code",
+      "source_file": "backend/scripts/verify_module1.py",
+      "source_location": "L35",
+      "id": "scripts_verify_module1_hr",
+      "community": 2,
+      "norm_label": "hr()"
+    },
+    {
+      "label": "cleanup()",
+      "file_type": "code",
+      "source_file": "backend/scripts/verify_module1.py",
+      "source_location": "L41",
+      "id": "scripts_verify_module1_cleanup",
+      "community": 2,
+      "norm_label": "cleanup()"
+    },
+    {
+      "label": "main()",
+      "file_type": "code",
+      "source_file": "backend/scripts/verify_module1.py",
+      "source_location": "L53",
+      "id": "scripts_verify_module1_main",
+      "community": 2,
+      "norm_label": "main()"
+    },
+    {
+      "label": "scripts/verify_module1.py ========================= Module 1 verification script",
+      "file_type": "rationale",
+      "source_file": "backend/scripts/verify_module1.py",
+      "source_location": "L1",
+      "id": "scripts_verify_module1_rationale_1",
+      "community": 2,
+      "norm_label": "scripts/verify_module1.py ========================= module 1 verification script"
+    },
+    {
+      "label": "Remove any rows from a prior run so the script is idempotent.",
+      "file_type": "rationale",
+      "source_file": "backend/scripts/verify_module1.py",
+      "source_location": "L42",
+      "id": "scripts_verify_module1_rationale_42",
+      "community": 2,
+      "norm_label": "remove any rows from a prior run so the script is idempotent."
+    },
+    {
+      "label": "vite.config.ts",
+      "file_type": "code",
+      "source_file": "frontend/vite.config.ts",
+      "source_location": "L1",
+      "id": "frontend_vite_config_ts",
+      "community": 18,
+      "norm_label": "vite.config.ts"
+    },
+    {
+      "label": "eslint.config.js",
+      "file_type": "code",
+      "source_file": "frontend/eslint.config.js",
+      "source_location": "L1",
+      "id": "frontend_eslint_config_js",
+      "community": 19,
+      "norm_label": "eslint.config.js"
+    },
+    {
+      "label": "App.tsx",
+      "file_type": "code",
+      "source_file": "frontend/src/App.tsx",
+      "source_location": "L1",
+      "id": "frontend_src_app_tsx",
+      "community": 13,
+      "norm_label": "app.tsx"
+    },
+    {
+      "label": "main.tsx",
+      "file_type": "code",
+      "source_file": "frontend/src/main.tsx",
+      "source_location": "L1",
+      "id": "frontend_src_main_tsx",
+      "community": 13,
+      "norm_label": "main.tsx"
+    },
+    {
+      "label": "Run migrations in 'offline' mode.      This configures the context with just a U",
+      "file_type": "rationale",
+      "source_file": "backend/alembic/env.py",
+      "source_location": "L30",
+      "community": 1,
+      "norm_label": "run migrations in 'offline' mode.      this configures the context with just a u",
+      "id": "alembic_env_rationale_30"
+    },
+    {
+      "label": "Run migrations in 'online' mode.      In this scenario we need to create an Engi",
+      "file_type": "rationale",
+      "source_file": "backend/alembic/env.py",
+      "source_location": "L54",
+      "community": 1,
+      "norm_label": "run migrations in 'online' mode.      in this scenario we need to create an engi",
+      "id": "alembic_env_rationale_54"
+    },
+    {
+      "label": "Global CSS Styles",
+      "file_type": "code",
+      "source_file": "frontend/src/index.css",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 8,
+      "norm_label": "global css styles",
+      "id": "index_global_styles"
+    },
+    {
+      "label": "Vite Build Configuration",
+      "file_type": "code",
+      "source_file": "frontend/vite.config.ts",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 8,
+      "norm_label": "vite build configuration",
+      "id": "vite_config_vite_configuration"
+    },
+    {
+      "label": "Initial Empty Alembic Migration",
+      "file_type": "code",
+      "source_file": "backend/alembic/versions/287c78c5959f_initial_empty_migration.py",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 4,
+      "norm_label": "initial empty alembic migration",
+      "id": "287c78c5959f_initial_empty_migration_initial_migration"
+    },
+    {
+      "label": "Environment Variables Template",
+      "file_type": "document",
+      "source_file": ".env.example",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 4,
+      "norm_label": "environment variables template",
+      "id": "env_example_template"
+    },
+    {
+      "label": "Environment Configuration",
+      "file_type": "document",
+      "source_file": ".env",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 4,
+      "norm_label": "environment configuration",
+      "id": "env_config"
+    },
+    {
+      "label": "Clinic Booking System Overview",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 8,
+      "norm_label": "clinic booking system overview",
+      "id": "readme_clinic_booking_system"
+    },
+    {
+      "label": "Setup Instructions",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 4,
+      "norm_label": "setup instructions",
+      "id": "readme_setup_instructions"
+    },
+    {
+      "label": "Backend Python Dependencies",
+      "file_type": "document",
+      "source_file": "backend/requirements.txt",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 4,
+      "norm_label": "backend python dependencies",
+      "id": "requirements_backend_dependencies"
+    },
+    {
+      "label": "Vite Logo Asset",
+      "file_type": "image",
+      "source_file": "frontend/public/vite.svg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 14,
+      "norm_label": "vite logo asset",
+      "id": "vite_logo"
+    },
+    {
+      "label": "React Logo Asset",
+      "file_type": "image",
+      "source_file": "frontend/src/assets/react.svg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 14,
+      "norm_label": "react logo asset",
+      "id": "react_logo"
+    }
+  ],
+  "links": [
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/app/main.py",
+      "source_location": "L15",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "backend_app_main_py",
+      "target": "app_main_health_check"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/app/models/identity.py",
+      "source_location": "L16",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "backend_app_models_identity_py",
+      "target": "models_identity_userrole"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/app/models/identity.py",
+      "source_location": "L22",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "backend_app_models_identity_py",
+      "target": "models_identity_user"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/app/models/identity.py",
+      "source_location": "L46",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "backend_app_models_identity_py",
+      "target": "models_identity_patientprofile"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/app/models/identity.py",
+      "source_location": "L60",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "backend_app_models_identity_py",
+      "target": "models_identity_doctorprofile"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/app/models/identity.py",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "models_identity_rationale_1",
+      "target": "backend_app_models_identity_py"
+    },
+    {
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/app/models/identity.py",
+      "source_location": "L16",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "models_identity_userrole",
+      "target": "str"
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "backend/app/models/identity.py",
+      "source_location": "L13",
+      "weight": 0.8,
+      "confidence_score": 0.5,
+      "source": "models_identity_userrole",
+      "target": "core_database_base"
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "backend/app/models/identity.py",
+      "source_location": "L16",
+      "weight": 0.8,
+      "source": "models_identity_userrole",
+      "target": "models_audit_auditlog",
+      "confidence_score": 0.5
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "backend/app/models/identity.py",
+      "source_location": "L17",
+      "weight": 0.8,
+      "source": "models_identity_userrole",
+      "target": "models_billing_invoice",
+      "confidence_score": 0.5
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "backend/app/models/identity.py",
+      "source_location": "L18",
+      "weight": 0.8,
+      "source": "models_identity_userrole",
+      "target": "models_appointment_appointment",
+      "confidence_score": 0.5
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "backend/app/models/identity.py",
+      "source_location": "L18",
+      "weight": 0.8,
+      "source": "models_identity_userrole",
+      "target": "models_appointment_clinicalnote",
+      "confidence_score": 0.5
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "backend/app/models/identity.py",
+      "source_location": "L19",
+      "weight": 0.8,
+      "source": "models_identity_userrole",
+      "target": "models_scheduling_appointmentslot",
+      "confidence_score": 0.5
+    },
+    {
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/app/models/appointment.py",
+      "source_location": "L16",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "models_appointment_appointmentstatus",
+      "target": "str"
+    },
+    {
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/app/models/billing.py",
+      "source_location": "L16",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "models_billing_invoicestatus",
+      "target": "str"
+    },
+    {
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/app/models/billing.py",
+      "source_location": "L22",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "models_billing_paymentmethod",
+      "target": "str"
+    },
+    {
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/app/models/identity.py",
+      "source_location": "L22",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "models_identity_user",
+      "target": "base"
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "backend/app/models/identity.py",
+      "source_location": "L13",
+      "weight": 0.8,
+      "confidence_score": 0.5,
+      "source": "models_identity_user",
+      "target": "core_database_base"
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "backend/app/models/audit.py",
+      "source_location": "L13",
+      "weight": 0.8,
+      "source": "models_audit_auditlog",
+      "target": "models_identity_user",
+      "confidence_score": 0.5
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "backend/app/models/billing.py",
+      "source_location": "L17",
+      "weight": 0.8,
+      "source": "models_billing_invoice",
+      "target": "models_identity_user",
+      "confidence_score": 0.5
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "backend/app/models/identity.py",
+      "source_location": "L18",
+      "weight": 0.8,
+      "source": "models_identity_user",
+      "target": "models_appointment_appointment",
+      "confidence_score": 0.5
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "backend/app/models/identity.py",
+      "source_location": "L18",
+      "weight": 0.8,
+      "source": "models_identity_user",
+      "target": "models_appointment_clinicalnote",
+      "confidence_score": 0.5
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "backend/app/models/identity.py",
+      "source_location": "L19",
+      "weight": 0.8,
+      "source": "models_identity_user",
+      "target": "models_scheduling_appointmentslot",
+      "confidence_score": 0.5
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "backend/app/models/billing.py",
+      "source_location": "L17",
+      "weight": 0.8,
+      "source": "models_billing_invoicestatus",
+      "target": "models_identity_user",
+      "confidence_score": 0.5
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "backend/app/models/billing.py",
+      "source_location": "L17",
+      "weight": 0.8,
+      "source": "models_billing_paymentmethod",
+      "target": "models_identity_user",
+      "confidence_score": 0.5
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "backend/app/models/billing.py",
+      "source_location": "L17",
+      "weight": 0.8,
+      "source": "models_billing_webhookevent",
+      "target": "models_identity_user",
+      "confidence_score": 0.5
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "backend/scripts/verify_module1.py",
+      "source_location": "L68",
+      "weight": 1.0,
+      "source": "scripts_verify_module1_main",
+      "target": "models_identity_user"
+    },
+    {
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/app/models/identity.py",
+      "source_location": "L46",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "models_identity_patientprofile",
+      "target": "base"
+    },
+    {
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/app/models/identity.py",
+      "source_location": "L60",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "models_identity_doctorprofile",
+      "target": "base"
+    },
+    {
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/app/models/scheduling.py",
+      "source_location": "L12",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "models_scheduling_appointmentslot",
+      "target": "base"
+    },
+    {
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/app/models/appointment.py",
+      "source_location": "L27",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "models_appointment_appointment",
+      "target": "base"
+    },
+    {
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/app/models/appointment.py",
+      "source_location": "L58",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "models_appointment_clinicalnote",
+      "target": "base"
+    },
+    {
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/app/models/billing.py",
+      "source_location": "L27",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "models_billing_invoice",
+      "target": "base"
+    },
+    {
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/app/models/billing.py",
+      "source_location": "L60",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "models_billing_webhookevent",
+      "target": "base"
+    },
+    {
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/app/models/audit.py",
+      "source_location": "L12",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "models_audit_auditlog",
+      "target": "base"
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "backend/app/models/identity.py",
+      "source_location": "L13",
+      "weight": 0.8,
+      "confidence_score": 0.5,
+      "source": "models_identity_patientprofile",
+      "target": "core_database_base"
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "backend/app/models/identity.py",
+      "source_location": "L16",
+      "weight": 0.8,
+      "source": "models_identity_patientprofile",
+      "target": "models_audit_auditlog",
+      "confidence_score": 0.5
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "backend/app/models/identity.py",
+      "source_location": "L17",
+      "weight": 0.8,
+      "source": "models_identity_patientprofile",
+      "target": "models_billing_invoice",
+      "confidence_score": 0.5
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "backend/app/models/appointment.py",
+      "source_location": "L16",
+      "weight": 0.8,
+      "source": "models_appointment_appointment",
+      "target": "models_identity_patientprofile",
+      "confidence_score": 0.5
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "backend/app/models/appointment.py",
+      "source_location": "L16",
+      "weight": 0.8,
+      "source": "models_appointment_clinicalnote",
+      "target": "models_identity_patientprofile",
+      "confidence_score": 0.5
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "backend/app/models/identity.py",
+      "source_location": "L19",
+      "weight": 0.8,
+      "source": "models_identity_patientprofile",
+      "target": "models_scheduling_appointmentslot",
+      "confidence_score": 0.5
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "backend/app/models/appointment.py",
+      "source_location": "L16",
+      "weight": 0.8,
+      "source": "models_appointment_appointmentstatus",
+      "target": "models_identity_patientprofile",
+      "confidence_score": 0.5
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "backend/scripts/verify_module1.py",
+      "source_location": "L99",
+      "weight": 1.0,
+      "source": "scripts_verify_module1_main",
+      "target": "models_identity_patientprofile"
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "backend/app/models/identity.py",
+      "source_location": "L13",
+      "weight": 0.8,
+      "confidence_score": 0.5,
+      "source": "models_identity_doctorprofile",
+      "target": "core_database_base"
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "backend/app/models/identity.py",
+      "source_location": "L16",
+      "weight": 0.8,
+      "source": "models_identity_doctorprofile",
+      "target": "models_audit_auditlog",
+      "confidence_score": 0.5
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "backend/app/models/identity.py",
+      "source_location": "L17",
+      "weight": 0.8,
+      "source": "models_identity_doctorprofile",
+      "target": "models_billing_invoice",
+      "confidence_score": 0.5
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "backend/app/models/appointment.py",
+      "source_location": "L16",
+      "weight": 0.8,
+      "source": "models_appointment_appointment",
+      "target": "models_identity_doctorprofile",
+      "confidence_score": 0.5
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "backend/app/models/appointment.py",
+      "source_location": "L16",
+      "weight": 0.8,
+      "source": "models_appointment_clinicalnote",
+      "target": "models_identity_doctorprofile",
+      "confidence_score": 0.5
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "backend/app/models/scheduling.py",
+      "source_location": "L15",
+      "weight": 0.8,
+      "source": "models_scheduling_appointmentslot",
+      "target": "models_identity_doctorprofile",
+      "confidence_score": 0.5
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "backend/app/models/appointment.py",
+      "source_location": "L16",
+      "weight": 0.8,
+      "source": "models_appointment_appointmentstatus",
+      "target": "models_identity_doctorprofile",
+      "confidence_score": 0.5
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "backend/scripts/verify_module1.py",
+      "source_location": "L105",
+      "weight": 1.0,
+      "source": "scripts_verify_module1_main",
+      "target": "models_identity_doctorprofile"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/app/models/scheduling.py",
+      "source_location": "L12",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "backend_app_models_scheduling_py",
+      "target": "models_scheduling_appointmentslot"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/app/models/scheduling.py",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "models_scheduling_rationale_1",
+      "target": "backend_app_models_scheduling_py"
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "backend/app/models/scheduling.py",
+      "source_location": "L9",
+      "weight": 0.8,
+      "confidence_score": 0.5,
+      "source": "models_scheduling_appointmentslot",
+      "target": "core_database_base"
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "backend/app/models/appointment.py",
+      "source_location": "L17",
+      "weight": 0.8,
+      "source": "models_appointment_appointment",
+      "target": "models_scheduling_appointmentslot",
+      "confidence_score": 0.5
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "backend/app/models/appointment.py",
+      "source_location": "L17",
+      "weight": 0.8,
+      "source": "models_appointment_appointmentstatus",
+      "target": "models_scheduling_appointmentslot",
+      "confidence_score": 0.5
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "backend/app/models/appointment.py",
+      "source_location": "L17",
+      "weight": 0.8,
+      "source": "models_appointment_clinicalnote",
+      "target": "models_scheduling_appointmentslot",
+      "confidence_score": 0.5
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "backend/scripts/verify_module1.py",
+      "source_location": "L126",
+      "weight": 1.0,
+      "source": "scripts_verify_module1_main",
+      "target": "models_scheduling_appointmentslot"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/app/models/appointment.py",
+      "source_location": "L16",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "backend_app_models_appointment_py",
+      "target": "models_appointment_appointmentstatus"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/app/models/appointment.py",
+      "source_location": "L27",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "backend_app_models_appointment_py",
+      "target": "models_appointment_appointment"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/app/models/appointment.py",
+      "source_location": "L58",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "backend_app_models_appointment_py",
+      "target": "models_appointment_clinicalnote"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/app/models/appointment.py",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "models_appointment_rationale_1",
+      "target": "backend_app_models_appointment_py"
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "backend/app/models/appointment.py",
+      "source_location": "L13",
+      "weight": 0.8,
+      "confidence_score": 0.5,
+      "source": "models_appointment_appointmentstatus",
+      "target": "core_database_base"
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "backend/app/models/appointment.py",
+      "source_location": "L18",
+      "weight": 0.8,
+      "source": "models_appointment_appointmentstatus",
+      "target": "models_billing_invoice",
+      "confidence_score": 0.5
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "backend/app/models/appointment.py",
+      "source_location": "L13",
+      "weight": 0.8,
+      "confidence_score": 0.5,
+      "source": "models_appointment_appointment",
+      "target": "core_database_base"
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "backend/app/models/billing.py",
+      "source_location": "L18",
+      "weight": 0.8,
+      "source": "models_billing_invoice",
+      "target": "models_appointment_appointment",
+      "confidence_score": 0.5
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "backend/app/models/billing.py",
+      "source_location": "L18",
+      "weight": 0.8,
+      "source": "models_billing_invoicestatus",
+      "target": "models_appointment_appointment",
+      "confidence_score": 0.5
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "backend/app/models/billing.py",
+      "source_location": "L18",
+      "weight": 0.8,
+      "source": "models_billing_paymentmethod",
+      "target": "models_appointment_appointment",
+      "confidence_score": 0.5
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "backend/app/models/billing.py",
+      "source_location": "L18",
+      "weight": 0.8,
+      "source": "models_billing_webhookevent",
+      "target": "models_appointment_appointment",
+      "confidence_score": 0.5
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "backend/scripts/verify_module1.py",
+      "source_location": "L143",
+      "weight": 1.0,
+      "source": "scripts_verify_module1_main",
+      "target": "models_appointment_appointment"
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "backend/app/models/appointment.py",
+      "source_location": "L13",
+      "weight": 0.8,
+      "confidence_score": 0.5,
+      "source": "models_appointment_clinicalnote",
+      "target": "core_database_base"
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "backend/app/models/appointment.py",
+      "source_location": "L18",
+      "weight": 0.8,
+      "source": "models_appointment_clinicalnote",
+      "target": "models_billing_invoice",
+      "confidence_score": 0.5
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/app/models/billing.py",
+      "source_location": "L16",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "backend_app_models_billing_py",
+      "target": "models_billing_invoicestatus"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/app/models/billing.py",
+      "source_location": "L22",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "backend_app_models_billing_py",
+      "target": "models_billing_paymentmethod"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/app/models/billing.py",
+      "source_location": "L27",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "backend_app_models_billing_py",
+      "target": "models_billing_invoice"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/app/models/billing.py",
+      "source_location": "L60",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "backend_app_models_billing_py",
+      "target": "models_billing_webhookevent"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/app/models/billing.py",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "models_billing_rationale_1",
+      "target": "backend_app_models_billing_py"
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "backend/app/models/billing.py",
+      "source_location": "L13",
+      "weight": 0.8,
+      "confidence_score": 0.5,
+      "source": "models_billing_invoicestatus",
+      "target": "core_database_base"
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "backend/app/models/billing.py",
+      "source_location": "L13",
+      "weight": 0.8,
+      "confidence_score": 0.5,
+      "source": "models_billing_paymentmethod",
+      "target": "core_database_base"
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "backend/app/models/billing.py",
+      "source_location": "L13",
+      "weight": 0.8,
+      "confidence_score": 0.5,
+      "source": "models_billing_invoice",
+      "target": "core_database_base"
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "backend/app/models/billing.py",
+      "source_location": "L13",
+      "weight": 0.8,
+      "confidence_score": 0.5,
+      "source": "models_billing_webhookevent",
+      "target": "core_database_base"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/app/models/audit.py",
+      "source_location": "L12",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "backend_app_models_audit_py",
+      "target": "models_audit_auditlog"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/app/models/audit.py",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "models_audit_rationale_1",
+      "target": "backend_app_models_audit_py"
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "backend/app/models/audit.py",
+      "source_location": "L9",
+      "weight": 0.8,
+      "confidence_score": 0.5,
+      "source": "models_audit_auditlog",
+      "target": "core_database_base"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/app/models/__init__.py",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "models_init_rationale_1",
+      "target": "backend_app_models_init_py"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/app/core/database.py",
+      "source_location": "L35",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "backend_app_core_database_py",
+      "target": "core_database_base"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/app/core/database.py",
+      "source_location": "L39",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "backend_app_core_database_py",
+      "target": "core_database_get_db"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/app/core/database.py",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "core_database_rationale_1",
+      "target": "backend_app_core_database_py"
+    },
+    {
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/app/core/database.py",
+      "source_location": "L35",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "core_database_base",
+      "target": "declarativebase"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/app/core/database.py",
+      "source_location": "L40",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "core_database_rationale_40",
+      "target": "core_database_get_db"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/alembic/env.py",
+      "source_location": "L29",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "backend_alembic_env_py",
+      "target": "alembic_env_run_migrations_offline"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/alembic/env.py",
+      "source_location": "L53",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "backend_alembic_env_py",
+      "target": "alembic_env_run_migrations_online"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/alembic/env.py",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "alembic_env_rationale_1",
+      "target": "backend_alembic_env_py"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/alembic/env.py",
+      "source_location": "L30",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "alembic_env_rationale_30",
+      "target": "alembic_env_run_migrations_offline"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/alembic/env.py",
+      "source_location": "L54",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "alembic_env_rationale_54",
+      "target": "alembic_env_run_migrations_online"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/alembic/versions/287c78c5959f_initial_empty_migration.py",
+      "source_location": "L21",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "backend_alembic_versions_287c78c5959f_initial_empty_migration_py",
+      "target": "versions_287c78c5959f_initial_empty_migration_upgrade"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/alembic/versions/287c78c5959f_initial_empty_migration.py",
+      "source_location": "L25",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "backend_alembic_versions_287c78c5959f_initial_empty_migration_py",
+      "target": "versions_287c78c5959f_initial_empty_migration_downgrade"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/alembic/versions/287c78c5959f_initial_empty_migration.py",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "versions_287c78c5959f_initial_empty_migration_rationale_1",
+      "target": "backend_alembic_versions_287c78c5959f_initial_empty_migration_py"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/alembic/versions/d35e04369e67_create_core_domain_tables.py",
+      "source_location": "L21",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "backend_alembic_versions_d35e04369e67_create_core_domain_tables_py",
+      "target": "versions_d35e04369e67_create_core_domain_tables_upgrade"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/alembic/versions/d35e04369e67_create_core_domain_tables.py",
+      "source_location": "L137",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "backend_alembic_versions_d35e04369e67_create_core_domain_tables_py",
+      "target": "versions_d35e04369e67_create_core_domain_tables_downgrade"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/alembic/versions/d35e04369e67_create_core_domain_tables.py",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "versions_d35e04369e67_create_core_domain_tables_rationale_1",
+      "target": "backend_alembic_versions_d35e04369e67_create_core_domain_tables_py"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/scripts/verify_module1.py",
+      "source_location": "L35",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "backend_scripts_verify_module1_py",
+      "target": "scripts_verify_module1_hr"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/scripts/verify_module1.py",
+      "source_location": "L41",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "backend_scripts_verify_module1_py",
+      "target": "scripts_verify_module1_cleanup"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/scripts/verify_module1.py",
+      "source_location": "L53",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "backend_scripts_verify_module1_py",
+      "target": "scripts_verify_module1_main"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/scripts/verify_module1.py",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_verify_module1_rationale_1",
+      "target": "backend_scripts_verify_module1_py"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/scripts/verify_module1.py",
+      "source_location": "L54",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_verify_module1_main",
+      "target": "scripts_verify_module1_hr"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/scripts/verify_module1.py",
+      "source_location": "L61",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_verify_module1_main",
+      "target": "scripts_verify_module1_cleanup"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/scripts/verify_module1.py",
+      "source_location": "L42",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_verify_module1_rationale_42",
+      "target": "scripts_verify_module1_cleanup"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/main.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "frontend_src_main_tsx",
+      "target": "frontend_src_app_tsx"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "frontend/vite.config.ts",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "vite_config_vite_configuration",
+      "target": "index_global_styles"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "README.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "readme_clinic_booking_system",
+      "target": "vite_config_vite_configuration"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "backend/alembic/versions/287c78c5959f_initial_empty_migration.py",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "287c78c5959f_initial_empty_migration_initial_migration",
+      "target": "requirements_backend_dependencies"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".env",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "env_config",
+      "target": "env_example_template"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "readme_setup_instructions",
+      "target": "env_example_template"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "readme_setup_instructions",
+      "target": "requirements_backend_dependencies"
+    },
+    {
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "frontend/public/vite.svg",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "vite_logo",
+      "target": "react_logo"
+    }
+  ],
+  "hyperedges": [
+    {
+      "id": "frontend_setup_and_branding",
+      "label": "Frontend Setup and Branding Assets",
+      "nodes": [
+        "vite_config_vite_configuration",
+        "index_global_styles",
+        "vite_logo",
+        "react_logo"
+      ],
+      "relation": "form",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "frontend/vite.config.ts"
+    },
+    {
+      "id": "backend_environment_and_database",
+      "label": "Backend Configuration and Database Setup",
+      "nodes": [
+        "env_config",
+        "requirements_backend_dependencies",
+        "287c78c5959f_initial_empty_migration_initial_migration"
+      ],
+      "relation": "form",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "backend/requirements.txt"
+    },
+    {
+      "id": "project_documentation_and_config",
+      "label": "Project Documentation and Environment Templates",
+      "nodes": [
+        "readme_clinic_booking_system",
+        "readme_setup_instructions",
+        "env_example_template"
+      ],
+      "relation": "form",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "README.md"
+    }
+  ]
+}

@@ -4,44 +4,18 @@
   "graph": {
     "hyperedges": [
       {
-        "id": "frontend_setup_and_branding",
-        "label": "Frontend Setup and Branding Assets",
+        "id": "auth_flow_hyperedge",
+        "label": "Authentication Architecture",
         "nodes": [
-          "vite_config_vite_configuration",
-          "index_global_styles",
-          "vite_logo",
-          "react_logo"
+          "module_2_auth_rbac_summary_authentication",
+          "module_2_auth_rbac_summary_httponly_cookies",
+          "module_2_auth_rbac_summary_jwt",
+          "module_2_auth_rbac_summary_rbac"
         ],
         "relation": "form",
-        "confidence": "INFERRED",
-        "confidence_score": 0.85,
-        "source_file": "frontend/vite.config.ts"
-      },
-      {
-        "id": "backend_environment_and_database",
-        "label": "Backend Configuration and Database Setup",
-        "nodes": [
-          "env_config",
-          "requirements_backend_dependencies",
-          "287c78c5959f_initial_empty_migration_initial_migration"
-        ],
-        "relation": "form",
-        "confidence": "INFERRED",
-        "confidence_score": 0.85,
-        "source_file": "backend/requirements.txt"
-      },
-      {
-        "id": "project_documentation_and_config",
-        "label": "Project Documentation and Environment Templates",
-        "nodes": [
-          "readme_clinic_booking_system",
-          "readme_setup_instructions",
-          "env_example_template"
-        ],
-        "relation": "form",
-        "confidence": "INFERRED",
-        "confidence_score": 0.85,
-        "source_file": "README.md"
+        "confidence": "EXTRACTED",
+        "confidence_score": 1.0,
+        "source_file": "docs/module_2_auth_rbac_summary.md"
       }
     ]
   },
@@ -51,547 +25,547 @@
       "file_type": "code",
       "source_file": "backend/app/__init__.py",
       "source_location": "L1",
-      "id": "backend_app_init_py",
-      "community": 15,
-      "norm_label": "__init__.py"
+      "community": 20,
+      "norm_label": "__init__.py",
+      "id": "backend_app_init_py"
     },
     {
       "label": "main.py",
       "file_type": "code",
       "source_file": "backend/app/main.py",
       "source_location": "L1",
-      "id": "backend_app_main_py",
-      "community": 9,
-      "norm_label": "main.py"
+      "community": 11,
+      "norm_label": "main.py",
+      "id": "backend_app_main_py"
     },
     {
       "label": "health_check()",
       "file_type": "code",
-      "source_file": "backend/app/main.py",
-      "source_location": "L15",
-      "id": "app_main_health_check",
-      "community": 9,
-      "norm_label": "health_check()"
+      "source_file": "app/main.py",
+      "source_location": "L36",
+      "community": 11,
+      "norm_label": "health_check()",
+      "id": "app_main_health_check"
     },
     {
       "label": "identity.py",
       "file_type": "code",
       "source_file": "backend/app/models/identity.py",
       "source_location": "L1",
-      "id": "backend_app_models_identity_py",
-      "community": 0,
-      "norm_label": "identity.py"
+      "community": 2,
+      "norm_label": "identity.py",
+      "id": "backend_app_models_identity_py"
     },
     {
       "label": "UserRole",
       "file_type": "code",
       "source_file": "backend/app/models/identity.py",
       "source_location": "L21",
-      "id": "models_identity_userrole",
-      "community": 0,
-      "norm_label": "userrole"
+      "community": 2,
+      "norm_label": "userrole",
+      "id": "models_identity_userrole"
     },
     {
       "label": "str",
       "file_type": "code",
       "source_file": "",
       "source_location": "",
-      "id": "str",
-      "community": 3,
-      "norm_label": "str"
+      "community": 2,
+      "norm_label": "str",
+      "id": "str"
     },
     {
       "label": "User",
       "file_type": "code",
       "source_file": "backend/app/models/identity.py",
       "source_location": "L27",
-      "id": "models_identity_user",
-      "community": 0,
-      "norm_label": "user"
+      "community": 2,
+      "norm_label": "user",
+      "id": "models_identity_user"
     },
     {
       "label": "Base",
       "file_type": "code",
       "source_file": "",
       "source_location": "",
-      "id": "base",
-      "community": 0,
-      "norm_label": "base"
+      "community": 2,
+      "norm_label": "base",
+      "id": "base"
     },
     {
       "label": "PatientProfile",
       "file_type": "code",
       "source_file": "backend/app/models/identity.py",
       "source_location": "L51",
-      "id": "models_identity_patientprofile",
-      "community": 0,
-      "norm_label": "patientprofile"
+      "community": 2,
+      "norm_label": "patientprofile",
+      "id": "models_identity_patientprofile"
     },
     {
       "label": "DoctorProfile",
       "file_type": "code",
       "source_file": "backend/app/models/identity.py",
       "source_location": "L65",
-      "id": "models_identity_doctorprofile",
-      "community": 0,
-      "norm_label": "doctorprofile"
+      "community": 2,
+      "norm_label": "doctorprofile",
+      "id": "models_identity_doctorprofile"
     },
     {
       "label": "Identity models: User, PatientProfile, DoctorProfile",
       "file_type": "rationale",
       "source_file": "backend/app/models/identity.py",
       "source_location": "L1",
-      "id": "models_identity_rationale_1",
-      "community": 0,
-      "norm_label": "identity models: user, patientprofile, doctorprofile"
+      "community": 2,
+      "norm_label": "identity models: user, patientprofile, doctorprofile",
+      "id": "models_identity_rationale_1"
     },
     {
       "label": "scheduling.py",
       "file_type": "code",
       "source_file": "backend/app/models/scheduling.py",
       "source_location": "L1",
-      "id": "backend_app_models_scheduling_py",
-      "community": 10,
-      "norm_label": "scheduling.py"
+      "community": 2,
+      "norm_label": "scheduling.py",
+      "id": "backend_app_models_scheduling_py"
     },
     {
       "label": "AppointmentSlot",
       "file_type": "code",
       "source_file": "backend/app/models/scheduling.py",
       "source_location": "L19",
-      "id": "models_scheduling_appointmentslot",
-      "community": 0,
-      "norm_label": "appointmentslot"
+      "community": 2,
+      "norm_label": "appointmentslot",
+      "id": "models_scheduling_appointmentslot"
     },
     {
       "label": "Scheduling models: AppointmentSlot",
       "file_type": "rationale",
       "source_file": "backend/app/models/scheduling.py",
       "source_location": "L1",
-      "id": "models_scheduling_rationale_1",
-      "community": 10,
-      "norm_label": "scheduling models: appointmentslot"
+      "community": 2,
+      "norm_label": "scheduling models: appointmentslot",
+      "id": "models_scheduling_rationale_1"
     },
     {
       "label": "appointment.py",
       "file_type": "code",
       "source_file": "backend/app/models/appointment.py",
       "source_location": "L1",
-      "id": "backend_app_models_appointment_py",
-      "community": 0,
-      "norm_label": "appointment.py"
+      "community": 2,
+      "norm_label": "appointment.py",
+      "id": "backend_app_models_appointment_py"
     },
     {
       "label": "AppointmentStatus",
       "file_type": "code",
       "source_file": "backend/app/models/appointment.py",
       "source_location": "L21",
-      "id": "models_appointment_appointmentstatus",
-      "community": 0,
-      "norm_label": "appointmentstatus"
+      "community": 2,
+      "norm_label": "appointmentstatus",
+      "id": "models_appointment_appointmentstatus"
     },
     {
       "label": "Appointment",
       "file_type": "code",
       "source_file": "backend/app/models/appointment.py",
       "source_location": "L32",
-      "id": "models_appointment_appointment",
-      "community": 0,
-      "norm_label": "appointment"
+      "community": 2,
+      "norm_label": "appointment",
+      "id": "models_appointment_appointment"
     },
     {
       "label": "ClinicalNote",
       "file_type": "code",
       "source_file": "backend/app/models/appointment.py",
       "source_location": "L63",
-      "id": "models_appointment_clinicalnote",
-      "community": 0,
-      "norm_label": "clinicalnote"
+      "community": 2,
+      "norm_label": "clinicalnote",
+      "id": "models_appointment_clinicalnote"
     },
     {
       "label": "Appointment and ClinicalNote models",
       "file_type": "rationale",
       "source_file": "backend/app/models/appointment.py",
       "source_location": "L1",
-      "id": "models_appointment_rationale_1",
-      "community": 0,
-      "norm_label": "appointment and clinicalnote models"
+      "community": 2,
+      "norm_label": "appointment and clinicalnote models",
+      "id": "models_appointment_rationale_1"
     },
     {
       "label": "billing.py",
       "file_type": "code",
       "source_file": "backend/app/models/billing.py",
       "source_location": "L1",
-      "id": "backend_app_models_billing_py",
-      "community": 3,
-      "norm_label": "billing.py"
+      "community": 2,
+      "norm_label": "billing.py",
+      "id": "backend_app_models_billing_py"
     },
     {
       "label": "InvoiceStatus",
       "file_type": "code",
       "source_file": "backend/app/models/billing.py",
       "source_location": "L21",
-      "id": "models_billing_invoicestatus",
-      "community": 3,
-      "norm_label": "invoicestatus"
+      "community": 2,
+      "norm_label": "invoicestatus",
+      "id": "models_billing_invoicestatus"
     },
     {
       "label": "PaymentMethod",
       "file_type": "code",
       "source_file": "backend/app/models/billing.py",
       "source_location": "L27",
-      "id": "models_billing_paymentmethod",
-      "community": 3,
-      "norm_label": "paymentmethod"
+      "community": 2,
+      "norm_label": "paymentmethod",
+      "id": "models_billing_paymentmethod"
     },
     {
       "label": "Invoice",
       "file_type": "code",
       "source_file": "backend/app/models/billing.py",
       "source_location": "L32",
-      "id": "models_billing_invoice",
-      "community": 0,
-      "norm_label": "invoice"
+      "community": 2,
+      "norm_label": "invoice",
+      "id": "models_billing_invoice"
     },
     {
       "label": "WebhookEvent",
       "file_type": "code",
       "source_file": "backend/app/models/billing.py",
       "source_location": "L65",
-      "id": "models_billing_webhookevent",
-      "community": 0,
-      "norm_label": "webhookevent"
+      "community": 2,
+      "norm_label": "webhookevent",
+      "id": "models_billing_webhookevent"
     },
     {
       "label": "Billing models: Invoice, WebhookEvent",
       "file_type": "rationale",
       "source_file": "backend/app/models/billing.py",
       "source_location": "L1",
-      "id": "models_billing_rationale_1",
-      "community": 3,
-      "norm_label": "billing models: invoice, webhookevent"
+      "community": 2,
+      "norm_label": "billing models: invoice, webhookevent",
+      "id": "models_billing_rationale_1"
     },
     {
       "label": "audit.py",
       "file_type": "code",
       "source_file": "backend/app/models/audit.py",
       "source_location": "L1",
-      "id": "backend_app_models_audit_py",
-      "community": 11,
-      "norm_label": "audit.py"
+      "community": 2,
+      "norm_label": "audit.py",
+      "id": "backend_app_models_audit_py"
     },
     {
       "label": "AuditLog",
       "file_type": "code",
       "source_file": "backend/app/models/audit.py",
       "source_location": "L16",
-      "id": "models_audit_auditlog",
-      "community": 0,
-      "norm_label": "auditlog"
+      "community": 2,
+      "norm_label": "auditlog",
+      "id": "models_audit_auditlog"
     },
     {
       "label": "Audit models: AuditLog",
       "file_type": "rationale",
       "source_file": "backend/app/models/audit.py",
       "source_location": "L1",
-      "id": "models_audit_rationale_1",
-      "community": 11,
-      "norm_label": "audit models: auditlog"
+      "community": 2,
+      "norm_label": "audit models: auditlog",
+      "id": "models_audit_rationale_1"
     },
     {
       "label": "__init__.py",
       "file_type": "code",
       "source_file": "backend/app/models/__init__.py",
       "source_location": "L1",
-      "id": "backend_app_models_init_py",
-      "community": 12,
-      "norm_label": "__init__.py"
+      "community": 17,
+      "norm_label": "__init__.py",
+      "id": "backend_app_models_init_py"
     },
     {
       "label": "Import all models here so that: 1. Alembic autogenerate can discover them via Ba",
       "file_type": "rationale",
       "source_file": "backend/app/models/__init__.py",
       "source_location": "L1",
-      "id": "models_init_rationale_1",
-      "community": 12,
-      "norm_label": "import all models here so that: 1. alembic autogenerate can discover them via ba"
+      "community": 17,
+      "norm_label": "import all models here so that: 1. alembic autogenerate can discover them via ba",
+      "id": "models_init_rationale_1"
     },
     {
       "label": "__init__.py",
       "file_type": "code",
       "source_file": "backend/app/core/__init__.py",
       "source_location": "L1",
-      "id": "backend_app_core_init_py",
-      "community": 16,
-      "norm_label": "__init__.py"
+      "community": 21,
+      "norm_label": "__init__.py",
+      "id": "backend_app_core_init_py"
     },
     {
       "label": "database.py",
       "file_type": "code",
       "source_file": "backend/app/core/database.py",
       "source_location": "L1",
-      "id": "backend_app_core_database_py",
-      "community": 5,
-      "norm_label": "database.py"
+      "community": 12,
+      "norm_label": "database.py",
+      "id": "backend_app_core_database_py"
     },
     {
       "label": "Base",
       "file_type": "code",
       "source_file": "backend/app/core/database.py",
       "source_location": "L35",
-      "id": "core_database_base",
-      "community": 0,
-      "norm_label": "base"
+      "community": 2,
+      "norm_label": "base",
+      "id": "core_database_base"
     },
     {
       "label": "DeclarativeBase",
       "file_type": "code",
       "source_file": "",
       "source_location": "",
-      "id": "declarativebase",
-      "community": 0,
-      "norm_label": "declarativebase"
+      "community": 2,
+      "norm_label": "declarativebase",
+      "id": "declarativebase"
     },
     {
       "label": "get_db()",
       "file_type": "code",
       "source_file": "backend/app/core/database.py",
       "source_location": "L39",
-      "id": "core_database_get_db",
-      "community": 5,
-      "norm_label": "get_db()"
+      "community": 12,
+      "norm_label": "get_db()",
+      "id": "core_database_get_db"
     },
     {
       "label": "Database engine, session factory, and declarative Base. All models import Base f",
       "file_type": "rationale",
       "source_file": "backend/app/core/database.py",
       "source_location": "L1",
-      "id": "core_database_rationale_1",
-      "community": 5,
-      "norm_label": "database engine, session factory, and declarative base. all models import base f"
+      "community": 12,
+      "norm_label": "database engine, session factory, and declarative base. all models import base f",
+      "id": "core_database_rationale_1"
     },
     {
       "label": "FastAPI dependency \u2013 yields a DB session and closes it after the request.",
       "file_type": "rationale",
       "source_file": "backend/app/core/database.py",
       "source_location": "L40",
-      "id": "core_database_rationale_40",
-      "community": 5,
-      "norm_label": "fastapi dependency \u2013 yields a db session and closes it after the request."
+      "community": 12,
+      "norm_label": "fastapi dependency \u2013 yields a db session and closes it after the request.",
+      "id": "core_database_rationale_40"
     },
     {
       "label": "env.py",
       "file_type": "code",
       "source_file": "backend/alembic/env.py",
       "source_location": "L1",
-      "id": "backend_alembic_env_py",
-      "community": 1,
-      "norm_label": "env.py"
+      "community": 6,
+      "norm_label": "env.py",
+      "id": "backend_alembic_env_py"
     },
     {
       "label": "run_migrations_offline()",
       "file_type": "code",
       "source_file": "backend/alembic/env.py",
       "source_location": "L37",
-      "id": "alembic_env_run_migrations_offline",
-      "community": 1,
-      "norm_label": "run_migrations_offline()"
+      "community": 6,
+      "norm_label": "run_migrations_offline()",
+      "id": "alembic_env_run_migrations_offline"
     },
     {
       "label": "run_migrations_online()",
       "file_type": "code",
       "source_file": "backend/alembic/env.py",
       "source_location": "L49",
-      "id": "alembic_env_run_migrations_online",
-      "community": 1,
-      "norm_label": "run_migrations_online()"
+      "community": 6,
+      "norm_label": "run_migrations_online()",
+      "id": "alembic_env_run_migrations_online"
     },
     {
       "label": "Alembic env.py -- wired to our SQLAlchemy Base and DATABASE_URL from .env",
       "file_type": "rationale",
       "source_file": "backend/alembic/env.py",
       "source_location": "L1",
-      "id": "alembic_env_rationale_1",
-      "community": 1,
-      "norm_label": "alembic env.py -- wired to our sqlalchemy base and database_url from .env"
+      "community": 6,
+      "norm_label": "alembic env.py -- wired to our sqlalchemy base and database_url from .env",
+      "id": "alembic_env_rationale_1"
     },
     {
       "label": "287c78c5959f_initial_empty_migration.py",
       "file_type": "code",
       "source_file": "backend/alembic/versions/287c78c5959f_initial_empty_migration.py",
       "source_location": "L1",
-      "id": "backend_alembic_versions_287c78c5959f_initial_empty_migration_py",
-      "community": 6,
-      "norm_label": "287c78c5959f_initial_empty_migration.py"
+      "community": 13,
+      "norm_label": "287c78c5959f_initial_empty_migration.py",
+      "id": "backend_alembic_versions_287c78c5959f_initial_empty_migration_py"
     },
     {
       "label": "upgrade()",
       "file_type": "code",
       "source_file": "backend/alembic/versions/287c78c5959f_initial_empty_migration.py",
       "source_location": "L21",
-      "id": "versions_287c78c5959f_initial_empty_migration_upgrade",
-      "community": 6,
-      "norm_label": "upgrade()"
+      "community": 13,
+      "norm_label": "upgrade()",
+      "id": "versions_287c78c5959f_initial_empty_migration_upgrade"
     },
     {
       "label": "downgrade()",
       "file_type": "code",
       "source_file": "backend/alembic/versions/287c78c5959f_initial_empty_migration.py",
       "source_location": "L25",
-      "id": "versions_287c78c5959f_initial_empty_migration_downgrade",
-      "community": 6,
-      "norm_label": "downgrade()"
+      "community": 13,
+      "norm_label": "downgrade()",
+      "id": "versions_287c78c5959f_initial_empty_migration_downgrade"
     },
     {
       "label": "initial_empty_migration  Revision ID: 287c78c5959f Revises:  Create Date: 2026-0",
       "file_type": "rationale",
       "source_file": "backend/alembic/versions/287c78c5959f_initial_empty_migration.py",
       "source_location": "L1",
-      "id": "versions_287c78c5959f_initial_empty_migration_rationale_1",
-      "community": 6,
-      "norm_label": "initial_empty_migration  revision id: 287c78c5959f revises:  create date: 2026-0"
+      "community": 13,
+      "norm_label": "initial_empty_migration  revision id: 287c78c5959f revises:  create date: 2026-0",
+      "id": "versions_287c78c5959f_initial_empty_migration_rationale_1"
     },
     {
       "label": "d35e04369e67_create_core_domain_tables.py",
       "file_type": "code",
       "source_file": "backend/alembic/versions/d35e04369e67_create_core_domain_tables.py",
       "source_location": "L1",
-      "id": "backend_alembic_versions_d35e04369e67_create_core_domain_tables_py",
-      "community": 7,
-      "norm_label": "d35e04369e67_create_core_domain_tables.py"
+      "community": 14,
+      "norm_label": "d35e04369e67_create_core_domain_tables.py",
+      "id": "backend_alembic_versions_d35e04369e67_create_core_domain_tables_py"
     },
     {
       "label": "upgrade()",
       "file_type": "code",
       "source_file": "backend/alembic/versions/d35e04369e67_create_core_domain_tables.py",
       "source_location": "L21",
-      "id": "versions_d35e04369e67_create_core_domain_tables_upgrade",
-      "community": 7,
-      "norm_label": "upgrade()"
+      "community": 14,
+      "norm_label": "upgrade()",
+      "id": "versions_d35e04369e67_create_core_domain_tables_upgrade"
     },
     {
       "label": "downgrade()",
       "file_type": "code",
       "source_file": "backend/alembic/versions/d35e04369e67_create_core_domain_tables.py",
       "source_location": "L137",
-      "id": "versions_d35e04369e67_create_core_domain_tables_downgrade",
-      "community": 7,
-      "norm_label": "downgrade()"
+      "community": 14,
+      "norm_label": "downgrade()",
+      "id": "versions_d35e04369e67_create_core_domain_tables_downgrade"
     },
     {
       "label": "create core domain tables  Revision ID: d35e04369e67 Revises: 287c78c5959f Creat",
       "file_type": "rationale",
       "source_file": "backend/alembic/versions/d35e04369e67_create_core_domain_tables.py",
       "source_location": "L1",
-      "id": "versions_d35e04369e67_create_core_domain_tables_rationale_1",
-      "community": 7,
-      "norm_label": "create core domain tables  revision id: d35e04369e67 revises: 287c78c5959f creat"
+      "community": 14,
+      "norm_label": "create core domain tables  revision id: d35e04369e67 revises: 287c78c5959f creat",
+      "id": "versions_d35e04369e67_create_core_domain_tables_rationale_1"
     },
     {
       "label": "__init__.py",
       "file_type": "code",
       "source_file": "backend/scripts/__init__.py",
       "source_location": "L1",
-      "id": "backend_scripts_init_py",
-      "community": 17,
-      "norm_label": "__init__.py"
+      "community": 22,
+      "norm_label": "__init__.py",
+      "id": "backend_scripts_init_py"
     },
     {
       "label": "verify_module1.py",
       "file_type": "code",
       "source_file": "backend/scripts/verify_module1.py",
       "source_location": "L1",
-      "id": "backend_scripts_verify_module1_py",
       "community": 2,
-      "norm_label": "verify_module1.py"
+      "norm_label": "verify_module1.py",
+      "id": "backend_scripts_verify_module1_py"
     },
     {
       "label": "hr()",
       "file_type": "code",
       "source_file": "backend/scripts/verify_module1.py",
       "source_location": "L35",
-      "id": "scripts_verify_module1_hr",
       "community": 2,
-      "norm_label": "hr()"
+      "norm_label": "hr()",
+      "id": "scripts_verify_module1_hr"
     },
     {
       "label": "cleanup()",
       "file_type": "code",
       "source_file": "backend/scripts/verify_module1.py",
       "source_location": "L41",
-      "id": "scripts_verify_module1_cleanup",
       "community": 2,
-      "norm_label": "cleanup()"
+      "norm_label": "cleanup()",
+      "id": "scripts_verify_module1_cleanup"
     },
     {
       "label": "main()",
       "file_type": "code",
       "source_file": "backend/scripts/verify_module1.py",
       "source_location": "L53",
-      "id": "scripts_verify_module1_main",
       "community": 2,
-      "norm_label": "main()"
+      "norm_label": "main()",
+      "id": "scripts_verify_module1_main"
     },
     {
       "label": "scripts/verify_module1.py ========================= Module 1 verification script",
       "file_type": "rationale",
       "source_file": "backend/scripts/verify_module1.py",
       "source_location": "L1",
-      "id": "scripts_verify_module1_rationale_1",
       "community": 2,
-      "norm_label": "scripts/verify_module1.py ========================= module 1 verification script"
+      "norm_label": "scripts/verify_module1.py ========================= module 1 verification script",
+      "id": "scripts_verify_module1_rationale_1"
     },
     {
       "label": "Remove any rows from a prior run so the script is idempotent.",
       "file_type": "rationale",
       "source_file": "backend/scripts/verify_module1.py",
       "source_location": "L42",
-      "id": "scripts_verify_module1_rationale_42",
       "community": 2,
-      "norm_label": "remove any rows from a prior run so the script is idempotent."
+      "norm_label": "remove any rows from a prior run so the script is idempotent.",
+      "id": "scripts_verify_module1_rationale_42"
     },
     {
       "label": "vite.config.ts",
       "file_type": "code",
       "source_file": "frontend/vite.config.ts",
       "source_location": "L1",
-      "id": "frontend_vite_config_ts",
-      "community": 18,
-      "norm_label": "vite.config.ts"
+      "community": 23,
+      "norm_label": "vite.config.ts",
+      "id": "frontend_vite_config_ts"
     },
     {
       "label": "eslint.config.js",
       "file_type": "code",
       "source_file": "frontend/eslint.config.js",
       "source_location": "L1",
-      "id": "frontend_eslint_config_js",
-      "community": 19,
-      "norm_label": "eslint.config.js"
+      "community": 24,
+      "norm_label": "eslint.config.js",
+      "id": "frontend_eslint_config_js"
     },
     {
       "label": "App.tsx",
       "file_type": "code",
       "source_file": "frontend/src/App.tsx",
       "source_location": "L1",
-      "id": "frontend_src_app_tsx",
-      "community": 13,
-      "norm_label": "app.tsx"
+      "community": 18,
+      "norm_label": "app.tsx",
+      "id": "frontend_src_app_tsx"
     },
     {
       "label": "main.tsx",
       "file_type": "code",
       "source_file": "frontend/src/main.tsx",
       "source_location": "L1",
-      "id": "frontend_src_main_tsx",
-      "community": 13,
-      "norm_label": "main.tsx"
+      "community": 18,
+      "norm_label": "main.tsx",
+      "id": "frontend_src_main_tsx"
     },
     {
       "label": "Run migrations in 'offline' mode.      This configures the context with just a U",
       "file_type": "rationale",
       "source_file": "backend/alembic/env.py",
       "source_location": "L30",
-      "community": 1,
+      "community": 6,
       "norm_label": "run migrations in 'offline' mode.      this configures the context with just a u",
       "id": "alembic_env_rationale_30"
     },
@@ -600,7 +574,7 @@
       "file_type": "rationale",
       "source_file": "backend/alembic/env.py",
       "source_location": "L54",
-      "community": 1,
+      "community": 6,
       "norm_label": "run migrations in 'online' mode.      in this scenario we need to create an engi",
       "id": "alembic_env_rationale_54"
     },
@@ -613,7 +587,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 8,
+      "community": 16,
       "norm_label": "global css styles",
       "id": "index_global_styles"
     },
@@ -626,7 +600,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 8,
+      "community": 16,
       "norm_label": "vite build configuration",
       "id": "vite_config_vite_configuration"
     },
@@ -639,7 +613,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 4,
+      "community": 8,
       "norm_label": "initial empty alembic migration",
       "id": "287c78c5959f_initial_empty_migration_initial_migration"
     },
@@ -652,7 +626,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 4,
+      "community": 8,
       "norm_label": "environment variables template",
       "id": "env_example_template"
     },
@@ -665,7 +639,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 4,
+      "community": 8,
       "norm_label": "environment configuration",
       "id": "env_config"
     },
@@ -678,7 +652,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 8,
+      "community": 16,
       "norm_label": "clinic booking system overview",
       "id": "readme_clinic_booking_system"
     },
@@ -691,7 +665,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 4,
+      "community": 8,
       "norm_label": "setup instructions",
       "id": "readme_setup_instructions"
     },
@@ -704,7 +678,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 4,
+      "community": 8,
       "norm_label": "backend python dependencies",
       "id": "requirements_backend_dependencies"
     },
@@ -717,7 +691,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 14,
+      "community": 19,
       "norm_label": "vite logo asset",
       "id": "vite_logo"
     },
@@ -730,9 +704,1278 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 14,
+      "community": 19,
       "norm_label": "react logo asset",
       "id": "react_logo"
+    },
+    {
+      "label": "main.py",
+      "file_type": "code",
+      "source_file": "app/main.py",
+      "source_location": "L1",
+      "id": "app_main_py",
+      "community": 11,
+      "norm_label": "main.py"
+    },
+    {
+      "label": "FastAPI application entry point.  CORS is configured with allow_credentials=True",
+      "file_type": "rationale",
+      "source_file": "app/main.py",
+      "source_location": "L1",
+      "id": "app_main_rationale_1",
+      "community": 11,
+      "norm_label": "fastapi application entry point.  cors is configured with allow_credentials=true"
+    },
+    {
+      "label": "auth.py",
+      "file_type": "code",
+      "source_file": "app/api/auth.py",
+      "source_location": "L1",
+      "id": "app_api_auth_py",
+      "community": 0,
+      "norm_label": "auth.py"
+    },
+    {
+      "label": "_set_auth_cookies()",
+      "file_type": "code",
+      "source_file": "app/api/auth.py",
+      "source_location": "L54",
+      "id": "api_auth_set_auth_cookies",
+      "community": 0,
+      "norm_label": "_set_auth_cookies()"
+    },
+    {
+      "label": "_clear_auth_cookies()",
+      "file_type": "code",
+      "source_file": "app/api/auth.py",
+      "source_location": "L79",
+      "id": "api_auth_clear_auth_cookies",
+      "community": 0,
+      "norm_label": "_clear_auth_cookies()"
+    },
+    {
+      "label": "_role_str()",
+      "file_type": "code",
+      "source_file": "app/api/auth.py",
+      "source_location": "L85",
+      "id": "api_auth_role_str",
+      "community": 0,
+      "norm_label": "_role_str()"
+    },
+    {
+      "label": "_user_out()",
+      "file_type": "code",
+      "source_file": "app/api/auth.py",
+      "source_location": "L90",
+      "id": "api_auth_user_out",
+      "community": 4,
+      "norm_label": "_user_out()"
+    },
+    {
+      "label": "register()",
+      "file_type": "code",
+      "source_file": "app/api/auth.py",
+      "source_location": "L102",
+      "id": "api_auth_register",
+      "community": 0,
+      "norm_label": "register()"
+    },
+    {
+      "label": "login()",
+      "file_type": "code",
+      "source_file": "app/api/auth.py",
+      "source_location": "L157",
+      "id": "api_auth_login",
+      "community": 0,
+      "norm_label": "login()"
+    },
+    {
+      "label": "refresh_access_token()",
+      "file_type": "code",
+      "source_file": "app/api/auth.py",
+      "source_location": "L185",
+      "id": "api_auth_refresh_access_token",
+      "community": 0,
+      "norm_label": "refresh_access_token()"
+    },
+    {
+      "label": "logout()",
+      "file_type": "code",
+      "source_file": "app/api/auth.py",
+      "source_location": "L231",
+      "id": "api_auth_logout",
+      "community": 0,
+      "norm_label": "logout()"
+    },
+    {
+      "label": "whoami()",
+      "file_type": "code",
+      "source_file": "app/api/auth.py",
+      "source_location": "L242",
+      "id": "api_auth_whoami",
+      "community": 4,
+      "norm_label": "whoami()"
+    },
+    {
+      "label": "google_login()",
+      "file_type": "code",
+      "source_file": "app/api/auth.py",
+      "source_location": "L254",
+      "id": "api_auth_google_login",
+      "community": 0,
+      "norm_label": "google_login()"
+    },
+    {
+      "label": "google_callback()",
+      "file_type": "code",
+      "source_file": "app/api/auth.py",
+      "source_location": "L261",
+      "id": "api_auth_google_callback",
+      "community": 0,
+      "norm_label": "google_callback()"
+    },
+    {
+      "label": "Authentication endpoints.  All endpoints live under the /auth prefix (set in mai",
+      "file_type": "rationale",
+      "source_file": "app/api/auth.py",
+      "source_location": "L1",
+      "id": "api_auth_rationale_1",
+      "community": 0,
+      "norm_label": "authentication endpoints.  all endpoints live under the /auth prefix (set in mai"
+    },
+    {
+      "label": "Attach access + refresh token cookies to *response*.",
+      "file_type": "rationale",
+      "source_file": "app/api/auth.py",
+      "source_location": "L55",
+      "id": "api_auth_rationale_55",
+      "community": 0,
+      "norm_label": "attach access + refresh token cookies to *response*."
+    },
+    {
+      "label": "Expire both auth cookies (effectively logging the user out).",
+      "file_type": "rationale",
+      "source_file": "app/api/auth.py",
+      "source_location": "L80",
+      "id": "api_auth_rationale_80",
+      "community": 0,
+      "norm_label": "expire both auth cookies (effectively logging the user out)."
+    },
+    {
+      "label": "Return the role as a plain string regardless of whether it's an Enum or str.",
+      "file_type": "rationale",
+      "source_file": "app/api/auth.py",
+      "source_location": "L86",
+      "id": "api_auth_rationale_86",
+      "community": 0,
+      "norm_label": "return the role as a plain string regardless of whether it's an enum or str."
+    },
+    {
+      "label": "Register a new user and auto-login (issues cookies).      Creates the matching P",
+      "file_type": "rationale",
+      "source_file": "app/api/auth.py",
+      "source_location": "L107",
+      "id": "api_auth_rationale_107",
+      "community": 0,
+      "norm_label": "register a new user and auto-login (issues cookies).      creates the matching p"
+    },
+    {
+      "label": "Authenticate with email + password and issue HttpOnly cookies.",
+      "file_type": "rationale",
+      "source_file": "app/api/auth.py",
+      "source_location": "L162",
+      "id": "api_auth_rationale_162",
+      "community": 0,
+      "norm_label": "authenticate with email + password and issue httponly cookies."
+    },
+    {
+      "label": "Issue a new access token using the refresh token cookie.      The access token d",
+      "file_type": "rationale",
+      "source_file": "app/api/auth.py",
+      "source_location": "L190",
+      "id": "api_auth_rationale_190",
+      "community": 0,
+      "norm_label": "issue a new access token using the refresh token cookie.      the access token d"
+    },
+    {
+      "label": "Clear both auth cookies, effectively logging the user out.      Does not require",
+      "file_type": "rationale",
+      "source_file": "app/api/auth.py",
+      "source_location": "L232",
+      "id": "api_auth_rationale_232",
+      "community": 0,
+      "norm_label": "clear both auth cookies, effectively logging the user out.      does not require"
+    },
+    {
+      "label": "Return the identity of the currently authenticated user.      Identity is derive",
+      "file_type": "rationale",
+      "source_file": "app/api/auth.py",
+      "source_location": "L243",
+      "id": "api_auth_rationale_243",
+      "community": 4,
+      "norm_label": "return the identity of the currently authenticated user.      identity is derive"
+    },
+    {
+      "label": "Redirect the browser to Google's OAuth consent screen.",
+      "file_type": "rationale",
+      "source_file": "app/api/auth.py",
+      "source_location": "L255",
+      "id": "api_auth_rationale_255",
+      "community": 0,
+      "norm_label": "redirect the browser to google's oauth consent screen."
+    },
+    {
+      "label": "Handle the OAuth authorization code callback from Google.      Logic:     1. Exc",
+      "file_type": "rationale",
+      "source_file": "app/api/auth.py",
+      "source_location": "L265",
+      "id": "api_auth_rationale_265",
+      "community": 0,
+      "norm_label": "handle the oauth authorization code callback from google.      logic:     1. exc"
+    },
+    {
+      "label": "config.py",
+      "file_type": "code",
+      "source_file": "app/core/config.py",
+      "source_location": "L1",
+      "id": "app_core_config_py",
+      "community": 15,
+      "norm_label": "config.py"
+    },
+    {
+      "label": "Settings",
+      "file_type": "code",
+      "source_file": "app/core/config.py",
+      "source_location": "L11",
+      "id": "core_config_settings",
+      "community": 15,
+      "norm_label": "settings"
+    },
+    {
+      "label": "BaseSettings",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "id": "basesettings",
+      "community": 15,
+      "norm_label": "basesettings"
+    },
+    {
+      "label": "Application configuration via pydantic-settings.  All secrets are read from envi",
+      "file_type": "rationale",
+      "source_file": "app/core/config.py",
+      "source_location": "L1",
+      "id": "core_config_rationale_1",
+      "community": 15,
+      "norm_label": "application configuration via pydantic-settings.  all secrets are read from envi"
+    },
+    {
+      "label": "security.py",
+      "file_type": "code",
+      "source_file": "app/core/security.py",
+      "source_location": "L1",
+      "id": "app_core_security_py",
+      "community": 0,
+      "norm_label": "security.py"
+    },
+    {
+      "label": "hash_password()",
+      "file_type": "code",
+      "source_file": "app/core/security.py",
+      "source_location": "L21",
+      "id": "core_security_hash_password",
+      "community": 0,
+      "norm_label": "hash_password()"
+    },
+    {
+      "label": "verify_password()",
+      "file_type": "code",
+      "source_file": "app/core/security.py",
+      "source_location": "L26",
+      "id": "core_security_verify_password",
+      "community": 0,
+      "norm_label": "verify_password()"
+    },
+    {
+      "label": "TokenExpiredError",
+      "file_type": "code",
+      "source_file": "app/core/security.py",
+      "source_location": "L41",
+      "id": "core_security_tokenexpirederror",
+      "community": 0,
+      "norm_label": "tokenexpirederror"
+    },
+    {
+      "label": "Exception",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "id": "exception",
+      "community": 0,
+      "norm_label": "exception"
+    },
+    {
+      "label": "InvalidTokenError",
+      "file_type": "code",
+      "source_file": "app/core/security.py",
+      "source_location": "L45",
+      "id": "core_security_invalidtokenerror",
+      "community": 0,
+      "norm_label": "invalidtokenerror"
+    },
+    {
+      "label": "_utcnow()",
+      "file_type": "code",
+      "source_file": "app/core/security.py",
+      "source_location": "L49",
+      "id": "core_security_utcnow",
+      "community": 0,
+      "norm_label": "_utcnow()"
+    },
+    {
+      "label": "create_access_token()",
+      "file_type": "code",
+      "source_file": "app/core/security.py",
+      "source_location": "L53",
+      "id": "core_security_create_access_token",
+      "community": 0,
+      "norm_label": "create_access_token()"
+    },
+    {
+      "label": "create_refresh_token()",
+      "file_type": "code",
+      "source_file": "app/core/security.py",
+      "source_location": "L74",
+      "id": "core_security_create_refresh_token",
+      "community": 0,
+      "norm_label": "create_refresh_token()"
+    },
+    {
+      "label": "decode_token()",
+      "file_type": "code",
+      "source_file": "app/core/security.py",
+      "source_location": "L91",
+      "id": "core_security_decode_token",
+      "community": 0,
+      "norm_label": "decode_token()"
+    },
+    {
+      "label": "Security utilities: password hashing and JWT operations.  All JWT operations go",
+      "file_type": "rationale",
+      "source_file": "app/core/security.py",
+      "source_location": "L1",
+      "id": "core_security_rationale_1",
+      "community": 0,
+      "norm_label": "security utilities: password hashing and jwt operations.  all jwt operations go"
+    },
+    {
+      "label": "Return bcrypt hash of *plain* password.",
+      "file_type": "rationale",
+      "source_file": "app/core/security.py",
+      "source_location": "L22",
+      "id": "core_security_rationale_22",
+      "community": 0,
+      "norm_label": "return bcrypt hash of *plain* password."
+    },
+    {
+      "label": "Constant-time compare of *plain* against stored *hashed* password.      Uses pas",
+      "file_type": "rationale",
+      "source_file": "app/core/security.py",
+      "source_location": "L27",
+      "id": "core_security_rationale_27",
+      "community": 0,
+      "norm_label": "constant-time compare of *plain* against stored *hashed* password.      uses pas"
+    },
+    {
+      "label": "Raised when the JWT has expired.",
+      "file_type": "rationale",
+      "source_file": "app/core/security.py",
+      "source_location": "L42",
+      "id": "core_security_rationale_42",
+      "community": 0,
+      "norm_label": "raised when the jwt has expired."
+    },
+    {
+      "label": "Raised for any other JWT validation failure (bad sig, malformed, wrong type\u2026).",
+      "file_type": "rationale",
+      "source_file": "app/core/security.py",
+      "source_location": "L46",
+      "id": "core_security_rationale_46",
+      "community": 0,
+      "norm_label": "raised for any other jwt validation failure (bad sig, malformed, wrong type...)."
+    },
+    {
+      "label": "Create a short-lived access JWT.      Payload claims:     - ``sub``: str(user_id",
+      "file_type": "rationale",
+      "source_file": "app/core/security.py",
+      "source_location": "L54",
+      "id": "core_security_rationale_54",
+      "community": 0,
+      "norm_label": "create a short-lived access jwt.      payload claims:     - ``sub``: str(user_id"
+    },
+    {
+      "label": "Create a long-lived refresh JWT (minimal payload).      Payload claims:     - ``",
+      "file_type": "rationale",
+      "source_file": "app/core/security.py",
+      "source_location": "L75",
+      "id": "core_security_rationale_75",
+      "community": 0,
+      "norm_label": "create a long-lived refresh jwt (minimal payload).      payload claims:     - ``"
+    },
+    {
+      "label": "Decode and validate a JWT.      Returns the payload dict on success.     Raises:",
+      "file_type": "rationale",
+      "source_file": "app/core/security.py",
+      "source_location": "L92",
+      "id": "core_security_rationale_92",
+      "community": 0,
+      "norm_label": "decode and validate a jwt.      returns the payload dict on success.     raises:"
+    },
+    {
+      "label": "dependencies.py",
+      "file_type": "code",
+      "source_file": "app/core/dependencies.py",
+      "source_location": "L1",
+      "id": "app_core_dependencies_py",
+      "community": 7,
+      "norm_label": "dependencies.py"
+    },
+    {
+      "label": "get_current_user()",
+      "file_type": "code",
+      "source_file": "app/core/dependencies.py",
+      "source_location": "L19",
+      "id": "core_dependencies_get_current_user",
+      "community": 7,
+      "norm_label": "get_current_user()"
+    },
+    {
+      "label": "require_role()",
+      "file_type": "code",
+      "source_file": "app/core/dependencies.py",
+      "source_location": "L80",
+      "id": "core_dependencies_require_role",
+      "community": 7,
+      "norm_label": "require_role()"
+    },
+    {
+      "label": "FastAPI dependency functions for authentication and role-based access control.",
+      "file_type": "rationale",
+      "source_file": "app/core/dependencies.py",
+      "source_location": "L1",
+      "id": "core_dependencies_rationale_1",
+      "community": 7,
+      "norm_label": "fastapi dependency functions for authentication and role-based access control."
+    },
+    {
+      "label": "Extract and validate the access token from the ``access_token`` cookie.      Ret",
+      "file_type": "rationale",
+      "source_file": "app/core/dependencies.py",
+      "source_location": "L23",
+      "id": "core_dependencies_rationale_23",
+      "community": 7,
+      "norm_label": "extract and validate the access token from the ``access_token`` cookie.      ret"
+    },
+    {
+      "label": "Dependency factory for role-based access control.      Usage examples::",
+      "file_type": "rationale",
+      "source_file": "app/core/dependencies.py",
+      "source_location": "L81",
+      "id": "core_dependencies_rationale_81",
+      "community": 7,
+      "norm_label": "dependency factory for role-based access control.      usage examples::"
+    },
+    {
+      "label": "auth.py",
+      "file_type": "code",
+      "source_file": "app/schemas/auth.py",
+      "source_location": "L1",
+      "id": "app_schemas_auth_py",
+      "community": 4,
+      "norm_label": "auth.py"
+    },
+    {
+      "label": "RegisterRequest",
+      "file_type": "code",
+      "source_file": "app/schemas/auth.py",
+      "source_location": "L14",
+      "id": "schemas_auth_registerrequest",
+      "community": 4,
+      "norm_label": "registerrequest"
+    },
+    {
+      "label": "BaseModel",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "id": "basemodel",
+      "community": 4,
+      "norm_label": "basemodel"
+    },
+    {
+      "label": "password_min_length()",
+      "file_type": "code",
+      "source_file": "app/schemas/auth.py",
+      "source_location": "L22",
+      "id": "schemas_auth_password_min_length",
+      "community": 4,
+      "norm_label": "password_min_length()"
+    },
+    {
+      "label": "full_name_not_empty()",
+      "file_type": "code",
+      "source_file": "app/schemas/auth.py",
+      "source_location": "L29",
+      "id": "schemas_auth_full_name_not_empty",
+      "community": 4,
+      "norm_label": "full_name_not_empty()"
+    },
+    {
+      "label": "LoginRequest",
+      "file_type": "code",
+      "source_file": "app/schemas/auth.py",
+      "source_location": "L35",
+      "id": "schemas_auth_loginrequest",
+      "community": 4,
+      "norm_label": "loginrequest"
+    },
+    {
+      "label": "UserOut",
+      "file_type": "code",
+      "source_file": "app/schemas/auth.py",
+      "source_location": "L40",
+      "id": "schemas_auth_userout",
+      "community": 4,
+      "norm_label": "userout"
+    },
+    {
+      "label": "Pydantic schemas for the authentication module.  Rules: - ``hashed_password`` is",
+      "file_type": "rationale",
+      "source_file": "app/schemas/auth.py",
+      "source_location": "L1",
+      "id": "schemas_auth_rationale_1",
+      "community": 4,
+      "norm_label": "pydantic schemas for the authentication module.  rules: - ``hashed_password`` is"
+    },
+    {
+      "label": "conftest.py",
+      "file_type": "code",
+      "source_file": "tests/conftest.py",
+      "source_location": "L1",
+      "id": "tests_conftest_py",
+      "community": 3,
+      "norm_label": "conftest.py"
+    },
+    {
+      "label": "set_sqlite_pragma()",
+      "file_type": "code",
+      "source_file": "tests/conftest.py",
+      "source_location": "L49",
+      "id": "tests_conftest_set_sqlite_pragma",
+      "community": 3,
+      "norm_label": "set_sqlite_pragma()"
+    },
+    {
+      "label": "setup_database()",
+      "file_type": "code",
+      "source_file": "tests/conftest.py",
+      "source_location": "L60",
+      "id": "tests_conftest_setup_database",
+      "community": 3,
+      "norm_label": "setup_database()"
+    },
+    {
+      "label": "db_session()",
+      "file_type": "code",
+      "source_file": "tests/conftest.py",
+      "source_location": "L70",
+      "id": "tests_conftest_db_session",
+      "community": 3,
+      "norm_label": "db_session()"
+    },
+    {
+      "label": "client()",
+      "file_type": "code",
+      "source_file": "tests/conftest.py",
+      "source_location": "L80",
+      "id": "tests_conftest_client",
+      "community": 3,
+      "norm_label": "client()"
+    },
+    {
+      "label": "authenticated_client()",
+      "file_type": "code",
+      "source_file": "tests/conftest.py",
+      "source_location": "L97",
+      "id": "tests_conftest_authenticated_client",
+      "community": 3,
+      "norm_label": "authenticated_client()"
+    },
+    {
+      "label": "Pytest configuration and shared fixtures for the Clinic Booking System test suit",
+      "file_type": "rationale",
+      "source_file": "tests/conftest.py",
+      "source_location": "L1",
+      "id": "tests_conftest_rationale_1",
+      "community": 3,
+      "norm_label": "pytest configuration and shared fixtures for the clinic booking system test suit"
+    },
+    {
+      "label": "Create all tables before each test, drop after.",
+      "file_type": "rationale",
+      "source_file": "tests/conftest.py",
+      "source_location": "L61",
+      "id": "tests_conftest_rationale_61",
+      "community": 3,
+      "norm_label": "create all tables before each test, drop after."
+    },
+    {
+      "label": "Yield a database session for direct DB inspection in tests.",
+      "file_type": "rationale",
+      "source_file": "tests/conftest.py",
+      "source_location": "L71",
+      "id": "tests_conftest_rationale_71",
+      "community": 3,
+      "norm_label": "yield a database session for direct db inspection in tests."
+    },
+    {
+      "label": "TestClient with the get_db dependency overridden to use SQLite.",
+      "file_type": "rationale",
+      "source_file": "tests/conftest.py",
+      "source_location": "L81",
+      "id": "tests_conftest_rationale_81",
+      "community": 3,
+      "norm_label": "testclient with the get_db dependency overridden to use sqlite."
+    },
+    {
+      "label": "Factory fixture that returns a TestClient with auth cookies set.      Usage in t",
+      "file_type": "rationale",
+      "source_file": "tests/conftest.py",
+      "source_location": "L98",
+      "id": "tests_conftest_rationale_98",
+      "community": 3,
+      "norm_label": "factory fixture that returns a testclient with auth cookies set.      usage in t"
+    },
+    {
+      "label": "test_auth.py",
+      "file_type": "code",
+      "source_file": "tests/test_auth.py",
+      "source_location": "L1",
+      "id": "tests_test_auth_py",
+      "community": 1,
+      "norm_label": "test_auth.py"
+    },
+    {
+      "label": "_register()",
+      "file_type": "code",
+      "source_file": "tests/test_auth.py",
+      "source_location": "L42",
+      "id": "tests_test_auth_register",
+      "community": 1,
+      "norm_label": "_register()"
+    },
+    {
+      "label": "_login()",
+      "file_type": "code",
+      "source_file": "tests/test_auth.py",
+      "source_location": "L49",
+      "id": "tests_test_auth_login",
+      "community": 1,
+      "norm_label": "_login()"
+    },
+    {
+      "label": "_has_httponly_cookie()",
+      "file_type": "code",
+      "source_file": "tests/test_auth.py",
+      "source_location": "L53",
+      "id": "tests_test_auth_has_httponly_cookie",
+      "community": 1,
+      "norm_label": "_has_httponly_cookie()"
+    },
+    {
+      "label": "TestRegister",
+      "file_type": "code",
+      "source_file": "tests/test_auth.py",
+      "source_location": "L63",
+      "id": "tests_test_auth_testregister",
+      "community": 1,
+      "norm_label": "testregister"
+    },
+    {
+      "label": ".test_register_patient_creates_profile()",
+      "file_type": "code",
+      "source_file": "tests/test_auth.py",
+      "source_location": "L64",
+      "id": "tests_test_auth_testregister_test_register_patient_creates_profile",
+      "community": 1,
+      "norm_label": ".test_register_patient_creates_profile()"
+    },
+    {
+      "label": ".test_register_doctor_creates_profile()",
+      "file_type": "code",
+      "source_file": "tests/test_auth.py",
+      "source_location": "L77",
+      "id": "tests_test_auth_testregister_test_register_doctor_creates_profile",
+      "community": 1,
+      "norm_label": ".test_register_doctor_creates_profile()"
+    },
+    {
+      "label": ".test_register_receptionist_no_profile()",
+      "file_type": "code",
+      "source_file": "tests/test_auth.py",
+      "source_location": "L88",
+      "id": "tests_test_auth_testregister_test_register_receptionist_no_profile",
+      "community": 1,
+      "norm_label": ".test_register_receptionist_no_profile()"
+    },
+    {
+      "label": ".test_register_auto_login_sets_cookies()",
+      "file_type": "code",
+      "source_file": "tests/test_auth.py",
+      "source_location": "L98",
+      "id": "tests_test_auth_testregister_test_register_auto_login_sets_cookies",
+      "community": 1,
+      "norm_label": ".test_register_auto_login_sets_cookies()"
+    },
+    {
+      "label": ".test_register_password_too_short()",
+      "file_type": "code",
+      "source_file": "tests/test_auth.py",
+      "source_location": "L106",
+      "id": "tests_test_auth_testregister_test_register_password_too_short",
+      "community": 1,
+      "norm_label": ".test_register_password_too_short()"
+    },
+    {
+      "label": ".test_register_invalid_role()",
+      "file_type": "code",
+      "source_file": "tests/test_auth.py",
+      "source_location": "L111",
+      "id": "tests_test_auth_testregister_test_register_invalid_role",
+      "community": 1,
+      "norm_label": ".test_register_invalid_role()"
+    },
+    {
+      "label": "TestDuplicateEmail",
+      "file_type": "code",
+      "source_file": "tests/test_auth.py",
+      "source_location": "L122",
+      "id": "tests_test_auth_testduplicateemail",
+      "community": 1,
+      "norm_label": "testduplicateemail"
+    },
+    {
+      "label": ".test_duplicate_email_rejected()",
+      "file_type": "code",
+      "source_file": "tests/test_auth.py",
+      "source_location": "L123",
+      "id": "tests_test_auth_testduplicateemail_test_duplicate_email_rejected",
+      "community": 1,
+      "norm_label": ".test_duplicate_email_rejected()"
+    },
+    {
+      "label": "TestLogin",
+      "file_type": "code",
+      "source_file": "tests/test_auth.py",
+      "source_location": "L132",
+      "id": "tests_test_auth_testlogin",
+      "community": 1,
+      "norm_label": "testlogin"
+    },
+    {
+      "label": ".test_login_success_sets_cookies()",
+      "file_type": "code",
+      "source_file": "tests/test_auth.py",
+      "source_location": "L133",
+      "id": "tests_test_auth_testlogin_test_login_success_sets_cookies",
+      "community": 1,
+      "norm_label": ".test_login_success_sets_cookies()"
+    },
+    {
+      "label": ".test_login_response_contains_user_out()",
+      "file_type": "code",
+      "source_file": "tests/test_auth.py",
+      "source_location": "L145",
+      "id": "tests_test_auth_testlogin_test_login_response_contains_user_out",
+      "community": 1,
+      "norm_label": ".test_login_response_contains_user_out()"
+    },
+    {
+      "label": ".test_login_wrong_password()",
+      "file_type": "code",
+      "source_file": "tests/test_auth.py",
+      "source_location": "L160",
+      "id": "tests_test_auth_testlogin_test_login_wrong_password",
+      "community": 1,
+      "norm_label": ".test_login_wrong_password()"
+    },
+    {
+      "label": ".test_login_nonexistent_user()",
+      "file_type": "code",
+      "source_file": "tests/test_auth.py",
+      "source_location": "L167",
+      "id": "tests_test_auth_testlogin_test_login_nonexistent_user",
+      "community": 1,
+      "norm_label": ".test_login_nonexistent_user()"
+    },
+    {
+      "label": "TestWhoami",
+      "file_type": "code",
+      "source_file": "tests/test_auth.py",
+      "source_location": "L175",
+      "id": "tests_test_auth_testwhoami",
+      "community": 5,
+      "norm_label": "testwhoami"
+    },
+    {
+      "label": ".test_whoami_no_cookie_returns_401()",
+      "file_type": "code",
+      "source_file": "tests/test_auth.py",
+      "source_location": "L176",
+      "id": "tests_test_auth_testwhoami_test_whoami_no_cookie_returns_401",
+      "community": 5,
+      "norm_label": ".test_whoami_no_cookie_returns_401()"
+    },
+    {
+      "label": ".test_whoami_valid_cookie_returns_user()",
+      "file_type": "code",
+      "source_file": "tests/test_auth.py",
+      "source_location": "L184",
+      "id": "tests_test_auth_testwhoami_test_whoami_valid_cookie_returns_user",
+      "community": 5,
+      "norm_label": ".test_whoami_valid_cookie_returns_user()"
+    },
+    {
+      "label": ".test_whoami_tampered_token_returns_401()",
+      "file_type": "code",
+      "source_file": "tests/test_auth.py",
+      "source_location": "L195",
+      "id": "tests_test_auth_testwhoami_test_whoami_tampered_token_returns_401",
+      "community": 5,
+      "norm_label": ".test_whoami_tampered_token_returns_401()"
+    },
+    {
+      "label": ".test_whoami_expired_token_returns_401()",
+      "file_type": "code",
+      "source_file": "tests/test_auth.py",
+      "source_location": "L202",
+      "id": "tests_test_auth_testwhoami_test_whoami_expired_token_returns_401",
+      "community": 5,
+      "norm_label": ".test_whoami_expired_token_returns_401()"
+    },
+    {
+      "label": ".test_whoami_refresh_token_as_access_returns_401()",
+      "file_type": "code",
+      "source_file": "tests/test_auth.py",
+      "source_location": "L222",
+      "id": "tests_test_auth_testwhoami_test_whoami_refresh_token_as_access_returns_401",
+      "community": 5,
+      "norm_label": ".test_whoami_refresh_token_as_access_returns_401()"
+    },
+    {
+      "label": "_doctor_only()",
+      "file_type": "code",
+      "source_file": "tests/test_auth.py",
+      "source_location": "L243",
+      "id": "tests_test_auth_doctor_only",
+      "community": 1,
+      "norm_label": "_doctor_only()"
+    },
+    {
+      "label": "_staff_only()",
+      "file_type": "code",
+      "source_file": "tests/test_auth.py",
+      "source_location": "L248",
+      "id": "tests_test_auth_staff_only",
+      "community": 1,
+      "norm_label": "_staff_only()"
+    },
+    {
+      "label": "TestRBAC",
+      "file_type": "code",
+      "source_file": "tests/test_auth.py",
+      "source_location": "L252",
+      "id": "tests_test_auth_testrbac",
+      "community": 3,
+      "norm_label": "testrbac"
+    },
+    {
+      "label": ".test_doctor_role_accepted_on_doctor_endpoint()",
+      "file_type": "code",
+      "source_file": "tests/test_auth.py",
+      "source_location": "L253",
+      "id": "tests_test_auth_testrbac_test_doctor_role_accepted_on_doctor_endpoint",
+      "community": 3,
+      "norm_label": ".test_doctor_role_accepted_on_doctor_endpoint()"
+    },
+    {
+      "label": ".test_patient_role_rejected_on_doctor_endpoint()",
+      "file_type": "code",
+      "source_file": "tests/test_auth.py",
+      "source_location": "L260",
+      "id": "tests_test_auth_testrbac_test_patient_role_rejected_on_doctor_endpoint",
+      "community": 3,
+      "norm_label": ".test_patient_role_rejected_on_doctor_endpoint()"
+    },
+    {
+      "label": ".test_receptionist_accepted_on_staff_endpoint()",
+      "file_type": "code",
+      "source_file": "tests/test_auth.py",
+      "source_location": "L267",
+      "id": "tests_test_auth_testrbac_test_receptionist_accepted_on_staff_endpoint",
+      "community": 3,
+      "norm_label": ".test_receptionist_accepted_on_staff_endpoint()"
+    },
+    {
+      "label": ".test_patient_rejected_on_staff_endpoint()",
+      "file_type": "code",
+      "source_file": "tests/test_auth.py",
+      "source_location": "L273",
+      "id": "tests_test_auth_testrbac_test_patient_rejected_on_staff_endpoint",
+      "community": 3,
+      "norm_label": ".test_patient_rejected_on_staff_endpoint()"
+    },
+    {
+      "label": "TestLogout",
+      "file_type": "code",
+      "source_file": "tests/test_auth.py",
+      "source_location": "L282",
+      "id": "tests_test_auth_testlogout",
+      "community": 1,
+      "norm_label": "testlogout"
+    },
+    {
+      "label": ".test_logout_clears_cookies()",
+      "file_type": "code",
+      "source_file": "tests/test_auth.py",
+      "source_location": "L283",
+      "id": "tests_test_auth_testlogout_test_logout_clears_cookies",
+      "community": 1,
+      "norm_label": ".test_logout_clears_cookies()"
+    },
+    {
+      "label": ".test_logout_then_whoami_with_old_cookie_fails()",
+      "file_type": "code",
+      "source_file": "tests/test_auth.py",
+      "source_location": "L297",
+      "id": "tests_test_auth_testlogout_test_logout_then_whoami_with_old_cookie_fails",
+      "community": 1,
+      "norm_label": ".test_logout_then_whoami_with_old_cookie_fails()"
+    },
+    {
+      "label": "TestRefresh",
+      "file_type": "code",
+      "source_file": "tests/test_auth.py",
+      "source_location": "L318",
+      "id": "tests_test_auth_testrefresh",
+      "community": 9,
+      "norm_label": "testrefresh"
+    },
+    {
+      "label": ".test_refresh_issues_new_access_cookie()",
+      "file_type": "code",
+      "source_file": "tests/test_auth.py",
+      "source_location": "L319",
+      "id": "tests_test_auth_testrefresh_test_refresh_issues_new_access_cookie",
+      "community": 9,
+      "norm_label": ".test_refresh_issues_new_access_cookie()"
+    },
+    {
+      "label": ".test_refresh_without_cookie_returns_401()",
+      "file_type": "code",
+      "source_file": "tests/test_auth.py",
+      "source_location": "L335",
+      "id": "tests_test_auth_testrefresh_test_refresh_without_cookie_returns_401",
+      "community": 9,
+      "norm_label": ".test_refresh_without_cookie_returns_401()"
+    },
+    {
+      "label": "Module 2 \u2014 Authentication & RBAC Integration Tests =============================",
+      "file_type": "rationale",
+      "source_file": "tests/test_auth.py",
+      "source_location": "L1",
+      "id": "tests_test_auth_rationale_1",
+      "community": 1,
+      "norm_label": "module 2 \u2014 authentication & rbac integration tests ============================="
+    },
+    {
+      "label": "Check the raw Set-Cookie headers for HttpOnly flag on *name* cookie.",
+      "file_type": "rationale",
+      "source_file": "tests/test_auth.py",
+      "source_location": "L54",
+      "id": "tests_test_auth_rationale_54",
+      "community": 1,
+      "norm_label": "check the raw set-cookie headers for httponly flag on *name* cookie."
+    },
+    {
+      "label": "Patient registration \u2192 201, PatientProfile row created.",
+      "file_type": "rationale",
+      "source_file": "tests/test_auth.py",
+      "source_location": "L65",
+      "id": "tests_test_auth_rationale_65",
+      "community": 1,
+      "norm_label": "patient registration \u2192 201, patientprofile row created."
+    },
+    {
+      "label": "Doctor registration \u2192 201, DoctorProfile row created.",
+      "file_type": "rationale",
+      "source_file": "tests/test_auth.py",
+      "source_location": "L78",
+      "id": "tests_test_auth_rationale_78",
+      "community": 1,
+      "norm_label": "doctor registration \u2192 201, doctorprofile row created."
+    },
+    {
+      "label": "Receptionist registration \u2192 201, no PatientProfile/DoctorProfile.",
+      "file_type": "rationale",
+      "source_file": "tests/test_auth.py",
+      "source_location": "L89",
+      "id": "tests_test_auth_rationale_89",
+      "community": 1,
+      "norm_label": "receptionist registration \u2192 201, no patientprofile/doctorprofile."
+    },
+    {
+      "label": "Register \u2192 auto-login sets access_token + refresh_token cookies.",
+      "file_type": "rationale",
+      "source_file": "tests/test_auth.py",
+      "source_location": "L99",
+      "id": "tests_test_auth_rationale_99",
+      "community": 1,
+      "norm_label": "register \u2192 auto-login sets access_token + refresh_token cookies."
+    },
+    {
+      "label": "Password under 8 chars \u2192 422 validation error.",
+      "file_type": "rationale",
+      "source_file": "tests/test_auth.py",
+      "source_location": "L107",
+      "id": "tests_test_auth_rationale_107",
+      "community": 1,
+      "norm_label": "password under 8 chars \u2192 422 validation error."
+    },
+    {
+      "label": "Unknown role \u2192 422 validation error.",
+      "file_type": "rationale",
+      "source_file": "tests/test_auth.py",
+      "source_location": "L112",
+      "id": "tests_test_auth_rationale_112",
+      "community": 1,
+      "norm_label": "unknown role \u2192 422 validation error."
+    },
+    {
+      "label": "Second registration with same email \u2192 409 Conflict.",
+      "file_type": "rationale",
+      "source_file": "tests/test_auth.py",
+      "source_location": "L124",
+      "id": "tests_test_auth_rationale_124",
+      "community": 1,
+      "norm_label": "second registration with same email \u2192 409 conflict."
+    },
+    {
+      "label": "Successful login sets access_token + refresh_token as HttpOnly cookies.",
+      "file_type": "rationale",
+      "source_file": "tests/test_auth.py",
+      "source_location": "L134",
+      "id": "tests_test_auth_rationale_134",
+      "community": 1,
+      "norm_label": "successful login sets access_token + refresh_token as httponly cookies."
+    },
+    {
+      "label": "Login response body is UserOut (no password field).",
+      "file_type": "rationale",
+      "source_file": "tests/test_auth.py",
+      "source_location": "L146",
+      "id": "tests_test_auth_rationale_146",
+      "community": 1,
+      "norm_label": "login response body is userout (no password field)."
+    },
+    {
+      "label": "Login with incorrect password \u2192 401.",
+      "file_type": "rationale",
+      "source_file": "tests/test_auth.py",
+      "source_location": "L161",
+      "id": "tests_test_auth_rationale_161",
+      "community": 1,
+      "norm_label": "login with incorrect password \u2192 401."
+    },
+    {
+      "label": "Login with email that doesn't exist \u2192 401 (not 404, to avoid user enumeration).",
+      "file_type": "rationale",
+      "source_file": "tests/test_auth.py",
+      "source_location": "L168",
+      "id": "tests_test_auth_rationale_168",
+      "community": 1,
+      "norm_label": "login with email that doesn't exist \u2192 401 (not 404, to avoid user enumeration)."
+    },
+    {
+      "label": "GET /auth/whoami with no cookie \u2192 401.",
+      "file_type": "rationale",
+      "source_file": "tests/test_auth.py",
+      "source_location": "L177",
+      "id": "tests_test_auth_rationale_177",
+      "community": 5,
+      "norm_label": "get /auth/whoami with no cookie \u2192 401."
+    },
+    {
+      "label": "GET /auth/whoami with valid cookie \u2192 200 and correct identity.",
+      "file_type": "rationale",
+      "source_file": "tests/test_auth.py",
+      "source_location": "L185",
+      "id": "tests_test_auth_rationale_185",
+      "community": 5,
+      "norm_label": "get /auth/whoami with valid cookie \u2192 200 and correct identity."
+    },
+    {
+      "label": "GET /auth/whoami with a forged token \u2192 401.",
+      "file_type": "rationale",
+      "source_file": "tests/test_auth.py",
+      "source_location": "L196",
+      "id": "tests_test_auth_rationale_196",
+      "community": 5,
+      "norm_label": "get /auth/whoami with a forged token \u2192 401."
+    },
+    {
+      "label": "GET /auth/whoami with a legitimately expired token \u2192 401.",
+      "file_type": "rationale",
+      "source_file": "tests/test_auth.py",
+      "source_location": "L203",
+      "id": "tests_test_auth_rationale_203",
+      "community": 5,
+      "norm_label": "get /auth/whoami with a legitimately expired token \u2192 401."
+    },
+    {
+      "label": "Using a refresh token where an access token is expected \u2192 401.",
+      "file_type": "rationale",
+      "source_file": "tests/test_auth.py",
+      "source_location": "L223",
+      "id": "tests_test_auth_rationale_223",
+      "community": 5,
+      "norm_label": "using a refresh token where an access token is expected \u2192 401."
+    },
+    {
+      "label": "Doctor token accepted by require_role(\"doctor\") \u2192 200.",
+      "file_type": "rationale",
+      "source_file": "tests/test_auth.py",
+      "source_location": "L254",
+      "id": "tests_test_auth_rationale_254",
+      "community": 3,
+      "norm_label": "doctor token accepted by require_role(\"doctor\") \u2192 200."
+    },
+    {
+      "label": "Patient token rejected by require_role(\"doctor\") \u2192 403.",
+      "file_type": "rationale",
+      "source_file": "tests/test_auth.py",
+      "source_location": "L261",
+      "id": "tests_test_auth_rationale_261",
+      "community": 3,
+      "norm_label": "patient token rejected by require_role(\"doctor\") \u2192 403."
+    },
+    {
+      "label": "Receptionist accepted by require_role(\"doctor\", \"receptionist\") \u2192 200.",
+      "file_type": "rationale",
+      "source_file": "tests/test_auth.py",
+      "source_location": "L268",
+      "id": "tests_test_auth_rationale_268",
+      "community": 3,
+      "norm_label": "receptionist accepted by require_role(\"doctor\", \"receptionist\") \u2192 200."
+    },
+    {
+      "label": "Patient rejected by require_role(\"doctor\", \"receptionist\") \u2192 403.",
+      "file_type": "rationale",
+      "source_file": "tests/test_auth.py",
+      "source_location": "L274",
+      "id": "tests_test_auth_rationale_274",
+      "community": 3,
+      "norm_label": "patient rejected by require_role(\"doctor\", \"receptionist\") \u2192 403."
+    },
+    {
+      "label": "POST /auth/logout \u2192 cookies are expired/cleared.",
+      "file_type": "rationale",
+      "source_file": "tests/test_auth.py",
+      "source_location": "L284",
+      "id": "tests_test_auth_rationale_284",
+      "community": 1,
+      "norm_label": "post /auth/logout \u2192 cookies are expired/cleared."
+    },
+    {
+      "label": "After logout, manually reattaching the old cookie still fails if cleared server-",
+      "file_type": "rationale",
+      "source_file": "tests/test_auth.py",
+      "source_location": "L298",
+      "id": "tests_test_auth_rationale_298",
+      "community": 1,
+      "norm_label": "after logout, manually reattaching the old cookie still fails if cleared server-"
+    },
+    {
+      "label": "POST /auth/refresh with valid refresh cookie \u2192 204, new access_token cookie.",
+      "file_type": "rationale",
+      "source_file": "tests/test_auth.py",
+      "source_location": "L320",
+      "id": "tests_test_auth_rationale_320",
+      "community": 9,
+      "norm_label": "post /auth/refresh with valid refresh cookie \u2192 204, new access_token cookie."
+    },
+    {
+      "label": "POST /auth/refresh with no refresh cookie \u2192 401.",
+      "file_type": "rationale",
+      "source_file": "tests/test_auth.py",
+      "source_location": "L336",
+      "id": "tests_test_auth_rationale_336",
+      "community": 9,
+      "norm_label": "post /auth/refresh with no refresh cookie \u2192 401."
+    },
+    {
+      "label": "__init__.py",
+      "file_type": "code",
+      "source_file": "tests/__init__.py",
+      "source_location": "L1",
+      "id": "tests_init_py",
+      "community": 25,
+      "norm_label": "__init__.py"
+    },
+    {
+      "label": "Authentication Module",
+      "file_type": "rationale",
+      "source_file": "docs/module_2_auth_rbac_summary.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "module_2_auth_rbac_summary_authentication",
+      "community": 10,
+      "norm_label": "authentication module"
+    },
+    {
+      "label": "HttpOnly Cookies",
+      "file_type": "rationale",
+      "source_file": "docs/module_2_auth_rbac_summary.md",
+      "id": "module_2_auth_rbac_summary_httponly_cookies",
+      "community": 10,
+      "norm_label": "httponly cookies"
+    },
+    {
+      "label": "JSON Web Tokens",
+      "file_type": "rationale",
+      "source_file": "docs/module_2_auth_rbac_summary.md",
+      "id": "module_2_auth_rbac_summary_jwt",
+      "community": 10,
+      "norm_label": "json web tokens"
+    },
+    {
+      "label": "Role-Based Access Control",
+      "file_type": "rationale",
+      "source_file": "docs/module_2_auth_rbac_summary.md",
+      "id": "module_2_auth_rbac_summary_rbac",
+      "community": 10,
+      "norm_label": "role-based access control"
+    },
+    {
+      "label": "Clinic Booking Data Model",
+      "file_type": "rationale",
+      "source_file": "docs/module1_summary.md",
+      "id": "module1_summary_clinic_booking",
+      "community": 10,
+      "norm_label": "clinic booking data model"
     }
   ],
   "links": [
@@ -745,6 +1988,16 @@
       "confidence_score": 1.0,
       "source": "backend_app_main_py",
       "target": "app_main_health_check"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/main.py",
+      "source_location": "L36",
+      "weight": 1.0,
+      "source": "app_main_health_check",
+      "target": "app_main_py",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -793,8 +2046,8 @@
       "source_location": "L1",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "models_identity_rationale_1",
-      "target": "backend_app_models_identity_py"
+      "source": "backend_app_models_identity_py",
+      "target": "models_identity_rationale_1"
     },
     {
       "relation": "inherits",
@@ -822,9 +2075,9 @@
       "source_file": "backend/app/models/identity.py",
       "source_location": "L16",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "models_identity_userrole",
-      "target": "models_audit_auditlog",
-      "confidence_score": 0.5
+      "target": "models_audit_auditlog"
     },
     {
       "relation": "uses",
@@ -832,9 +2085,9 @@
       "source_file": "backend/app/models/identity.py",
       "source_location": "L17",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "models_identity_userrole",
-      "target": "models_billing_invoice",
-      "confidence_score": 0.5
+      "target": "models_billing_invoice"
     },
     {
       "relation": "uses",
@@ -842,9 +2095,9 @@
       "source_file": "backend/app/models/identity.py",
       "source_location": "L18",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "models_identity_userrole",
-      "target": "models_appointment_appointment",
-      "confidence_score": 0.5
+      "target": "models_appointment_appointment"
     },
     {
       "relation": "uses",
@@ -852,9 +2105,9 @@
       "source_file": "backend/app/models/identity.py",
       "source_location": "L18",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "models_identity_userrole",
-      "target": "models_appointment_clinicalnote",
-      "confidence_score": 0.5
+      "target": "models_appointment_clinicalnote"
     },
     {
       "relation": "uses",
@@ -862,9 +2115,9 @@
       "source_file": "backend/app/models/identity.py",
       "source_location": "L19",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "models_identity_userrole",
-      "target": "models_scheduling_appointmentslot",
-      "confidence_score": 0.5
+      "target": "models_scheduling_appointmentslot"
     },
     {
       "relation": "inherits",
@@ -873,8 +2126,8 @@
       "source_location": "L16",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "models_appointment_appointmentstatus",
-      "target": "str"
+      "source": "str",
+      "target": "models_appointment_appointmentstatus"
     },
     {
       "relation": "inherits",
@@ -883,8 +2136,8 @@
       "source_location": "L16",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "models_billing_invoicestatus",
-      "target": "str"
+      "source": "str",
+      "target": "models_billing_invoicestatus"
     },
     {
       "relation": "inherits",
@@ -893,8 +2146,8 @@
       "source_location": "L22",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "models_billing_paymentmethod",
-      "target": "str"
+      "source": "str",
+      "target": "models_billing_paymentmethod"
     },
     {
       "relation": "inherits",
@@ -922,9 +2175,9 @@
       "source_file": "backend/app/models/audit.py",
       "source_location": "L13",
       "weight": 0.8,
-      "source": "models_audit_auditlog",
-      "target": "models_identity_user",
-      "confidence_score": 0.5
+      "confidence_score": 0.5,
+      "source": "models_identity_user",
+      "target": "models_audit_auditlog"
     },
     {
       "relation": "uses",
@@ -932,9 +2185,9 @@
       "source_file": "backend/app/models/billing.py",
       "source_location": "L17",
       "weight": 0.8,
-      "source": "models_billing_invoice",
-      "target": "models_identity_user",
-      "confidence_score": 0.5
+      "confidence_score": 0.5,
+      "source": "models_identity_user",
+      "target": "models_billing_invoice"
     },
     {
       "relation": "uses",
@@ -942,9 +2195,9 @@
       "source_file": "backend/app/models/identity.py",
       "source_location": "L18",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "models_identity_user",
-      "target": "models_appointment_appointment",
-      "confidence_score": 0.5
+      "target": "models_appointment_appointment"
     },
     {
       "relation": "uses",
@@ -952,9 +2205,9 @@
       "source_file": "backend/app/models/identity.py",
       "source_location": "L18",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "models_identity_user",
-      "target": "models_appointment_clinicalnote",
-      "confidence_score": 0.5
+      "target": "models_appointment_clinicalnote"
     },
     {
       "relation": "uses",
@@ -962,9 +2215,9 @@
       "source_file": "backend/app/models/identity.py",
       "source_location": "L19",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "models_identity_user",
-      "target": "models_scheduling_appointmentslot",
-      "confidence_score": 0.5
+      "target": "models_scheduling_appointmentslot"
     },
     {
       "relation": "uses",
@@ -972,9 +2225,9 @@
       "source_file": "backend/app/models/billing.py",
       "source_location": "L17",
       "weight": 0.8,
-      "source": "models_billing_invoicestatus",
-      "target": "models_identity_user",
-      "confidence_score": 0.5
+      "confidence_score": 0.5,
+      "source": "models_identity_user",
+      "target": "models_billing_invoicestatus"
     },
     {
       "relation": "uses",
@@ -982,9 +2235,9 @@
       "source_file": "backend/app/models/billing.py",
       "source_location": "L17",
       "weight": 0.8,
-      "source": "models_billing_paymentmethod",
-      "target": "models_identity_user",
-      "confidence_score": 0.5
+      "confidence_score": 0.5,
+      "source": "models_identity_user",
+      "target": "models_billing_paymentmethod"
     },
     {
       "relation": "uses",
@@ -992,9 +2245,9 @@
       "source_file": "backend/app/models/billing.py",
       "source_location": "L17",
       "weight": 0.8,
-      "source": "models_billing_webhookevent",
-      "target": "models_identity_user",
-      "confidence_score": 0.5
+      "confidence_score": 0.5,
+      "source": "models_identity_user",
+      "target": "models_billing_webhookevent"
     },
     {
       "relation": "calls",
@@ -1004,8 +2257,8 @@
       "source_file": "backend/scripts/verify_module1.py",
       "source_location": "L68",
       "weight": 1.0,
-      "source": "scripts_verify_module1_main",
-      "target": "models_identity_user"
+      "source": "models_identity_user",
+      "target": "scripts_verify_module1_main"
     },
     {
       "relation": "inherits",
@@ -1014,8 +2267,8 @@
       "source_location": "L46",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "models_identity_patientprofile",
-      "target": "base"
+      "source": "base",
+      "target": "models_identity_patientprofile"
     },
     {
       "relation": "inherits",
@@ -1024,8 +2277,8 @@
       "source_location": "L60",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "models_identity_doctorprofile",
-      "target": "base"
+      "source": "base",
+      "target": "models_identity_doctorprofile"
     },
     {
       "relation": "inherits",
@@ -1034,8 +2287,8 @@
       "source_location": "L12",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "models_scheduling_appointmentslot",
-      "target": "base"
+      "source": "base",
+      "target": "models_scheduling_appointmentslot"
     },
     {
       "relation": "inherits",
@@ -1044,8 +2297,8 @@
       "source_location": "L27",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "models_appointment_appointment",
-      "target": "base"
+      "source": "base",
+      "target": "models_appointment_appointment"
     },
     {
       "relation": "inherits",
@@ -1054,8 +2307,8 @@
       "source_location": "L58",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "models_appointment_clinicalnote",
-      "target": "base"
+      "source": "base",
+      "target": "models_appointment_clinicalnote"
     },
     {
       "relation": "inherits",
@@ -1064,8 +2317,8 @@
       "source_location": "L27",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "models_billing_invoice",
-      "target": "base"
+      "source": "base",
+      "target": "models_billing_invoice"
     },
     {
       "relation": "inherits",
@@ -1074,8 +2327,8 @@
       "source_location": "L60",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "models_billing_webhookevent",
-      "target": "base"
+      "source": "base",
+      "target": "models_billing_webhookevent"
     },
     {
       "relation": "inherits",
@@ -1084,8 +2337,8 @@
       "source_location": "L12",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "models_audit_auditlog",
-      "target": "base"
+      "source": "base",
+      "target": "models_audit_auditlog"
     },
     {
       "relation": "uses",
@@ -1103,9 +2356,9 @@
       "source_file": "backend/app/models/identity.py",
       "source_location": "L16",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "models_identity_patientprofile",
-      "target": "models_audit_auditlog",
-      "confidence_score": 0.5
+      "target": "models_audit_auditlog"
     },
     {
       "relation": "uses",
@@ -1113,9 +2366,9 @@
       "source_file": "backend/app/models/identity.py",
       "source_location": "L17",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "models_identity_patientprofile",
-      "target": "models_billing_invoice",
-      "confidence_score": 0.5
+      "target": "models_billing_invoice"
     },
     {
       "relation": "uses",
@@ -1123,9 +2376,9 @@
       "source_file": "backend/app/models/appointment.py",
       "source_location": "L16",
       "weight": 0.8,
-      "source": "models_appointment_appointment",
-      "target": "models_identity_patientprofile",
-      "confidence_score": 0.5
+      "confidence_score": 0.5,
+      "source": "models_identity_patientprofile",
+      "target": "models_appointment_appointment"
     },
     {
       "relation": "uses",
@@ -1133,9 +2386,9 @@
       "source_file": "backend/app/models/appointment.py",
       "source_location": "L16",
       "weight": 0.8,
-      "source": "models_appointment_clinicalnote",
-      "target": "models_identity_patientprofile",
-      "confidence_score": 0.5
+      "confidence_score": 0.5,
+      "source": "models_identity_patientprofile",
+      "target": "models_appointment_clinicalnote"
     },
     {
       "relation": "uses",
@@ -1143,9 +2396,9 @@
       "source_file": "backend/app/models/identity.py",
       "source_location": "L19",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "models_identity_patientprofile",
-      "target": "models_scheduling_appointmentslot",
-      "confidence_score": 0.5
+      "target": "models_scheduling_appointmentslot"
     },
     {
       "relation": "uses",
@@ -1153,9 +2406,9 @@
       "source_file": "backend/app/models/appointment.py",
       "source_location": "L16",
       "weight": 0.8,
-      "source": "models_appointment_appointmentstatus",
-      "target": "models_identity_patientprofile",
-      "confidence_score": 0.5
+      "confidence_score": 0.5,
+      "source": "models_identity_patientprofile",
+      "target": "models_appointment_appointmentstatus"
     },
     {
       "relation": "calls",
@@ -1165,8 +2418,8 @@
       "source_file": "backend/scripts/verify_module1.py",
       "source_location": "L99",
       "weight": 1.0,
-      "source": "scripts_verify_module1_main",
-      "target": "models_identity_patientprofile"
+      "source": "models_identity_patientprofile",
+      "target": "scripts_verify_module1_main"
     },
     {
       "relation": "uses",
@@ -1184,9 +2437,9 @@
       "source_file": "backend/app/models/identity.py",
       "source_location": "L16",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "models_identity_doctorprofile",
-      "target": "models_audit_auditlog",
-      "confidence_score": 0.5
+      "target": "models_audit_auditlog"
     },
     {
       "relation": "uses",
@@ -1194,9 +2447,9 @@
       "source_file": "backend/app/models/identity.py",
       "source_location": "L17",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "models_identity_doctorprofile",
-      "target": "models_billing_invoice",
-      "confidence_score": 0.5
+      "target": "models_billing_invoice"
     },
     {
       "relation": "uses",
@@ -1204,9 +2457,9 @@
       "source_file": "backend/app/models/appointment.py",
       "source_location": "L16",
       "weight": 0.8,
-      "source": "models_appointment_appointment",
-      "target": "models_identity_doctorprofile",
-      "confidence_score": 0.5
+      "confidence_score": 0.5,
+      "source": "models_identity_doctorprofile",
+      "target": "models_appointment_appointment"
     },
     {
       "relation": "uses",
@@ -1214,9 +2467,9 @@
       "source_file": "backend/app/models/appointment.py",
       "source_location": "L16",
       "weight": 0.8,
-      "source": "models_appointment_clinicalnote",
-      "target": "models_identity_doctorprofile",
-      "confidence_score": 0.5
+      "confidence_score": 0.5,
+      "source": "models_identity_doctorprofile",
+      "target": "models_appointment_clinicalnote"
     },
     {
       "relation": "uses",
@@ -1224,9 +2477,9 @@
       "source_file": "backend/app/models/scheduling.py",
       "source_location": "L15",
       "weight": 0.8,
-      "source": "models_scheduling_appointmentslot",
-      "target": "models_identity_doctorprofile",
-      "confidence_score": 0.5
+      "confidence_score": 0.5,
+      "source": "models_identity_doctorprofile",
+      "target": "models_scheduling_appointmentslot"
     },
     {
       "relation": "uses",
@@ -1234,9 +2487,9 @@
       "source_file": "backend/app/models/appointment.py",
       "source_location": "L16",
       "weight": 0.8,
-      "source": "models_appointment_appointmentstatus",
-      "target": "models_identity_doctorprofile",
-      "confidence_score": 0.5
+      "confidence_score": 0.5,
+      "source": "models_identity_doctorprofile",
+      "target": "models_appointment_appointmentstatus"
     },
     {
       "relation": "calls",
@@ -1246,8 +2499,8 @@
       "source_file": "backend/scripts/verify_module1.py",
       "source_location": "L105",
       "weight": 1.0,
-      "source": "scripts_verify_module1_main",
-      "target": "models_identity_doctorprofile"
+      "source": "models_identity_doctorprofile",
+      "target": "scripts_verify_module1_main"
     },
     {
       "relation": "contains",
@@ -1266,8 +2519,8 @@
       "source_location": "L1",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "models_scheduling_rationale_1",
-      "target": "backend_app_models_scheduling_py"
+      "source": "backend_app_models_scheduling_py",
+      "target": "models_scheduling_rationale_1"
     },
     {
       "relation": "uses",
@@ -1285,9 +2538,9 @@
       "source_file": "backend/app/models/appointment.py",
       "source_location": "L17",
       "weight": 0.8,
-      "source": "models_appointment_appointment",
-      "target": "models_scheduling_appointmentslot",
-      "confidence_score": 0.5
+      "confidence_score": 0.5,
+      "source": "models_scheduling_appointmentslot",
+      "target": "models_appointment_appointment"
     },
     {
       "relation": "uses",
@@ -1295,9 +2548,9 @@
       "source_file": "backend/app/models/appointment.py",
       "source_location": "L17",
       "weight": 0.8,
-      "source": "models_appointment_appointmentstatus",
-      "target": "models_scheduling_appointmentslot",
-      "confidence_score": 0.5
+      "confidence_score": 0.5,
+      "source": "models_scheduling_appointmentslot",
+      "target": "models_appointment_appointmentstatus"
     },
     {
       "relation": "uses",
@@ -1305,9 +2558,9 @@
       "source_file": "backend/app/models/appointment.py",
       "source_location": "L17",
       "weight": 0.8,
-      "source": "models_appointment_clinicalnote",
-      "target": "models_scheduling_appointmentslot",
-      "confidence_score": 0.5
+      "confidence_score": 0.5,
+      "source": "models_scheduling_appointmentslot",
+      "target": "models_appointment_clinicalnote"
     },
     {
       "relation": "calls",
@@ -1317,8 +2570,8 @@
       "source_file": "backend/scripts/verify_module1.py",
       "source_location": "L126",
       "weight": 1.0,
-      "source": "scripts_verify_module1_main",
-      "target": "models_scheduling_appointmentslot"
+      "source": "models_scheduling_appointmentslot",
+      "target": "scripts_verify_module1_main"
     },
     {
       "relation": "contains",
@@ -1357,8 +2610,8 @@
       "source_location": "L1",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "models_appointment_rationale_1",
-      "target": "backend_app_models_appointment_py"
+      "source": "backend_app_models_appointment_py",
+      "target": "models_appointment_rationale_1"
     },
     {
       "relation": "uses",
@@ -1376,9 +2629,9 @@
       "source_file": "backend/app/models/appointment.py",
       "source_location": "L18",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "models_appointment_appointmentstatus",
-      "target": "models_billing_invoice",
-      "confidence_score": 0.5
+      "target": "models_billing_invoice"
     },
     {
       "relation": "uses",
@@ -1396,9 +2649,9 @@
       "source_file": "backend/app/models/billing.py",
       "source_location": "L18",
       "weight": 0.8,
-      "source": "models_billing_invoice",
-      "target": "models_appointment_appointment",
-      "confidence_score": 0.5
+      "confidence_score": 0.5,
+      "source": "models_appointment_appointment",
+      "target": "models_billing_invoice"
     },
     {
       "relation": "uses",
@@ -1406,9 +2659,9 @@
       "source_file": "backend/app/models/billing.py",
       "source_location": "L18",
       "weight": 0.8,
-      "source": "models_billing_invoicestatus",
-      "target": "models_appointment_appointment",
-      "confidence_score": 0.5
+      "confidence_score": 0.5,
+      "source": "models_appointment_appointment",
+      "target": "models_billing_invoicestatus"
     },
     {
       "relation": "uses",
@@ -1416,9 +2669,9 @@
       "source_file": "backend/app/models/billing.py",
       "source_location": "L18",
       "weight": 0.8,
-      "source": "models_billing_paymentmethod",
-      "target": "models_appointment_appointment",
-      "confidence_score": 0.5
+      "confidence_score": 0.5,
+      "source": "models_appointment_appointment",
+      "target": "models_billing_paymentmethod"
     },
     {
       "relation": "uses",
@@ -1426,9 +2679,9 @@
       "source_file": "backend/app/models/billing.py",
       "source_location": "L18",
       "weight": 0.8,
-      "source": "models_billing_webhookevent",
-      "target": "models_appointment_appointment",
-      "confidence_score": 0.5
+      "confidence_score": 0.5,
+      "source": "models_appointment_appointment",
+      "target": "models_billing_webhookevent"
     },
     {
       "relation": "calls",
@@ -1438,8 +2691,8 @@
       "source_file": "backend/scripts/verify_module1.py",
       "source_location": "L143",
       "weight": 1.0,
-      "source": "scripts_verify_module1_main",
-      "target": "models_appointment_appointment"
+      "source": "models_appointment_appointment",
+      "target": "scripts_verify_module1_main"
     },
     {
       "relation": "uses",
@@ -1457,9 +2710,9 @@
       "source_file": "backend/app/models/appointment.py",
       "source_location": "L18",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "models_appointment_clinicalnote",
-      "target": "models_billing_invoice",
-      "confidence_score": 0.5
+      "target": "models_billing_invoice"
     },
     {
       "relation": "contains",
@@ -1508,8 +2761,8 @@
       "source_location": "L1",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "models_billing_rationale_1",
-      "target": "backend_app_models_billing_py"
+      "source": "backend_app_models_billing_py",
+      "target": "models_billing_rationale_1"
     },
     {
       "relation": "uses",
@@ -1568,8 +2821,8 @@
       "source_location": "L1",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "models_audit_rationale_1",
-      "target": "backend_app_models_audit_py"
+      "source": "backend_app_models_audit_py",
+      "target": "models_audit_rationale_1"
     },
     {
       "relation": "uses",
@@ -1588,8 +2841,8 @@
       "source_location": "L1",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "models_init_rationale_1",
-      "target": "backend_app_models_init_py"
+      "source": "backend_app_models_init_py",
+      "target": "models_init_rationale_1"
     },
     {
       "relation": "contains",
@@ -1618,8 +2871,8 @@
       "source_location": "L1",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "core_database_rationale_1",
-      "target": "backend_app_core_database_py"
+      "source": "backend_app_core_database_py",
+      "target": "core_database_rationale_1"
     },
     {
       "relation": "inherits",
@@ -1638,8 +2891,8 @@
       "source_location": "L40",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "core_database_rationale_40",
-      "target": "core_database_get_db"
+      "source": "core_database_get_db",
+      "target": "core_database_rationale_40"
     },
     {
       "relation": "contains",
@@ -1668,8 +2921,8 @@
       "source_location": "L1",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "alembic_env_rationale_1",
-      "target": "backend_alembic_env_py"
+      "source": "backend_alembic_env_py",
+      "target": "alembic_env_rationale_1"
     },
     {
       "relation": "rationale_for",
@@ -1678,8 +2931,8 @@
       "source_location": "L30",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "alembic_env_rationale_30",
-      "target": "alembic_env_run_migrations_offline"
+      "source": "alembic_env_run_migrations_offline",
+      "target": "alembic_env_rationale_30"
     },
     {
       "relation": "rationale_for",
@@ -1688,8 +2941,8 @@
       "source_location": "L54",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "alembic_env_rationale_54",
-      "target": "alembic_env_run_migrations_online"
+      "source": "alembic_env_run_migrations_online",
+      "target": "alembic_env_rationale_54"
     },
     {
       "relation": "contains",
@@ -1718,8 +2971,8 @@
       "source_location": "L1",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "versions_287c78c5959f_initial_empty_migration_rationale_1",
-      "target": "backend_alembic_versions_287c78c5959f_initial_empty_migration_py"
+      "source": "backend_alembic_versions_287c78c5959f_initial_empty_migration_py",
+      "target": "versions_287c78c5959f_initial_empty_migration_rationale_1"
     },
     {
       "relation": "contains",
@@ -1748,8 +3001,8 @@
       "source_location": "L1",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "versions_d35e04369e67_create_core_domain_tables_rationale_1",
-      "target": "backend_alembic_versions_d35e04369e67_create_core_domain_tables_py"
+      "source": "backend_alembic_versions_d35e04369e67_create_core_domain_tables_py",
+      "target": "versions_d35e04369e67_create_core_domain_tables_rationale_1"
     },
     {
       "relation": "contains",
@@ -1788,8 +3041,8 @@
       "source_location": "L1",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "scripts_verify_module1_rationale_1",
-      "target": "backend_scripts_verify_module1_py"
+      "source": "backend_scripts_verify_module1_py",
+      "target": "scripts_verify_module1_rationale_1"
     },
     {
       "relation": "calls",
@@ -1799,8 +3052,8 @@
       "source_location": "L54",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "scripts_verify_module1_main",
-      "target": "scripts_verify_module1_hr"
+      "source": "scripts_verify_module1_hr",
+      "target": "scripts_verify_module1_main"
     },
     {
       "relation": "calls",
@@ -1810,8 +3063,8 @@
       "source_location": "L61",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "scripts_verify_module1_main",
-      "target": "scripts_verify_module1_cleanup"
+      "source": "scripts_verify_module1_cleanup",
+      "target": "scripts_verify_module1_main"
     },
     {
       "relation": "rationale_for",
@@ -1820,8 +3073,8 @@
       "source_location": "L42",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "scripts_verify_module1_rationale_42",
-      "target": "scripts_verify_module1_cleanup"
+      "source": "scripts_verify_module1_cleanup",
+      "target": "scripts_verify_module1_rationale_42"
     },
     {
       "relation": "imports_from",
@@ -1831,8 +3084,8 @@
       "source_location": "L4",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "frontend_src_main_tsx",
-      "target": "frontend_src_app_tsx"
+      "source": "frontend_src_app_tsx",
+      "target": "frontend_src_main_tsx"
     },
     {
       "relation": "conceptually_related_to",
@@ -1841,8 +3094,8 @@
       "source_file": "frontend/vite.config.ts",
       "source_location": null,
       "weight": 1.0,
-      "source": "vite_config_vite_configuration",
-      "target": "index_global_styles"
+      "source": "index_global_styles",
+      "target": "vite_config_vite_configuration"
     },
     {
       "relation": "conceptually_related_to",
@@ -1851,8 +3104,8 @@
       "source_file": "README.md",
       "source_location": null,
       "weight": 1.0,
-      "source": "readme_clinic_booking_system",
-      "target": "vite_config_vite_configuration"
+      "source": "vite_config_vite_configuration",
+      "target": "readme_clinic_booking_system"
     },
     {
       "relation": "conceptually_related_to",
@@ -1871,8 +3124,8 @@
       "source_file": ".env",
       "source_location": null,
       "weight": 1.0,
-      "source": "env_config",
-      "target": "env_example_template"
+      "source": "env_example_template",
+      "target": "env_config"
     },
     {
       "relation": "references",
@@ -1881,8 +3134,8 @@
       "source_file": "README.md",
       "source_location": null,
       "weight": 1.0,
-      "source": "readme_setup_instructions",
-      "target": "env_example_template"
+      "source": "env_example_template",
+      "target": "readme_setup_instructions"
     },
     {
       "relation": "references",
@@ -1903,48 +3156,1864 @@
       "weight": 1.0,
       "source": "vite_logo",
       "target": "react_logo"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "app/main.py",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "app_main_py",
+      "target": "app_main_rationale_1",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/api/auth.py",
+      "source_location": "L54",
+      "weight": 1.0,
+      "source": "app_api_auth_py",
+      "target": "api_auth_set_auth_cookies",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/api/auth.py",
+      "source_location": "L79",
+      "weight": 1.0,
+      "source": "app_api_auth_py",
+      "target": "api_auth_clear_auth_cookies",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/api/auth.py",
+      "source_location": "L85",
+      "weight": 1.0,
+      "source": "app_api_auth_py",
+      "target": "api_auth_role_str",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/api/auth.py",
+      "source_location": "L90",
+      "weight": 1.0,
+      "source": "app_api_auth_py",
+      "target": "api_auth_user_out",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/api/auth.py",
+      "source_location": "L102",
+      "weight": 1.0,
+      "source": "app_api_auth_py",
+      "target": "api_auth_register",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/api/auth.py",
+      "source_location": "L157",
+      "weight": 1.0,
+      "source": "app_api_auth_py",
+      "target": "api_auth_login",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/api/auth.py",
+      "source_location": "L185",
+      "weight": 1.0,
+      "source": "app_api_auth_py",
+      "target": "api_auth_refresh_access_token",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/api/auth.py",
+      "source_location": "L231",
+      "weight": 1.0,
+      "source": "app_api_auth_py",
+      "target": "api_auth_logout",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/api/auth.py",
+      "source_location": "L242",
+      "weight": 1.0,
+      "source": "app_api_auth_py",
+      "target": "api_auth_whoami",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/api/auth.py",
+      "source_location": "L254",
+      "weight": 1.0,
+      "source": "app_api_auth_py",
+      "target": "api_auth_google_login",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/api/auth.py",
+      "source_location": "L261",
+      "weight": 1.0,
+      "source": "app_api_auth_py",
+      "target": "api_auth_google_callback",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "app/api/auth.py",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "app_api_auth_py",
+      "target": "api_auth_rationale_1",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/api/auth.py",
+      "source_location": "L56",
+      "weight": 1.0,
+      "source": "api_auth_set_auth_cookies",
+      "target": "api_auth_role_str",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/api/auth.py",
+      "source_location": "L150",
+      "weight": 1.0,
+      "source": "api_auth_set_auth_cookies",
+      "target": "api_auth_register",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/api/auth.py",
+      "source_location": "L178",
+      "weight": 1.0,
+      "source": "api_auth_set_auth_cookies",
+      "target": "api_auth_login",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/api/auth.py",
+      "source_location": "L313",
+      "weight": 1.0,
+      "source": "api_auth_set_auth_cookies",
+      "target": "api_auth_google_callback",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "app/api/auth.py",
+      "source_location": "L55",
+      "weight": 1.0,
+      "source": "api_auth_set_auth_cookies",
+      "target": "api_auth_rationale_55",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "app/api/auth.py",
+      "source_location": "L56",
+      "weight": 1.0,
+      "source": "api_auth_set_auth_cookies",
+      "target": "core_security_create_access_token"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "app/api/auth.py",
+      "source_location": "L57",
+      "weight": 1.0,
+      "source": "api_auth_set_auth_cookies",
+      "target": "core_security_create_refresh_token"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/api/auth.py",
+      "source_location": "L236",
+      "weight": 1.0,
+      "source": "api_auth_clear_auth_cookies",
+      "target": "api_auth_logout",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "app/api/auth.py",
+      "source_location": "L80",
+      "weight": 1.0,
+      "source": "api_auth_clear_auth_cookies",
+      "target": "api_auth_rationale_80",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/api/auth.py",
+      "source_location": "L94",
+      "weight": 1.0,
+      "source": "api_auth_role_str",
+      "target": "api_auth_user_out",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/api/auth.py",
+      "source_location": "L217",
+      "weight": 1.0,
+      "source": "api_auth_role_str",
+      "target": "api_auth_refresh_access_token",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "app/api/auth.py",
+      "source_location": "L86",
+      "weight": 1.0,
+      "source": "api_auth_role_str",
+      "target": "api_auth_rationale_86",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/api/auth.py",
+      "source_location": "L151",
+      "weight": 1.0,
+      "source": "api_auth_user_out",
+      "target": "api_auth_register",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/api/auth.py",
+      "source_location": "L179",
+      "weight": 1.0,
+      "source": "api_auth_user_out",
+      "target": "api_auth_login",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/api/auth.py",
+      "source_location": "L248",
+      "weight": 1.0,
+      "source": "api_auth_user_out",
+      "target": "api_auth_whoami",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "app/api/auth.py",
+      "source_location": "L91",
+      "weight": 1.0,
+      "source": "api_auth_user_out",
+      "target": "schemas_auth_userout"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "app/api/auth.py",
+      "source_location": "L107",
+      "weight": 1.0,
+      "source": "api_auth_register",
+      "target": "api_auth_rationale_107",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "app/api/auth.py",
+      "source_location": "L127",
+      "weight": 1.0,
+      "source": "api_auth_register",
+      "target": "core_security_hash_password"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "app/api/auth.py",
+      "source_location": "L162",
+      "weight": 1.0,
+      "source": "api_auth_login",
+      "target": "api_auth_rationale_162",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "app/api/auth.py",
+      "source_location": "L170",
+      "weight": 1.0,
+      "source": "api_auth_login",
+      "target": "core_security_verify_password"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "app/api/auth.py",
+      "source_location": "L190",
+      "weight": 1.0,
+      "source": "api_auth_refresh_access_token",
+      "target": "api_auth_rationale_190",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "app/api/auth.py",
+      "source_location": "L203",
+      "weight": 1.0,
+      "source": "api_auth_refresh_access_token",
+      "target": "core_security_decode_token"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "app/api/auth.py",
+      "source_location": "L217",
+      "weight": 1.0,
+      "source": "api_auth_refresh_access_token",
+      "target": "core_security_create_access_token"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "app/api/auth.py",
+      "source_location": "L232",
+      "weight": 1.0,
+      "source": "api_auth_logout",
+      "target": "api_auth_rationale_232",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "app/api/auth.py",
+      "source_location": "L243",
+      "weight": 1.0,
+      "source": "api_auth_whoami",
+      "target": "api_auth_rationale_243",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "app/api/auth.py",
+      "source_location": "L255",
+      "weight": 1.0,
+      "source": "api_auth_google_login",
+      "target": "api_auth_rationale_255",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "app/api/auth.py",
+      "source_location": "L265",
+      "weight": 1.0,
+      "source": "api_auth_google_callback",
+      "target": "api_auth_rationale_265",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/core/config.py",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "app_core_config_py",
+      "target": "core_config_settings",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "app/core/config.py",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "app_core_config_py",
+      "target": "core_config_rationale_1",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "app/core/config.py",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "core_config_settings",
+      "target": "basesettings",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/core/security.py",
+      "source_location": "L21",
+      "weight": 1.0,
+      "source": "app_core_security_py",
+      "target": "core_security_hash_password",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/core/security.py",
+      "source_location": "L26",
+      "weight": 1.0,
+      "source": "app_core_security_py",
+      "target": "core_security_verify_password",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/core/security.py",
+      "source_location": "L41",
+      "weight": 1.0,
+      "source": "app_core_security_py",
+      "target": "core_security_tokenexpirederror",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/core/security.py",
+      "source_location": "L45",
+      "weight": 1.0,
+      "source": "app_core_security_py",
+      "target": "core_security_invalidtokenerror",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/core/security.py",
+      "source_location": "L49",
+      "weight": 1.0,
+      "source": "app_core_security_py",
+      "target": "core_security_utcnow",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/core/security.py",
+      "source_location": "L53",
+      "weight": 1.0,
+      "source": "app_core_security_py",
+      "target": "core_security_create_access_token",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/core/security.py",
+      "source_location": "L74",
+      "weight": 1.0,
+      "source": "app_core_security_py",
+      "target": "core_security_create_refresh_token",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/core/security.py",
+      "source_location": "L91",
+      "weight": 1.0,
+      "source": "app_core_security_py",
+      "target": "core_security_decode_token",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "app/core/security.py",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "app_core_security_py",
+      "target": "core_security_rationale_1",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "app/core/security.py",
+      "source_location": "L22",
+      "weight": 1.0,
+      "source": "core_security_hash_password",
+      "target": "core_security_rationale_22",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "app/core/security.py",
+      "source_location": "L27",
+      "weight": 1.0,
+      "source": "core_security_verify_password",
+      "target": "core_security_rationale_27",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "app/core/security.py",
+      "source_location": "L41",
+      "weight": 1.0,
+      "source": "core_security_tokenexpirederror",
+      "target": "exception",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/core/security.py",
+      "source_location": "L108",
+      "weight": 1.0,
+      "source": "core_security_tokenexpirederror",
+      "target": "core_security_decode_token",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "app/core/security.py",
+      "source_location": "L42",
+      "weight": 1.0,
+      "source": "core_security_tokenexpirederror",
+      "target": "core_security_rationale_42",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "app/core/security.py",
+      "source_location": "L45",
+      "weight": 1.0,
+      "source": "exception",
+      "target": "core_security_invalidtokenerror",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/core/security.py",
+      "source_location": "L110",
+      "weight": 1.0,
+      "source": "core_security_invalidtokenerror",
+      "target": "core_security_decode_token",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "app/core/security.py",
+      "source_location": "L46",
+      "weight": 1.0,
+      "source": "core_security_invalidtokenerror",
+      "target": "core_security_rationale_46",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/core/security.py",
+      "source_location": "L63",
+      "weight": 1.0,
+      "source": "core_security_utcnow",
+      "target": "core_security_create_access_token",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/core/security.py",
+      "source_location": "L82",
+      "weight": 1.0,
+      "source": "core_security_utcnow",
+      "target": "core_security_create_refresh_token",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "app/core/security.py",
+      "source_location": "L54",
+      "weight": 1.0,
+      "source": "core_security_create_access_token",
+      "target": "core_security_rationale_54",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "app/core/security.py",
+      "source_location": "L75",
+      "weight": 1.0,
+      "source": "core_security_create_refresh_token",
+      "target": "core_security_rationale_75",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "app/core/security.py",
+      "source_location": "L92",
+      "weight": 1.0,
+      "source": "core_security_decode_token",
+      "target": "core_security_rationale_92",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "app/core/dependencies.py",
+      "source_location": "L36",
+      "weight": 1.0,
+      "source": "core_security_decode_token",
+      "target": "core_dependencies_get_current_user"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "tests/test_auth.py",
+      "source_location": "L332",
+      "weight": 1.0,
+      "source": "core_security_decode_token",
+      "target": "tests_test_auth_testrefresh_test_refresh_issues_new_access_cookie"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/core/dependencies.py",
+      "source_location": "L19",
+      "weight": 1.0,
+      "source": "app_core_dependencies_py",
+      "target": "core_dependencies_get_current_user",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/core/dependencies.py",
+      "source_location": "L80",
+      "weight": 1.0,
+      "source": "app_core_dependencies_py",
+      "target": "core_dependencies_require_role",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "app/core/dependencies.py",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "app_core_dependencies_py",
+      "target": "core_dependencies_rationale_1",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "app/core/dependencies.py",
+      "source_location": "L23",
+      "weight": 1.0,
+      "source": "core_dependencies_get_current_user",
+      "target": "core_dependencies_rationale_23",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "app/core/dependencies.py",
+      "source_location": "L81",
+      "weight": 1.0,
+      "source": "core_dependencies_require_role",
+      "target": "core_dependencies_rationale_81",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/schemas/auth.py",
+      "source_location": "L14",
+      "weight": 1.0,
+      "source": "app_schemas_auth_py",
+      "target": "schemas_auth_registerrequest",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/schemas/auth.py",
+      "source_location": "L22",
+      "weight": 1.0,
+      "source": "app_schemas_auth_py",
+      "target": "schemas_auth_password_min_length",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/schemas/auth.py",
+      "source_location": "L29",
+      "weight": 1.0,
+      "source": "app_schemas_auth_py",
+      "target": "schemas_auth_full_name_not_empty",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/schemas/auth.py",
+      "source_location": "L35",
+      "weight": 1.0,
+      "source": "app_schemas_auth_py",
+      "target": "schemas_auth_loginrequest",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/schemas/auth.py",
+      "source_location": "L40",
+      "weight": 1.0,
+      "source": "app_schemas_auth_py",
+      "target": "schemas_auth_userout",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "app/schemas/auth.py",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "app_schemas_auth_py",
+      "target": "schemas_auth_rationale_1",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "app/schemas/auth.py",
+      "source_location": "L14",
+      "weight": 1.0,
+      "source": "schemas_auth_registerrequest",
+      "target": "basemodel",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "app/schemas/auth.py",
+      "source_location": "L35",
+      "weight": 1.0,
+      "source": "basemodel",
+      "target": "schemas_auth_loginrequest",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "app/schemas/auth.py",
+      "source_location": "L40",
+      "weight": 1.0,
+      "source": "basemodel",
+      "target": "schemas_auth_userout",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/conftest.py",
+      "source_location": "L49",
+      "weight": 1.0,
+      "source": "tests_conftest_py",
+      "target": "tests_conftest_set_sqlite_pragma",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/conftest.py",
+      "source_location": "L60",
+      "weight": 1.0,
+      "source": "tests_conftest_py",
+      "target": "tests_conftest_setup_database",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/conftest.py",
+      "source_location": "L70",
+      "weight": 1.0,
+      "source": "tests_conftest_py",
+      "target": "tests_conftest_db_session",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/conftest.py",
+      "source_location": "L80",
+      "weight": 1.0,
+      "source": "tests_conftest_py",
+      "target": "tests_conftest_client",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/conftest.py",
+      "source_location": "L97",
+      "weight": 1.0,
+      "source": "tests_conftest_py",
+      "target": "tests_conftest_authenticated_client",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/conftest.py",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "tests_conftest_py",
+      "target": "tests_conftest_rationale_1",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/conftest.py",
+      "source_location": "L61",
+      "weight": 1.0,
+      "source": "tests_conftest_setup_database",
+      "target": "tests_conftest_rationale_61",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/conftest.py",
+      "source_location": "L71",
+      "weight": 1.0,
+      "source": "tests_conftest_db_session",
+      "target": "tests_conftest_rationale_71",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/conftest.py",
+      "source_location": "L81",
+      "weight": 1.0,
+      "source": "tests_conftest_client",
+      "target": "tests_conftest_rationale_81",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/conftest.py",
+      "source_location": "L98",
+      "weight": 1.0,
+      "source": "tests_conftest_authenticated_client",
+      "target": "tests_conftest_rationale_98",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "tests/test_auth.py",
+      "source_location": "L255",
+      "weight": 1.0,
+      "source": "tests_conftest_authenticated_client",
+      "target": "tests_test_auth_testrbac_test_doctor_role_accepted_on_doctor_endpoint"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "tests/test_auth.py",
+      "source_location": "L262",
+      "weight": 1.0,
+      "source": "tests_conftest_authenticated_client",
+      "target": "tests_test_auth_testrbac_test_patient_role_rejected_on_doctor_endpoint"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "tests/test_auth.py",
+      "source_location": "L269",
+      "weight": 1.0,
+      "source": "tests_conftest_authenticated_client",
+      "target": "tests_test_auth_testrbac_test_receptionist_accepted_on_staff_endpoint"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "tests/test_auth.py",
+      "source_location": "L275",
+      "weight": 1.0,
+      "source": "tests_conftest_authenticated_client",
+      "target": "tests_test_auth_testrbac_test_patient_rejected_on_staff_endpoint"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_auth.py",
+      "source_location": "L42",
+      "weight": 1.0,
+      "source": "tests_test_auth_py",
+      "target": "tests_test_auth_register",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_auth.py",
+      "source_location": "L49",
+      "weight": 1.0,
+      "source": "tests_test_auth_py",
+      "target": "tests_test_auth_login",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_auth.py",
+      "source_location": "L53",
+      "weight": 1.0,
+      "source": "tests_test_auth_py",
+      "target": "tests_test_auth_has_httponly_cookie",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_auth.py",
+      "source_location": "L63",
+      "weight": 1.0,
+      "source": "tests_test_auth_py",
+      "target": "tests_test_auth_testregister",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_auth.py",
+      "source_location": "L122",
+      "weight": 1.0,
+      "source": "tests_test_auth_py",
+      "target": "tests_test_auth_testduplicateemail",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_auth.py",
+      "source_location": "L132",
+      "weight": 1.0,
+      "source": "tests_test_auth_py",
+      "target": "tests_test_auth_testlogin",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_auth.py",
+      "source_location": "L175",
+      "weight": 1.0,
+      "source": "tests_test_auth_py",
+      "target": "tests_test_auth_testwhoami",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_auth.py",
+      "source_location": "L243",
+      "weight": 1.0,
+      "source": "tests_test_auth_py",
+      "target": "tests_test_auth_doctor_only",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_auth.py",
+      "source_location": "L248",
+      "weight": 1.0,
+      "source": "tests_test_auth_py",
+      "target": "tests_test_auth_staff_only",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_auth.py",
+      "source_location": "L252",
+      "weight": 1.0,
+      "source": "tests_test_auth_py",
+      "target": "tests_test_auth_testrbac",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_auth.py",
+      "source_location": "L282",
+      "weight": 1.0,
+      "source": "tests_test_auth_py",
+      "target": "tests_test_auth_testlogout",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_auth.py",
+      "source_location": "L318",
+      "weight": 1.0,
+      "source": "tests_test_auth_py",
+      "target": "tests_test_auth_testrefresh",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_auth.py",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "tests_test_auth_py",
+      "target": "tests_test_auth_rationale_1",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_auth.py",
+      "source_location": "L66",
+      "weight": 1.0,
+      "source": "tests_test_auth_register",
+      "target": "tests_test_auth_testregister_test_register_patient_creates_profile",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_auth.py",
+      "source_location": "L79",
+      "weight": 1.0,
+      "source": "tests_test_auth_register",
+      "target": "tests_test_auth_testregister_test_register_doctor_creates_profile",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_auth.py",
+      "source_location": "L90",
+      "weight": 1.0,
+      "source": "tests_test_auth_register",
+      "target": "tests_test_auth_testregister_test_register_receptionist_no_profile",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_auth.py",
+      "source_location": "L100",
+      "weight": 1.0,
+      "source": "tests_test_auth_register",
+      "target": "tests_test_auth_testregister_test_register_auto_login_sets_cookies",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_auth.py",
+      "source_location": "L108",
+      "weight": 1.0,
+      "source": "tests_test_auth_register",
+      "target": "tests_test_auth_testregister_test_register_password_too_short",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_auth.py",
+      "source_location": "L125",
+      "weight": 1.0,
+      "source": "tests_test_auth_register",
+      "target": "tests_test_auth_testduplicateemail_test_duplicate_email_rejected",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_auth.py",
+      "source_location": "L135",
+      "weight": 1.0,
+      "source": "tests_test_auth_register",
+      "target": "tests_test_auth_testlogin_test_login_success_sets_cookies",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_auth.py",
+      "source_location": "L147",
+      "weight": 1.0,
+      "source": "tests_test_auth_register",
+      "target": "tests_test_auth_testlogin_test_login_response_contains_user_out",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_auth.py",
+      "source_location": "L162",
+      "weight": 1.0,
+      "source": "tests_test_auth_register",
+      "target": "tests_test_auth_testlogin_test_login_wrong_password",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_auth.py",
+      "source_location": "L186",
+      "weight": 1.0,
+      "source": "tests_test_auth_register",
+      "target": "tests_test_auth_testwhoami_test_whoami_valid_cookie_returns_user",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_auth.py",
+      "source_location": "L224",
+      "weight": 1.0,
+      "source": "tests_test_auth_register",
+      "target": "tests_test_auth_testwhoami_test_whoami_refresh_token_as_access_returns_401",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_auth.py",
+      "source_location": "L285",
+      "weight": 1.0,
+      "source": "tests_test_auth_register",
+      "target": "tests_test_auth_testlogout_test_logout_clears_cookies",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_auth.py",
+      "source_location": "L305",
+      "weight": 1.0,
+      "source": "tests_test_auth_register",
+      "target": "tests_test_auth_testlogout_test_logout_then_whoami_with_old_cookie_fails",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_auth.py",
+      "source_location": "L321",
+      "weight": 1.0,
+      "source": "tests_test_auth_register",
+      "target": "tests_test_auth_testrefresh_test_refresh_issues_new_access_cookie",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_auth.py",
+      "source_location": "L139",
+      "weight": 1.0,
+      "source": "tests_test_auth_login",
+      "target": "tests_test_auth_testlogin_test_login_success_sets_cookies",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_auth.py",
+      "source_location": "L149",
+      "weight": 1.0,
+      "source": "tests_test_auth_login",
+      "target": "tests_test_auth_testlogin_test_login_response_contains_user_out",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_auth.py",
+      "source_location": "L164",
+      "weight": 1.0,
+      "source": "tests_test_auth_login",
+      "target": "tests_test_auth_testlogin_test_login_wrong_password",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_auth.py",
+      "source_location": "L169",
+      "weight": 1.0,
+      "source": "tests_test_auth_login",
+      "target": "tests_test_auth_testlogin_test_login_nonexistent_user",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_auth.py",
+      "source_location": "L142",
+      "weight": 1.0,
+      "source": "tests_test_auth_has_httponly_cookie",
+      "target": "tests_test_auth_testlogin_test_login_success_sets_cookies",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_auth.py",
+      "source_location": "L54",
+      "weight": 1.0,
+      "source": "tests_test_auth_has_httponly_cookie",
+      "target": "tests_test_auth_rationale_54",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_auth.py",
+      "source_location": "L64",
+      "weight": 1.0,
+      "source": "tests_test_auth_testregister",
+      "target": "tests_test_auth_testregister_test_register_patient_creates_profile",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_auth.py",
+      "source_location": "L77",
+      "weight": 1.0,
+      "source": "tests_test_auth_testregister",
+      "target": "tests_test_auth_testregister_test_register_doctor_creates_profile",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_auth.py",
+      "source_location": "L88",
+      "weight": 1.0,
+      "source": "tests_test_auth_testregister",
+      "target": "tests_test_auth_testregister_test_register_receptionist_no_profile",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_auth.py",
+      "source_location": "L98",
+      "weight": 1.0,
+      "source": "tests_test_auth_testregister",
+      "target": "tests_test_auth_testregister_test_register_auto_login_sets_cookies",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_auth.py",
+      "source_location": "L106",
+      "weight": 1.0,
+      "source": "tests_test_auth_testregister",
+      "target": "tests_test_auth_testregister_test_register_password_too_short",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_auth.py",
+      "source_location": "L111",
+      "weight": 1.0,
+      "source": "tests_test_auth_testregister",
+      "target": "tests_test_auth_testregister_test_register_invalid_role",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_auth.py",
+      "source_location": "L65",
+      "weight": 1.0,
+      "source": "tests_test_auth_testregister_test_register_patient_creates_profile",
+      "target": "tests_test_auth_rationale_65",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_auth.py",
+      "source_location": "L78",
+      "weight": 1.0,
+      "source": "tests_test_auth_testregister_test_register_doctor_creates_profile",
+      "target": "tests_test_auth_rationale_78",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_auth.py",
+      "source_location": "L89",
+      "weight": 1.0,
+      "source": "tests_test_auth_testregister_test_register_receptionist_no_profile",
+      "target": "tests_test_auth_rationale_89",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_auth.py",
+      "source_location": "L99",
+      "weight": 1.0,
+      "source": "tests_test_auth_testregister_test_register_auto_login_sets_cookies",
+      "target": "tests_test_auth_rationale_99",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_auth.py",
+      "source_location": "L107",
+      "weight": 1.0,
+      "source": "tests_test_auth_testregister_test_register_password_too_short",
+      "target": "tests_test_auth_rationale_107",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_auth.py",
+      "source_location": "L112",
+      "weight": 1.0,
+      "source": "tests_test_auth_testregister_test_register_invalid_role",
+      "target": "tests_test_auth_rationale_112",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_auth.py",
+      "source_location": "L123",
+      "weight": 1.0,
+      "source": "tests_test_auth_testduplicateemail",
+      "target": "tests_test_auth_testduplicateemail_test_duplicate_email_rejected",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_auth.py",
+      "source_location": "L124",
+      "weight": 1.0,
+      "source": "tests_test_auth_testduplicateemail_test_duplicate_email_rejected",
+      "target": "tests_test_auth_rationale_124",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_auth.py",
+      "source_location": "L133",
+      "weight": 1.0,
+      "source": "tests_test_auth_testlogin",
+      "target": "tests_test_auth_testlogin_test_login_success_sets_cookies",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_auth.py",
+      "source_location": "L145",
+      "weight": 1.0,
+      "source": "tests_test_auth_testlogin",
+      "target": "tests_test_auth_testlogin_test_login_response_contains_user_out",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_auth.py",
+      "source_location": "L160",
+      "weight": 1.0,
+      "source": "tests_test_auth_testlogin",
+      "target": "tests_test_auth_testlogin_test_login_wrong_password",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_auth.py",
+      "source_location": "L167",
+      "weight": 1.0,
+      "source": "tests_test_auth_testlogin",
+      "target": "tests_test_auth_testlogin_test_login_nonexistent_user",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_auth.py",
+      "source_location": "L134",
+      "weight": 1.0,
+      "source": "tests_test_auth_testlogin_test_login_success_sets_cookies",
+      "target": "tests_test_auth_rationale_134",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_auth.py",
+      "source_location": "L146",
+      "weight": 1.0,
+      "source": "tests_test_auth_testlogin_test_login_response_contains_user_out",
+      "target": "tests_test_auth_rationale_146",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_auth.py",
+      "source_location": "L161",
+      "weight": 1.0,
+      "source": "tests_test_auth_testlogin_test_login_wrong_password",
+      "target": "tests_test_auth_rationale_161",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_auth.py",
+      "source_location": "L168",
+      "weight": 1.0,
+      "source": "tests_test_auth_testlogin_test_login_nonexistent_user",
+      "target": "tests_test_auth_rationale_168",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_auth.py",
+      "source_location": "L176",
+      "weight": 1.0,
+      "source": "tests_test_auth_testwhoami",
+      "target": "tests_test_auth_testwhoami_test_whoami_no_cookie_returns_401",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_auth.py",
+      "source_location": "L184",
+      "weight": 1.0,
+      "source": "tests_test_auth_testwhoami",
+      "target": "tests_test_auth_testwhoami_test_whoami_valid_cookie_returns_user",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_auth.py",
+      "source_location": "L195",
+      "weight": 1.0,
+      "source": "tests_test_auth_testwhoami",
+      "target": "tests_test_auth_testwhoami_test_whoami_tampered_token_returns_401",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_auth.py",
+      "source_location": "L202",
+      "weight": 1.0,
+      "source": "tests_test_auth_testwhoami",
+      "target": "tests_test_auth_testwhoami_test_whoami_expired_token_returns_401",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_auth.py",
+      "source_location": "L222",
+      "weight": 1.0,
+      "source": "tests_test_auth_testwhoami",
+      "target": "tests_test_auth_testwhoami_test_whoami_refresh_token_as_access_returns_401",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_auth.py",
+      "source_location": "L177",
+      "weight": 1.0,
+      "source": "tests_test_auth_testwhoami_test_whoami_no_cookie_returns_401",
+      "target": "tests_test_auth_rationale_177",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_auth.py",
+      "source_location": "L185",
+      "weight": 1.0,
+      "source": "tests_test_auth_testwhoami_test_whoami_valid_cookie_returns_user",
+      "target": "tests_test_auth_rationale_185",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_auth.py",
+      "source_location": "L196",
+      "weight": 1.0,
+      "source": "tests_test_auth_testwhoami_test_whoami_tampered_token_returns_401",
+      "target": "tests_test_auth_rationale_196",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_auth.py",
+      "source_location": "L203",
+      "weight": 1.0,
+      "source": "tests_test_auth_testwhoami_test_whoami_expired_token_returns_401",
+      "target": "tests_test_auth_rationale_203",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_auth.py",
+      "source_location": "L223",
+      "weight": 1.0,
+      "source": "tests_test_auth_testwhoami_test_whoami_refresh_token_as_access_returns_401",
+      "target": "tests_test_auth_rationale_223",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_auth.py",
+      "source_location": "L253",
+      "weight": 1.0,
+      "source": "tests_test_auth_testrbac",
+      "target": "tests_test_auth_testrbac_test_doctor_role_accepted_on_doctor_endpoint",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_auth.py",
+      "source_location": "L260",
+      "weight": 1.0,
+      "source": "tests_test_auth_testrbac",
+      "target": "tests_test_auth_testrbac_test_patient_role_rejected_on_doctor_endpoint",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_auth.py",
+      "source_location": "L267",
+      "weight": 1.0,
+      "source": "tests_test_auth_testrbac",
+      "target": "tests_test_auth_testrbac_test_receptionist_accepted_on_staff_endpoint",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_auth.py",
+      "source_location": "L273",
+      "weight": 1.0,
+      "source": "tests_test_auth_testrbac",
+      "target": "tests_test_auth_testrbac_test_patient_rejected_on_staff_endpoint",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_auth.py",
+      "source_location": "L254",
+      "weight": 1.0,
+      "source": "tests_test_auth_testrbac_test_doctor_role_accepted_on_doctor_endpoint",
+      "target": "tests_test_auth_rationale_254",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_auth.py",
+      "source_location": "L261",
+      "weight": 1.0,
+      "source": "tests_test_auth_testrbac_test_patient_role_rejected_on_doctor_endpoint",
+      "target": "tests_test_auth_rationale_261",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_auth.py",
+      "source_location": "L268",
+      "weight": 1.0,
+      "source": "tests_test_auth_testrbac_test_receptionist_accepted_on_staff_endpoint",
+      "target": "tests_test_auth_rationale_268",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_auth.py",
+      "source_location": "L274",
+      "weight": 1.0,
+      "source": "tests_test_auth_testrbac_test_patient_rejected_on_staff_endpoint",
+      "target": "tests_test_auth_rationale_274",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_auth.py",
+      "source_location": "L283",
+      "weight": 1.0,
+      "source": "tests_test_auth_testlogout",
+      "target": "tests_test_auth_testlogout_test_logout_clears_cookies",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_auth.py",
+      "source_location": "L297",
+      "weight": 1.0,
+      "source": "tests_test_auth_testlogout",
+      "target": "tests_test_auth_testlogout_test_logout_then_whoami_with_old_cookie_fails",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_auth.py",
+      "source_location": "L284",
+      "weight": 1.0,
+      "source": "tests_test_auth_testlogout_test_logout_clears_cookies",
+      "target": "tests_test_auth_rationale_284",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_auth.py",
+      "source_location": "L298",
+      "weight": 1.0,
+      "source": "tests_test_auth_testlogout_test_logout_then_whoami_with_old_cookie_fails",
+      "target": "tests_test_auth_rationale_298",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_auth.py",
+      "source_location": "L319",
+      "weight": 1.0,
+      "source": "tests_test_auth_testrefresh",
+      "target": "tests_test_auth_testrefresh_test_refresh_issues_new_access_cookie",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_auth.py",
+      "source_location": "L335",
+      "weight": 1.0,
+      "source": "tests_test_auth_testrefresh",
+      "target": "tests_test_auth_testrefresh_test_refresh_without_cookie_returns_401",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_auth.py",
+      "source_location": "L320",
+      "weight": 1.0,
+      "source": "tests_test_auth_testrefresh_test_refresh_issues_new_access_cookie",
+      "target": "tests_test_auth_rationale_320",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_auth.py",
+      "source_location": "L336",
+      "weight": 1.0,
+      "source": "tests_test_auth_testrefresh_test_refresh_without_cookie_returns_401",
+      "target": "tests_test_auth_rationale_336",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "uses",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/module_2_auth_rbac_summary.md",
+      "weight": 1.0,
+      "source": "module_2_auth_rbac_summary_authentication",
+      "target": "module_2_auth_rbac_summary_httponly_cookies"
+    },
+    {
+      "relation": "uses",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/module_2_auth_rbac_summary.md",
+      "weight": 1.0,
+      "source": "module_2_auth_rbac_summary_authentication",
+      "target": "module_2_auth_rbac_summary_jwt"
+    },
+    {
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/module_2_auth_rbac_summary.md",
+      "weight": 1.0,
+      "source": "module_2_auth_rbac_summary_authentication",
+      "target": "module_2_auth_rbac_summary_rbac"
+    },
+    {
+      "relation": "secures",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "docs/module_2_auth_rbac_summary.md",
+      "weight": 1.0,
+      "source": "module_2_auth_rbac_summary_authentication",
+      "target": "module1_summary_clinic_booking"
     }
   ],
   "hyperedges": [
     {
-      "id": "frontend_setup_and_branding",
-      "label": "Frontend Setup and Branding Assets",
+      "id": "auth_flow_hyperedge",
+      "label": "Authentication Architecture",
       "nodes": [
-        "vite_config_vite_configuration",
-        "index_global_styles",
-        "vite_logo",
-        "react_logo"
+        "module_2_auth_rbac_summary_authentication",
+        "module_2_auth_rbac_summary_httponly_cookies",
+        "module_2_auth_rbac_summary_jwt",
+        "module_2_auth_rbac_summary_rbac"
       ],
       "relation": "form",
-      "confidence": "INFERRED",
-      "confidence_score": 0.85,
-      "source_file": "frontend/vite.config.ts"
-    },
-    {
-      "id": "backend_environment_and_database",
-      "label": "Backend Configuration and Database Setup",
-      "nodes": [
-        "env_config",
-        "requirements_backend_dependencies",
-        "287c78c5959f_initial_empty_migration_initial_migration"
-      ],
-      "relation": "form",
-      "confidence": "INFERRED",
-      "confidence_score": 0.85,
-      "source_file": "backend/requirements.txt"
-    },
-    {
-      "id": "project_documentation_and_config",
-      "label": "Project Documentation and Environment Templates",
-      "nodes": [
-        "readme_clinic_booking_system",
-        "readme_setup_instructions",
-        "env_example_template"
-      ],
-      "relation": "form",
-      "confidence": "INFERRED",
-      "confidence_score": 0.85,
-      "source_file": "README.md"
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/module_2_auth_rbac_summary.md"
     }
   ]
 }
