@@ -1,0 +1,12 @@
+/home/aditya/Clinic_Booking_System/clinic-app/backend/app/main.py
+/home/aditya/Clinic_Booking_System/clinic-app/backend/app/api/auth.py
+/home/aditya/Clinic_Booking_System/clinic-app/backend/app/core/config.py
+/home/aditya/Clinic_Booking_System/clinic-app/backend/app/core/security.py
+/home/aditya/Clinic_Booking_System/clinic-app/backend/app/core/dependencies.py
+/home/aditya/Clinic_Booking_System/clinic-app/backend/app/schemas/auth.py
+/home/aditya/Clinic_Booking_System/clinic-app/backend/tests/conftest.py
+/home/aditya/Clinic_Booking_System/clinic-app/backend/tests/test_auth.py
+/home/aditya/Clinic_Booking_System/clinic-app/backend/tests/__init__.py
+/home/aditya/Clinic_Booking_System/clinic-app/backend/requirements.txt
+/home/aditya/Clinic_Booking_System/clinic-app/docs/module1_summary.md
+/home/aditya/Clinic_Booking_System/clinic-app/docs/module_2_auth_rbac_summary.md

@@ -1,0 +1,95 @@
+{
+  "nodes": [
+    {
+      "id": "module_2_auth_rbac_summary_authentication",
+      "label": "Authentication Module",
+      "file_type": "rationale",
+      "source_file": "docs/module_2_auth_rbac_summary.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "module_2_auth_rbac_summary_httponly_cookies",
+      "label": "HttpOnly Cookies",
+      "file_type": "rationale",
+      "source_file": "docs/module_2_auth_rbac_summary.md"
+    },
+    {
+      "id": "module_2_auth_rbac_summary_jwt",
+      "label": "JSON Web Tokens",
+      "file_type": "rationale",
+      "source_file": "docs/module_2_auth_rbac_summary.md"
+    },
+    {
+      "id": "module_2_auth_rbac_summary_rbac",
+      "label": "Role-Based Access Control",
+      "file_type": "rationale",
+      "source_file": "docs/module_2_auth_rbac_summary.md"
+    },
+    {
+      "id": "module1_summary_clinic_booking",
+      "label": "Clinic Booking Data Model",
+      "file_type": "rationale",
+      "source_file": "docs/module1_summary.md"
+    }
+  ],
+  "edges": [
+    {
+      "source": "module_2_auth_rbac_summary_authentication",
+      "target": "module_2_auth_rbac_summary_httponly_cookies",
+      "relation": "uses",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/module_2_auth_rbac_summary.md",
+      "weight": 1.0
+    },
+    {
+      "source": "module_2_auth_rbac_summary_authentication",
+      "target": "module_2_auth_rbac_summary_jwt",
+      "relation": "uses",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/module_2_auth_rbac_summary.md",
+      "weight": 1.0
+    },
+    {
+      "source": "module_2_auth_rbac_summary_authentication",
+      "target": "module_2_auth_rbac_summary_rbac",
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/module_2_auth_rbac_summary.md",
+      "weight": 1.0
+    },
+    {
+      "source": "module_2_auth_rbac_summary_authentication",
+      "target": "module1_summary_clinic_booking",
+      "relation": "secures",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "docs/module_2_auth_rbac_summary.md",
+      "weight": 1.0
+    }
+  ],
+  "hyperedges": [
+    {
+      "id": "auth_flow_hyperedge",
+      "label": "Authentication Architecture",
+      "nodes": [
+        "module_2_auth_rbac_summary_authentication",
+        "module_2_auth_rbac_summary_httponly_cookies",
+        "module_2_auth_rbac_summary_jwt",
+        "module_2_auth_rbac_summary_rbac"
+      ],
+      "relation": "form",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/module_2_auth_rbac_summary.md"
+    }
+  ],
+  "input_tokens": 0,
+  "output_tokens": 0
+}
