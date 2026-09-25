@@ -76,12 +76,26 @@ class BookingRequest(BaseModel):
 
 
 class AppointmentOut(BaseModel):
-    """Response returned after a successful booking."""
+    """Response returned after a successful booking or state transition."""
 
     id: int
     status: str
     slot_start: datetime
     slot_end: datetime
     doctor_name: str
+    patient_name: Optional[str] = None
+
+    model_config = {"from_attributes": True}
+
+
+class AppointmentQueueItem(BaseModel):
+    """A single row in the receptionist/doctor queue response."""
+
+    id: int
+    status: str
+    patient_name: str
+    doctor_name: str
+    slot_start: datetime
+    slot_end: datetime
 
     model_config = {"from_attributes": True}
