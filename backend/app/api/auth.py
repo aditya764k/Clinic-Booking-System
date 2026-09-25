@@ -88,11 +88,19 @@ def _role_str(user: User) -> str:
 
 
 def _user_out(user: User) -> UserOut:
+    profile_id = None
+    role = _role_str(user)
+    if role == "doctor" and user.doctor_profile:
+        profile_id = user.doctor_profile.id
+    elif role == "patient" and user.patient_profile:
+        profile_id = user.patient_profile.id
+
     return UserOut(
         id=user.id,
         email=user.email,
-        role=_role_str(user),
+        role=role,
         created_at=user.created_at,
+        profile_id=profile_id,
     )
 
 
