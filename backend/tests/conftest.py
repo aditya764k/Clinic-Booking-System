@@ -27,6 +27,9 @@ os.environ["FRONTEND_ORIGIN"] = "http://localhost:3000"
 os.environ["GEMINI_API_KEY"] = "test-gemini-key"
 os.environ["GEMINI_MODEL"] = "gemini-1.5-flash"
 os.environ["GEMINI_TIMEOUT_SECONDS"] = "12"
+os.environ["RAZORPAY_KEY_ID"] = "test_rzp_key_id"
+os.environ["RAZORPAY_KEY_SECRET"] = "test_rzp_key_secret"
+os.environ["RAZORPAY_WEBHOOK_SECRET"] = "test_webhook_secret"
 
 from sqlalchemy import create_engine, event
 from sqlalchemy.orm import sessionmaker
