@@ -32,6 +32,8 @@ class Settings(BaseSettings):
     RAZORPAY_KEY_ID: str = ""
     RAZORPAY_KEY_SECRET: str = ""
     GEMINI_API_KEY: str = ""
+    GEMINI_MODEL: str = "gemini-1.5-flash"
+    GEMINI_TIMEOUT_SECONDS: int = 12
 
     model_config = SettingsConfigDict(
         # Try to load from clinic-app/.env relative to this file's location
