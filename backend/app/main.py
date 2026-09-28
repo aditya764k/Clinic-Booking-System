@@ -16,6 +16,7 @@ from app.api.auth import router as auth_router
 from app.api.scheduling import router as scheduling_router
 from app.api.appointment_state import router as appointment_state_router
 from app.api.clinical_notes import router as clinical_notes_router
+from app.api.billing import router as billing_router
 
 app = FastAPI(title="Clinic Appointment API")
 
@@ -38,6 +39,7 @@ app.include_router(auth_router, prefix="/auth")
 app.include_router(scheduling_router)
 app.include_router(appointment_state_router)
 app.include_router(clinical_notes_router)
+app.include_router(billing_router)
 
 
 @app.exception_handler(IllegalTransitionError)

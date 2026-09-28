@@ -1,6 +1,10 @@
 import { useState } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
-import './ConsultationView.css'
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
+import { Button } from '@/components/ui/button'
+import { Textarea } from '@/components/ui/textarea'
+import { Label } from '@/components/ui/label'
+import { AlertCircle, Loader2, FileText, CheckCircle2 } from 'lucide-react'
 
 interface DraftFields {
   chief_complaint: string
@@ -20,7 +24,7 @@ export default function ConsultationView() {
     assessment: '',
     suggested_rx: '',
   })
-  const [isDraft, setIsDraft] = useState(false)       // true once AI populated the fields
+  const [isDraft, setIsDraft] = useState(false)
   const [aiError, setAiError] = useState<string | null>(null)
   const [loading, setLoading] = useState<'draft' | 'saving' | null>(null)
   const [finalizeError, setFinalizeError] = useState<string | null>(null)
@@ -45,7 +49,6 @@ export default function ConsultationView() {
         setFields(data)
         setIsDraft(true)
       } else if (resp.status === 502) {
-        // AI unavailable — shorthand was saved server-side; allow manual entry
         const body = await resp.json().catch(() => ({}))
         const cause = body?.detail?.cause ?? 'unknown'
         setAiError(`AI draft unavailable (${cause}) — please enter the note manually below.`)
@@ -72,7 +75,6 @@ export default function ConsultationView() {
     setFinalizeError(null)
     setLoading('saving')
 
-    // Step 1: Finalize the note
     if (!noteFinalized) {
       try {
         const resp = await fetch(`${API}/appointments/${appointmentId}/clinical-note/finalize`, {
@@ -102,7 +104,6 @@ export default function ConsultationView() {
       }
     }
 
-    // Step 2: Complete the visit
     try {
       const resp = await fetch(`${API}/appointments/${appointmentId}/complete`, {
         method: 'POST',
@@ -116,8 +117,7 @@ export default function ConsultationView() {
           ? body.detail 
           : JSON.stringify(body?.detail || 'Unknown error')
         setFinalizeError(
-          `Note saved, but could not complete visit: ${detailStr}. ` +
-          'You can retry completion below.'
+          `Note saved, but could not complete visit: ${detailStr}. You can retry completion below.`
         )
       }
     } catch {
@@ -152,129 +152,162 @@ export default function ConsultationView() {
   }
 
   return (
-    <main className="consultation-root">
-      <header className="consultation-header">
-        <div className="header-inner">
-          <span className="logo-mark">🏥</span>
-          <h1>Consultation</h1>
-          <span className="appt-badge">Appointment #{appointmentId}</span>
+    <div className="max-w-4xl mx-auto space-y-6">
+      <div className="flex items-center justify-between pb-4 border-b">
+        <div>
+          <h2 className="text-2xl font-bold tracking-tight text-slate-900">Consultation</h2>
+          <p className="text-slate-500">Document the clinical visit</p>
         </div>
-      </header>
+        <div className="bg-primary/10 text-primary border border-primary/20 px-3 py-1 rounded-full text-sm font-semibold">
+          Appointment #{appointmentId}
+        </div>
+      </div>
 
-      <div className="consultation-body">
-
-        {/* ── Shorthand Input ─────────────────────────────────────────── */}
-        <section className="card shorthand-card">
-          <h2>Doctor's Shorthand</h2>
-          <p className="hint">Enter your clinical shorthand and generate an AI draft, or fill the note manually below.</p>
-          <textarea
-            id="shorthand-input"
-            className="shorthand-textarea"
-            placeholder="e.g. fever 3d, dry cough, temp 38.5C, lungs clear, no sob"
-            value={shorthand}
-            onChange={e => setShorthand(e.target.value)}
-            rows={4}
-            disabled={loading === 'draft'}
-          />
-          <button
-            id="generate-draft-btn"
-            className="btn btn-primary"
-            onClick={handleGenerateDraft}
-            disabled={!shorthand.trim() || loading !== null}
-          >
-            {loading === 'draft' ? (
-              <><span className="spinner" /> Generating…</>
-            ) : (
-              '✨ Generate AI Draft'
-            )}
-          </button>
+      <div className="grid gap-6 lg:grid-cols-[1fr_2fr]">
+        
+        {/* Shorthand Column */}
+        <div className="space-y-6">
+          <Card>
+            <CardHeader className="pb-3">
+              <CardTitle className="text-base font-semibold flex items-center gap-2">
+                <FileText className="h-4 w-4" />
+                Doctor's Shorthand
+              </CardTitle>
+              <CardDescription>
+                Enter your shorthand notes to generate an AI draft.
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <Textarea
+                placeholder="e.g. fever 3d, dry cough, temp 38.5C, lungs clear"
+                value={shorthand}
+                onChange={(e: any) => setShorthand(e.target.value)}
+                className="min-h-[150px] font-mono text-sm resize-none bg-slate-50"
+                disabled={loading === 'draft'}
+              />
+            </CardContent>
+            <CardFooter>
+              <Button 
+                onClick={handleGenerateDraft}
+                disabled={!shorthand.trim() || loading !== null}
+                className="w-full"
+              >
+                {loading === 'draft' ? (
+                  <><Loader2 className="mr-2 h-4 w-4 animate-spin" /> Generating Draft...</>
+                ) : (
+                  '✨ Generate AI Draft'
+                )}
+              </Button>
+            </CardFooter>
+          </Card>
 
           {aiError && (
-            <div className="alert alert-warning" role="alert">
-              <span className="alert-icon">⚠️</span>
-              {aiError}
+            <div className="bg-amber-50 border border-amber-200 text-amber-800 rounded-md p-4 text-sm flex items-start gap-3">
+              <AlertCircle className="h-5 w-5 shrink-0 mt-0.5 text-amber-600" />
+              <p>{aiError}</p>
             </div>
           )}
-        </section>
+        </div>
 
-        {/* ── Note Fields ─────────────────────────────────────────────── */}
-        <section className="card note-card">
-          <div className="note-header">
-            <h2>Clinical Note</h2>
-            {isDraft && (
-              <span className="ai-badge">🤖 AI Draft — Review Before Confirming</span>
-            )}
-          </div>
+        {/* Note Fields Column */}
+        <div className="space-y-6">
+          <Card>
+            <CardHeader className="pb-3 flex flex-row items-center justify-between space-y-0">
+              <div>
+                <CardTitle className="text-base font-semibold">Clinical Note</CardTitle>
+                <CardDescription>Review and finalize the record</CardDescription>
+              </div>
+              {isDraft && (
+                <div className="bg-indigo-50 text-indigo-700 border border-indigo-200 px-2 py-1 rounded-md text-xs font-semibold flex items-center gap-1.5 shadow-sm">
+                  <span className="relative flex h-2 w-2">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-indigo-500"></span>
+                  </span>
+                  AI Draft
+                </div>
+              )}
+            </CardHeader>
+            <CardContent className="space-y-5">
+              <div className="space-y-2">
+                <Label htmlFor="chief-complaint">Chief Complaint</Label>
+                <Textarea
+                  id="chief-complaint"
+                  placeholder="Primary presenting complaint..."
+                  value={fields.chief_complaint}
+                  onChange={(e: any) => setFields(f => ({ ...f, chief_complaint: e.target.value }))}
+                  className="min-h-[80px]"
+                />
+              </div>
 
-          <label htmlFor="chief-complaint">Chief Complaint</label>
-          <textarea
-            id="chief-complaint"
-            className="note-field"
-            placeholder="Primary presenting complaint…"
-            value={fields.chief_complaint}
-            onChange={e => setFields(f => ({ ...f, chief_complaint: e.target.value }))}
-            rows={3}
-          />
+              <div className="space-y-2">
+                <Label htmlFor="assessment">Assessment</Label>
+                <Textarea
+                  id="assessment"
+                  placeholder="Clinical assessment..."
+                  value={fields.assessment}
+                  onChange={(e: any) => setFields(f => ({ ...f, assessment: e.target.value }))}
+                  className="min-h-[100px]"
+                />
+              </div>
 
-          <label htmlFor="assessment">Assessment</label>
-          <textarea
-            id="assessment"
-            className="note-field"
-            placeholder="Clinical assessment…"
-            value={fields.assessment}
-            onChange={e => setFields(f => ({ ...f, assessment: e.target.value }))}
-            rows={4}
-          />
+              <div className="space-y-2">
+                <Label htmlFor="suggested-rx">Suggested Rx / Treatment</Label>
+                <Textarea
+                  id="suggested-rx"
+                  placeholder="Treatment plan, prescriptions..."
+                  value={fields.suggested_rx}
+                  onChange={(e: any) => setFields(f => ({ ...f, suggested_rx: e.target.value }))}
+                  className="min-h-[80px]"
+                />
+              </div>
+            </CardContent>
+          </Card>
 
-          <label htmlFor="suggested-rx">Suggested Rx / Treatment</label>
-          <textarea
-            id="suggested-rx"
-            className="note-field"
-            placeholder="Treatment plan, prescriptions…"
-            value={fields.suggested_rx}
-            onChange={e => setFields(f => ({ ...f, suggested_rx: e.target.value }))}
-            rows={3}
-          />
-        </section>
+          <Card className="bg-slate-50/50">
+            <CardContent className="p-6">
+              {finalizeError && (
+                <div className="bg-destructive/10 border border-destructive/20 text-destructive rounded-md p-4 text-sm flex flex-col gap-3 mb-4">
+                  <div className="flex items-start gap-3">
+                    <AlertCircle className="h-5 w-5 shrink-0 mt-0.5" />
+                    <p>{finalizeError}</p>
+                  </div>
+                  {noteFinalized && (
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      onClick={handleRetryComplete}
+                      disabled={loading !== null}
+                      className="self-start ml-8 border-destructive text-destructive hover:bg-destructive/10"
+                    >
+                      Retry Completion
+                    </Button>
+                  )}
+                </div>
+              )}
 
-        {/* ── Confirm & Complete ──────────────────────────────────────── */}
-        <section className="card action-card">
-          {finalizeError && (
-            <div className="alert alert-error" role="alert">
-              <span className="alert-icon">❌</span>
-              {finalizeError}
-              {noteFinalized && (
-                <button
-                  className="btn btn-secondary retry-btn"
-                  onClick={handleRetryComplete}
+              {!noteFinalized && (
+                <Button
+                  onClick={handleFinalizeAndComplete}
                   disabled={loading !== null}
+                  className="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-medium py-6 text-base"
                 >
-                  Retry Complete Visit
-                </button>
+                  {loading === 'saving' ? (
+                    <><Loader2 className="mr-2 h-5 w-5 animate-spin" /> Saving Note & Completing...</>
+                  ) : (
+                    <><CheckCircle2 className="mr-2 h-5 w-5" /> Confirm & Complete Visit</>
+                  )}
+                </Button>
               )}
-            </div>
-          )}
+              
+              <p className="text-xs text-slate-500 text-center mt-4">
+                By confirming, you take clinical responsibility for this note. <br className="hidden sm:block" />
+                The AI draft (if used) is a documentation aid only.
+              </p>
+            </CardContent>
+          </Card>
 
-          {!noteFinalized && (
-            <button
-              id="confirm-complete-btn"
-              className="btn btn-success"
-              onClick={handleFinalizeAndComplete}
-              disabled={loading !== null}
-            >
-              {loading === 'saving' ? (
-                <><span className="spinner" /> Saving…</>
-              ) : (
-                '✅ Confirm & Complete Visit'
-              )}
-            </button>
-          )}
-
-          <p className="disclaimer">
-            By confirming, you take clinical responsibility for this note. The AI draft (if used) is a documentation aid only.
-          </p>
-        </section>
+        </div>
       </div>
-    </main>
+    </div>
   )
 }
