@@ -24,6 +24,9 @@ os.environ["GOOGLE_CLIENT_ID"] = "test-google-client-id"
 os.environ["GOOGLE_CLIENT_SECRET"] = "test-google-client-secret"
 os.environ["COOKIE_SECURE"] = "false"
 os.environ["FRONTEND_ORIGIN"] = "http://localhost:3000"
+os.environ["GEMINI_API_KEY"] = "test-gemini-key"
+os.environ["GEMINI_MODEL"] = "gemini-1.5-flash"
+os.environ["GEMINI_TIMEOUT_SECONDS"] = "12"
 
 from sqlalchemy import create_engine, event
 from sqlalchemy.orm import sessionmaker

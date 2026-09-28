@@ -11,10 +11,11 @@ from fastapi.responses import JSONResponse
 from starlette.middleware.sessions import SessionMiddleware
 
 from app.core.config import settings
-from app.core.exceptions import IllegalTransitionError
+from app.core.exceptions import IllegalTransitionError, AIDraftGenerationError
 from app.api.auth import router as auth_router
 from app.api.scheduling import router as scheduling_router
 from app.api.appointment_state import router as appointment_state_router
+from app.api.clinical_notes import router as clinical_notes_router
 
 app = FastAPI(title="Clinic Appointment API")
 
@@ -36,6 +37,7 @@ app.add_middleware(
 app.include_router(auth_router, prefix="/auth")
 app.include_router(scheduling_router)
 app.include_router(appointment_state_router)
+app.include_router(clinical_notes_router)
 
 
 @app.exception_handler(IllegalTransitionError)
@@ -57,6 +59,19 @@ async def illegal_transition_handler(request: Request, exc: IllegalTransitionErr
             "detail": str(exc),
             "current_status": cur,
             "attempted_status": att,
+        },
+    )
+
+
+@app.exception_handler(AIDraftGenerationError)
+async def ai_draft_error_handler(request: Request, exc: AIDraftGenerationError):
+    """Convert AIDraftGenerationError → HTTP 502 with structured JSON body."""
+    return JSONResponse(
+        status_code=502,
+        content={
+            "detail": str(exc),
+            "cause": exc.cause_type,
+            "shorthand_saved": True,
         },
     )
 

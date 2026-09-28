@@ -4,8 +4,8 @@
     "hash": "d41d8cd98f00b204e9800998ecf8427e"
   },
   "/home/aditya/Clinic_Booking_System/clinic-app/backend/app/main.py": {
-    "mtime": 1790319334.6196814,
-    "hash": "0725878d27a268a49ea86c07cde653f7"
+    "mtime": 1790586035.941702,
+    "hash": "ce44c03f0b9772ae9aa27a275d2a339c"
   },
   "/home/aditya/Clinic_Booking_System/clinic-app/backend/app/api/auth.py": {
     "mtime": 1790284463.1273668,
@@ -18,6 +18,10 @@
   "/home/aditya/Clinic_Booking_System/clinic-app/backend/app/api/appointment_state.py": {
     "mtime": 1790319320.3868992,
     "hash": "04362cc2da9e52d1df23fffd8f85fb05"
+  },
+  "/home/aditya/Clinic_Booking_System/clinic-app/backend/app/api/clinical_notes.py": {
+    "mtime": 1790586013.8240635,
+    "hash": "0d2cae8f308af658d7a58ed987a333d2"
   },
   "/home/aditya/Clinic_Booking_System/clinic-app/backend/app/models/identity.py": {
     "mtime": 1790225493.36508,
@@ -52,8 +56,8 @@
     "hash": "7926eebeacc355c4af53b1d831a4fb23"
   },
   "/home/aditya/Clinic_Booking_System/clinic-app/backend/app/core/config.py": {
-    "mtime": 1790277067.4215748,
-    "hash": "06b3ec59b96d8401e033a0097bebc035"
+    "mtime": 1790585813.2752752,
+    "hash": "92e5a221aaf5b7c2d849e3f52f3d2ce4"
   },
   "/home/aditya/Clinic_Booking_System/clinic-app/backend/app/core/security.py": {
     "mtime": 1790277087.1632311,
@@ -64,8 +68,8 @@
     "hash": "f1be01f009f9e82fcb3c6848815f4304"
   },
   "/home/aditya/Clinic_Booking_System/clinic-app/backend/app/core/exceptions.py": {
-    "mtime": 1790319238.160662,
-    "hash": "5f01e067069af5f67872504e2121c5f3"
+    "mtime": 1790585924.2224774,
+    "hash": "ea66fce81ffa3b938c4bbb3ddf87dcb3"
   },
   "/home/aditya/Clinic_Booking_System/clinic-app/backend/app/schemas/auth.py": {
     "mtime": 1790284442.9870093,
@@ -74,6 +78,10 @@
   "/home/aditya/Clinic_Booking_System/clinic-app/backend/app/schemas/scheduling.py": {
     "mtime": 1790319275.2604396,
     "hash": "fc34fd4175c386960a76bf092aa95451"
+  },
+  "/home/aditya/Clinic_Booking_System/clinic-app/backend/app/schemas/clinical_note.py": {
+    "mtime": 1790585907.8790057,
+    "hash": "4465b89da259bffae173517a60abd500"
   },
   "/home/aditya/Clinic_Booking_System/clinic-app/backend/app/services/__init__.py": {
     "mtime": 1790282292.572026,
@@ -87,9 +95,13 @@
     "mtime": 1790319263.2485368,
     "hash": "07cb202bb36e3b84438d7fe3b6480599"
   },
+  "/home/aditya/Clinic_Booking_System/clinic-app/backend/app/services/ai_notes.py": {
+    "mtime": 1790585964.296634,
+    "hash": "081f4465e020eae43d40419674320ef1"
+  },
   "/home/aditya/Clinic_Booking_System/clinic-app/backend/tests/conftest.py": {
-    "mtime": 1790277489.5105796,
-    "hash": "c59dd6ea145cb8b023a163e425dfda96"
+    "mtime": 1790586037.9487598,
+    "hash": "c42952b05d67a81b9c5c05cb18477e81"
   },
   "/home/aditya/Clinic_Booking_System/clinic-app/backend/tests/test_auth.py": {
     "mtime": 1790277253.5462263,
@@ -106,6 +118,10 @@
   "/home/aditya/Clinic_Booking_System/clinic-app/backend/tests/test_appointment_state.py": {
     "mtime": 1790319987.5731428,
     "hash": "aa4fddea2ab41338b1bd673262796d39"
+  },
+  "/home/aditya/Clinic_Booking_System/clinic-app/backend/tests/test_clinical_notes.py": {
+    "mtime": 1790586114.085957,
+    "hash": "abe52ac8853861a00287ab57c983f1c5"
   },
   "/home/aditya/Clinic_Booking_System/clinic-app/backend/alembic/env.py": {
     "mtime": 1790196500.0927227,
@@ -136,12 +152,16 @@
     "hash": "0355276bc79439afe3c53e3a2470ca1e"
   },
   "/home/aditya/Clinic_Booking_System/clinic-app/frontend/src/App.tsx": {
-    "mtime": 1790192194.4979281,
-    "hash": "e4931f6d58500c8315d8198f9aa64ff0"
+    "mtime": 1790586350.0497675,
+    "hash": "a60582c9db168efa8f69b56f5291de57"
   },
   "/home/aditya/Clinic_Booking_System/clinic-app/frontend/src/main.tsx": {
     "mtime": 1790192194.4979281,
     "hash": "787e5a07efeb2bf6209d5937195f2f68"
+  },
+  "/home/aditya/Clinic_Booking_System/clinic-app/frontend/src/ConsultationView.tsx": {
+    "mtime": 1790586306.0714982,
+    "hash": "9b847f470a082ffc520e42b15cf1e049"
   },
   "/home/aditya/Clinic_Booking_System/clinic-app/docker-compose.yml": {
     "mtime": 1790193083.142291,
@@ -174,6 +194,14 @@
   "/home/aditya/Clinic_Booking_System/clinic-app/docs/module3_implementation_plan.md": {
     "mtime": 1790285323.3929353,
     "hash": "310db5ddb72d0d86286c0682c5a27fcd"
+  },
+  "/home/aditya/Clinic_Booking_System/clinic-app/docs/module4_state_machine_summary.md": {
+    "mtime": 1790581420.4564905,
+    "hash": "dad1f15c4f25848914f8172c650a0e8a"
+  },
+  "/home/aditya/Clinic_Booking_System/clinic-app/docs/module4_implementation_plan.md": {
+    "mtime": 1790581623.9813645,
+    "hash": "fe0ff9a69d2a2a869ef0c91ab6accf35"
   },
   "/home/aditya/Clinic_Booking_System/clinic-app/frontend/README.md": {
     "mtime": 1790192194.4999285,
