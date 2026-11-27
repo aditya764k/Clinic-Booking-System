@@ -1,11 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    --background: 0 0% 100%;       /* White */
-    --foreground: 222.2 84% 4.9%;  /* Slate 950 */
+    --background: 210 40% 98%; /* #F8FAFC */
+    --foreground: 222.2 84% 4.9%;
 
     --card: 0 0% 100%;
     --card-foreground: 222.2 84% 4.9%;
@@ -13,38 +15,61 @@
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    /* Primary: Teal-600 */
-    --primary: 173 80% 36%;
+    --primary: 224 76% 48%; /* #1D4ED8 */
     --primary-foreground: 210 40% 98%;
 
-    /* Secondary: Slate-100 */
     --secondary: 210 40% 96.1%;
     --secondary-foreground: 222.2 47.4% 11.2%;
 
-    /* Muted: Slate-100 */
     --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%; /* Slate 500 */
+    --muted-foreground: 215.4 16.3% 46.9%;
 
     --accent: 210 40% 96.1%;
     --accent-foreground: 222.2 47.4% 11.2%;
 
-    /* Destructive: Red-500 */
-    --destructive: 0 84.2% 60.2%;
+    --destructive: 0 84.2% 60.2%; /* #DC2626 */
     --destructive-foreground: 210 40% 98%;
 
-    --border: 214.3 31.8% 91.4%;   /* Slate 200 */
+    --border: 214.3 31.8% 91.4%; /* #E2E8F0 */
     --input: 214.3 31.8% 91.4%;
-    --ring: 173 80% 36%;           /* Focus ring is Teal */
+    --ring: 224 76% 48%; /* Primary ring */
 
-    --radius: 0.5rem;
+    --radius: 0.75rem; /* 12px default */
+  }
+
+  body {
+    @apply bg-slate-50 text-slate-600 font-sans;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply text-slate-900;
+  }
+  
+  /* Heading specific classes for easy use */
+  .font-hero {
+    font-family: 'Playfair Display', serif;
   }
 }
 
-@layer base {
-  * {
-    @apply border-border;
+@layer utilities {
+  .shadow-level-1 {
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
   }
-  body {
-    @apply bg-slate-50 text-foreground font-sans antialiased;
+  
+  .shadow-level-2 {
+    box-shadow: 0 4px 16px rgba(0,0,0,0.08), 0 2px 6px rgba(0,0,0,0.04);
+  }
+  
+  .shadow-level-3 {
+    box-shadow: 0 20px 60px rgba(0,0,0,0.15), 0 8px 24px rgba(0,0,0,0.08);
+  }
+
+  .glass-panel {
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    box-shadow: 0 4px 24px rgba(0,0,0,0.06);
   }
 }

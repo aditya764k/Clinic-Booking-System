@@ -9,6 +9,8 @@ from typing import Optional
 
 from pydantic import BaseModel, field_validator, model_validator
 
+from app.schemas.billing import InvoiceOut
+
 # Valid weekday keys for working_hours_config
 WEEKDAYS = {"monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"}
 _TIME_RE = re.compile(r"^\d{2}:\d{2}$")
@@ -87,9 +89,22 @@ class AppointmentOut(BaseModel):
 
     model_config = {"from_attributes": True}
 
+class BookingResponse(BaseModel):
+    appointment: AppointmentOut
+    order_id: str
+    invoice_id: int
+    amount: int
+    currency: str
+
 
 class AppointmentQueueItem(BaseModel):
-    """A single row in the receptionist/doctor queue response."""
+    """A single row in the receptionist/doctor queue response.
+
+    The ``invoice`` field is populated only when the appointment has a billing
+    record — null for booked/checked-in rows that haven't been invoiced yet.
+    Frontend uses this to render the live payment-status column and conditionally
+    show the "Bill this visit" button without a second API call.
+    """
 
     id: int
     status: str
@@ -97,5 +112,6 @@ class AppointmentQueueItem(BaseModel):
     doctor_name: str
     slot_start: datetime
     slot_end: datetime
+    invoice: Optional[InvoiceOut] = None
 
     model_config = {"from_attributes": True}

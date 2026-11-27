@@ -25,31 +25,47 @@ class DraftRequest(BaseModel):
         return stripped
 
 
+class PrescriptionItem(BaseModel):
+    medicine_name: str
+    dosage: str
+    frequency: str
+    duration: str
+    instructions: Optional[str] = None
+
+
+class LabTestItem(BaseModel):
+    test_name: str
+    reason: Optional[str] = None
+
+
 class AIDraftOut(BaseModel):
     """The structured draft returned by the Gemini service.
 
-    Matches the JSON shape the prompt instructs the model to produce:
-    {"chief_complaint": "...", "assessment": "...", "suggested_rx": "..."}
+    Matches the JSON shape the prompt instructs the model to produce.
     """
-
-    chief_complaint: str
-    assessment: str
-    suggested_rx: str
+    symptoms: str
+    diagnosis: str
+    treatment_plan: str
+    prescriptions: list[PrescriptionItem]
+    lab_tests_recommended: list[LabTestItem]
+    follow_up_date: Optional[str] = None
 
     model_config = {"from_attributes": True}
 
 
 class FinalizeNoteRequest(BaseModel):
     """Request body for POST /appointments/{id}/clinical-note/finalize.
-
-    All three fields are required — the doctor must explicitly submit each
-    section, whether copied verbatim from the AI draft, edited, or typed
-    from scratch. This is the concrete 'AI drafts, doctor decides' boundary.
+    
+    The doctor must explicitly submit each section.
     """
-
-    final_chief_complaint: str
-    final_assessment: str
-    final_suggested_rx: str
+    symptoms: str
+    diagnosis: str
+    treatment_plan: str
+    prescriptions: list[PrescriptionItem]
+    lab_tests_recommended: list[LabTestItem]
+    follow_up_date: Optional[str] = None
+    additional_treatment_charges: Optional[float] = None
+    treatment_charge_description: Optional[str] = None
 
 
 class ClinicalNoteOut(BaseModel):
@@ -59,6 +75,18 @@ class ClinicalNoteOut(BaseModel):
     appointment_id: int
     shorthand_input: Optional[str] = None
     ai_draft_json: Optional[Dict[str, Any]] = None
+    
+    # New structured fields
+    symptoms: Optional[str] = None
+    diagnosis: Optional[str] = None
+    treatment_plan: Optional[str] = None
+    prescriptions: Optional[list[PrescriptionItem]] = None
+    lab_tests_recommended: Optional[list[LabTestItem]] = None
+    follow_up_date: Optional[datetime] = None
+    additional_treatment_charges: Optional[float] = None
+    treatment_charge_description: Optional[str] = None
+    
+    # Deprecated fields (kept for backward compatibility with old records if needed)
     final_chief_complaint: Optional[str] = None
     final_assessment: Optional[str] = None
     final_suggested_rx: Optional[str] = None

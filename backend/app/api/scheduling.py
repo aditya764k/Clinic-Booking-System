@@ -21,21 +21,26 @@ import logging
 from datetime import date, datetime, timedelta, timezone
 from typing import Any, List
 
-from fastapi import APIRouter, Depends, HTTPException, Query, status
-from sqlalchemy import and_
-from sqlalchemy.exc import IntegrityError, InvalidRequestError, OperationalError
+from fastapi import APIRouter, Depends, Query, status, HTTPException
 from sqlalchemy.orm import Session
+from sqlalchemy.exc import IntegrityError, OperationalError
+from sqlalchemy.exc import InvalidRequestError
+import razorpay
 
+from app.core.config import settings
 from app.core.database import get_db
 from app.core.dependencies import get_current_user, require_role
-from app.models.appointment import Appointment, AppointmentStatus
-from app.models.identity import DoctorProfile, PatientProfile, User
+from app.models.identity import DoctorProfile, PatientProfile, User, UserRole
 from app.models.scheduling import AppointmentSlot
+from app.models.appointment import Appointment, AppointmentStatus
+from app.models.billing import Invoice, InvoiceType, InvoiceStatus, PaymentMethod
 from app.schemas.scheduling import (
-    AppointmentOut,
     BookingRequest,
+    DaySchedule,
     SlotOut,
     WorkingHoursConfig,
+    AppointmentOut,
+    BookingResponse,
 )
 from app.services.scheduling import generate_slots_for_doctor
 
@@ -71,6 +76,50 @@ def update_working_hours(
     db.commit()
     db.refresh(doctor)
     return WorkingHoursConfig.model_validate(doctor.working_hours_config)
+
+
+@router.get("/doctors/me/working-hours", response_model=WorkingHoursConfig)
+def get_working_hours(
+    db: Session = Depends(get_db),
+    current_user: User = Depends(require_role("doctor")),
+) -> Any:
+    """Get the calling doctor's working-hours configuration.
+    Returns default hours if not set yet.
+    """
+    doctor: DoctorProfile | None = (
+        db.query(DoctorProfile)
+        .filter(DoctorProfile.user_id == current_user.id)
+        .first()
+    )
+    if doctor is None:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail="Doctor profile not found for current user",
+        )
+        
+    if not doctor.working_hours_config:
+        return _get_default_hours()
+        
+    try:
+        return WorkingHoursConfig.model_validate(doctor.working_hours_config)
+    except Exception as exc:
+        logger.warning(f"Failed to validate working hours for doctor {doctor.id}: {exc}")
+        return _get_default_hours()
+
+def _get_default_hours():
+    return WorkingHoursConfig(
+        slot_duration_minutes=20,
+        schedule={
+            "monday": {"start": "09:00", "end": "17:00"},
+            "tuesday": {"start": "09:00", "end": "17:00"},
+            "wednesday": {"start": "09:00", "end": "17:00"},
+            "thursday": {"start": "09:00", "end": "17:00"},
+            "friday": {"start": "09:00", "end": "17:00"},
+            "saturday": {"start": "09:00", "end": "17:00"},
+            "sunday": {"start": "09:00", "end": "17:00"},
+        }
+    )
+
 
 
 # ── Slot Generation ───────────────────────────────────────────────────────────
@@ -154,7 +203,7 @@ def list_open_slots(
 
 @router.post(
     "/appointments/book",
-    response_model=AppointmentOut,
+    response_model=BookingResponse,
     status_code=status.HTTP_201_CREATED,
 )
 def book_appointment(
@@ -205,9 +254,24 @@ def book_appointment(
         patient_id=patient.id,
         doctor_id=slot_doctor_id,
         slot_id=slot.id,
-        status=AppointmentStatus.booked,
+        status=AppointmentStatus.payment_pending,
     )
     db.add(appointment)
+    db.flush() # get appointment id for invoice
+
+    # Create booking fee invoice
+    doctor: DoctorProfile = db.get(DoctorProfile, slot_doctor_id)
+    consultation_fee = doctor.consultation_fee
+    
+    invoice = Invoice(
+        appointment_id=appointment.id,
+        amount=consultation_fee,
+        currency="INR",
+        invoice_type=InvoiceType.booking_fee,
+        status=InvoiceStatus.pending,
+    )
+    db.add(invoice)
+    db.flush() # get invoice id
 
     try:
         db.commit()
@@ -239,15 +303,62 @@ def book_appointment(
 
     # Success path — use a fresh query to avoid stale ORM state
     saved = db.get(Appointment, appointment.id)
+    
+    # Create razorpay order
+    amount_paise = int(invoice.amount * 100)
+    rzp_client = razorpay.Client(
+        auth=(settings.RAZORPAY_KEY_ID, settings.RAZORPAY_KEY_SECRET)
+    )
+    
+    base_email = patient.user.email if patient and patient.user else "patient@example.com"
+    if "@" in base_email:
+        username, domain = base_email.split("@", 1)
+        patient_email = f"{username}+{invoice.appointment_id}@{domain}"
+    else:
+        patient_email = base_email
 
-    # Load doctor name for response
-    doctor: DoctorProfile = db.get(DoctorProfile, slot_doctor_id)
+    try:
+        rzp_invoice = rzp_client.invoice.create({
+            "type": "invoice",
+            "description": f"Clinic Booking Fee - Appointment #{invoice.appointment_id}",
+            "customer": {
+                "name": patient.full_name,
+                "email": patient_email,
+            },
+            "line_items": [
+                {
+                    "name": "Consultation Fee",
+                    "amount": amount_paise,
+                    "currency": invoice.currency,
+                    "quantity": 1
+                }
+            ]
+        })
+    except Exception as exc:
+        logger.error("Razorpay invoice creation failed for invoice_id=%s: %s", invoice.id, exc)
+        db.rollback()
+        raise HTTPException(
+            status_code=status.HTTP_502_BAD_GATEWAY,
+            detail="Failed to create Razorpay invoice — payment gateway error",
+        ) from exc
+
+    invoice.payment_method = PaymentMethod.razorpay
+    invoice.razorpay_order_id = rzp_invoice.get("order_id")
+    invoice.receipt_number = rzp_invoice.get("id")
+    db.commit()
+
     doctor_name = doctor.full_name if doctor else "Unknown"
 
-    return AppointmentOut(
-        id=saved.id,
-        status=saved.status.value if hasattr(saved.status, "value") else str(saved.status),
-        slot_start=slot_start,
-        slot_end=slot_end,
-        doctor_name=doctor_name,
+    return BookingResponse(
+        appointment=AppointmentOut(
+            id=saved.id,
+            status=saved.status.value if hasattr(saved.status, "value") else str(saved.status),
+            slot_start=slot_start,
+            slot_end=slot_end,
+            doctor_name=doctor_name,
+        ),
+        order_id=invoice.razorpay_order_id,
+        invoice_id=invoice.id,
+        amount=amount_paise,
+        currency=invoice.currency
     )

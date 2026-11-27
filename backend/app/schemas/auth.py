@@ -41,6 +41,7 @@ class UserOut(BaseModel):
     id: int
     email: str
     role: str
+    full_name: str | None = None
     created_at: datetime
     profile_id: int | None = None
 

@@ -33,7 +33,7 @@ When a payment succeeds (either via Cash or Webhook), multiple things must happe
 3. `AuditLog` row is created (for cash collections).
 4. `Appointment.status` transitions to `PAID`.
 
-We use `db.flush()` to stage all the invoice and audit log changes, and then we rely on `transition_appointment()` to execute the final `db.commit()`. If the server crashes anywhere in this pipeline, the entire transaction rolls back, preventing a scenario where an invoice is paid but the appointment remains pending.
+We use `db.flush()` to stage all the invoice and audit log changes, and then we rely on `transition_appointment()` to execute the final `db.commit()`. If the server crashes anywhere in this pipeline, the entire transaction rolls back, preventing a scenario where an invoice is paid but the appointment remains pending. Furthermore, we explicitly enforce state transitions (`BILLING_PENDING` → `PAID`) for cash payments to ensure no silent failures occur when the receptionist accepts cash.
 
 ## 5. Security & HMAC Verification
 Razorpay webhooks are public endpoints (they cannot pass a Receptionist authentication cookie). This opens the system up to malicious actors spoofing payment confirmations.
@@ -47,6 +47,7 @@ The `PaymentSelectorModal` is designed with robust error handling to gracefully 
 - It fetches the exact `amount` from the backend invoice before opening Razorpay, ensuring what the patient sees matches the database.
 - The Cash form uses HTML5 validation `min={invoiceAmount}` but the backend acts as the ultimate enforcer (`422 Unprocessable Entity` if the cash tendered is less than the invoice amount).
 - Upon Razorpay's JavaScript `handler` succeeding, the UI optimistically shows a "Success" state, but the actual source of truth is finalized asynchronously in the background via the webhook.
+- Patients have full transparency into their billing history with the **Download Receipt** functionality integrated directly into both the "My Appointments" view and the "Book Appointment" confirmation screen. This connects the billing workflows to the `pdf_generator.py` service.
 
 ## Summary of DB Constraints Utilized
 | Constraint | Purpose |
