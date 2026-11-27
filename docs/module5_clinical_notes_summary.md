@@ -33,6 +33,11 @@ Module 5 relies heavily on the groundwork laid in Module 4.
 - **State Guard (In Consultation)**: Notes can only be drafted or finalized if the appointment is in the `in_consultation` state (HTTP 409 Conflict).
 - **State Guard (Completion)**: The `POST /appointments/{id}/complete` endpoint checks that a `ClinicalNote` exists and `finalized_at` is set before allowing the visit to complete. If valid, it delegates the actual database write to Module 4's `transition_appointment()` function.
 
+### 4. PDF Generation Service
+As part of the consultation completion process, the system provides downloadable artifacts. We implemented `app/services/pdf_generator.py` to handle this.
+- **ReportLab Integration**: Generates on-the-fly PDFs for the finalized clinical prescriptions.
+- **Cross-Module Reusability**: While originally built for clinical notes, this service is highly modular. It was recently expanded to serve **Module 6 (Billing)**, allowing patients to download payment receipts for `PAID` appointments.
+
 ## Testing Strategy
 The test suite (`tests/test_clinical_notes.py`) achieves full coverage without making a single real network call to Gemini.
 

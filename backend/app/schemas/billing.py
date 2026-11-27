@@ -37,6 +37,15 @@ class RazorpayOrderOut(BaseModel):
     currency: str
 
 
+class VerifyRazorpayRequest(BaseModel):
+    """Payload for frontend synchronous signature verification."""
+    razorpay_payment_id: str = ""
+    razorpay_order_id: str = ""
+    razorpay_signature: str = ""
+    razorpay_invoice_id: str = ""
+    razorpay_invoice_receipt: str = ""
+
+
 class CashPaymentRequest(BaseModel):
     """Request body for POST /invoices/{id}/pay-cash.
 

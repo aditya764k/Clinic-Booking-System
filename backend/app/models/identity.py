@@ -6,7 +6,7 @@ from datetime import datetime, date
 from typing import Optional, List, TYPE_CHECKING
 
 from sqlalchemy import (
-    String, Enum as SAEnum, DateTime, Date, JSON, ForeignKey
+    String, Enum as SAEnum, DateTime, Date, JSON, ForeignKey, Numeric
 )
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
@@ -69,6 +69,7 @@ class DoctorProfile(Base):
     user_id: Mapped[int] = mapped_column(ForeignKey("users.id"), unique=True, nullable=False)
     full_name: Mapped[str] = mapped_column(String, nullable=False)
     specialization: Mapped[Optional[str]] = mapped_column(String, nullable=True)
+    consultation_fee: Mapped[float] = mapped_column(Numeric(10, 2), default=500.00, nullable=False)
     working_hours_config: Mapped[Optional[dict]] = mapped_column(JSON, nullable=True)
 
     # Relationships

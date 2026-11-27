@@ -6,7 +6,7 @@ from datetime import datetime
 from typing import Optional, TYPE_CHECKING
 
 from sqlalchemy import (
-    DateTime, ForeignKey, Enum as SAEnum, Text, JSON
+    DateTime, ForeignKey, Enum as SAEnum, Text, JSON, Numeric
 )
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
@@ -19,6 +19,7 @@ if TYPE_CHECKING:
 
 
 class AppointmentStatus(str, enum.Enum):
+    payment_pending = "payment_pending"
     booked = "booked"
     checked_in = "checked_in"
     in_consultation = "in_consultation"
@@ -57,7 +58,7 @@ class Appointment(Base):
     doctor: Mapped["DoctorProfile"] = relationship("DoctorProfile", back_populates="appointments", foreign_keys=[doctor_id])
     slot: Mapped["AppointmentSlot"] = relationship("AppointmentSlot", back_populates="appointment")
     clinical_note: Mapped[Optional["ClinicalNote"]] = relationship("ClinicalNote", back_populates="appointment", uselist=False)
-    invoice: Mapped[Optional["Invoice"]] = relationship("Invoice", back_populates="appointment", uselist=False)
+    invoices: Mapped[list["Invoice"]] = relationship("Invoice", back_populates="appointment")
 
 
 class ClinicalNote(Base):
@@ -67,9 +68,20 @@ class ClinicalNote(Base):
     appointment_id: Mapped[int] = mapped_column(ForeignKey("appointments.id"), unique=True, nullable=False)
     shorthand_input: Mapped[Optional[str]] = mapped_column(Text, nullable=True)
     ai_draft_json: Mapped[Optional[dict]] = mapped_column(JSON, nullable=True)
-    final_chief_complaint: Mapped[Optional[str]] = mapped_column(Text, nullable=True)
-    final_assessment: Mapped[Optional[str]] = mapped_column(Text, nullable=True)
-    final_suggested_rx: Mapped[Optional[str]] = mapped_column(Text, nullable=True)
+    final_chief_complaint: Mapped[Optional[str]] = mapped_column(Text, nullable=True) # DEPRECATED
+    final_assessment: Mapped[Optional[str]] = mapped_column(Text, nullable=True) # DEPRECATED
+    final_suggested_rx: Mapped[Optional[str]] = mapped_column(Text, nullable=True) # DEPRECATED
+    
+    # New Structured Fields
+    symptoms: Mapped[Optional[str]] = mapped_column(Text, nullable=True)
+    diagnosis: Mapped[Optional[str]] = mapped_column(Text, nullable=True)
+    treatment_plan: Mapped[Optional[str]] = mapped_column(Text, nullable=True)
+    additional_treatment_charges: Mapped[Optional[float]] = mapped_column(Numeric(10, 2), nullable=True)
+    treatment_charge_description: Mapped[Optional[str]] = mapped_column(Text, nullable=True)
+    prescriptions: Mapped[Optional[list[dict]]] = mapped_column(JSON, nullable=True)
+    lab_tests_recommended: Mapped[Optional[list[dict]]] = mapped_column(JSON, nullable=True)
+    follow_up_date: Mapped[Optional[datetime]] = mapped_column(DateTime(timezone=True), nullable=True)
+
     finalized_by_doctor_id: Mapped[Optional[int]] = mapped_column(ForeignKey("doctor_profiles.id"), nullable=True)
     finalized_at: Mapped[Optional[datetime]] = mapped_column(DateTime(timezone=True), nullable=True)
 

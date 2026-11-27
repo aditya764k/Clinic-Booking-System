@@ -18,6 +18,11 @@ if TYPE_CHECKING:
     from app.models.appointment import Appointment
 
 
+class InvoiceType(str, enum.Enum):
+    booking_fee = "booking_fee"
+    treatment_fee = "treatment_fee"
+
+
 class InvoiceStatus(str, enum.Enum):
     pending = "pending"
     paid = "paid"
@@ -33,9 +38,13 @@ class Invoice(Base):
     __tablename__ = "invoices"
 
     id: Mapped[int] = mapped_column(primary_key=True, autoincrement=True)
-    appointment_id: Mapped[int] = mapped_column(ForeignKey("appointments.id"), unique=True, nullable=False)
+    appointment_id: Mapped[int] = mapped_column(ForeignKey("appointments.id"), nullable=False)
     amount: Mapped[Decimal] = mapped_column(Numeric(10, 2), nullable=False)
     currency: Mapped[str] = mapped_column(String, nullable=False, default="INR")
+    invoice_type: Mapped[Optional[InvoiceType]] = mapped_column(
+        SAEnum(InvoiceType, name="invoicetype", create_type=True),
+        nullable=True,
+    )
     status: Mapped[InvoiceStatus] = mapped_column(
         SAEnum(InvoiceStatus, name="invoicestatus", create_type=True),
         nullable=False,
@@ -54,7 +63,7 @@ class Invoice(Base):
     paid_at: Mapped[Optional[datetime]] = mapped_column(DateTime(timezone=True), nullable=True)
 
     # Relationships
-    appointment: Mapped["Appointment"] = relationship("Appointment", back_populates="invoice")
+    appointment: Mapped["Appointment"] = relationship("Appointment", back_populates="invoices")
     collected_by: Mapped[Optional["User"]] = relationship(
         "User",
         back_populates="collected_invoices",

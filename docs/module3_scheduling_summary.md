@@ -61,7 +61,7 @@ In Module 3, it is critical to remember that endpoints like slot generation requ
 1. **Do not use `time.sleep()` or `SELECT` checks for concurrency.** Trust the database constraints. The `UNIQUE(slot_id)` constraint on the `appointments` table is the absolute source of truth.
 2. **SQLite StaticPool Quirks:** When testing concurrency in `pytest`, SQLite's `StaticPool` shares one connection across multiple test threads. If Thread A rolls back, it can reset the database cursor for Thread B, resulting in an `InvalidRequestError` (formerly `FlushError`) in Thread B. We catch this explicitly in the `book_appointment` endpoint to ensure tests pass cleanly without crashing the API.
 3. **Database Consistency:** Because booking creates an `Appointment` row linking to an `AppointmentSlot`, and the slot links to `DoctorProfile`, attempting to delete a doctor would cascade properly. However, for audit reasons, soft-deletes are generally preferred over hard deletes in production clinical systems.
-4. **Timezones:** All datetimes in the slots are created and stored using UTC (`timezone.utc`). The frontend is responsible for converting these UTC slots into the patient's local timezone.
+4. **Timezones:** All datetimes in the slots are created and stored using UTC (`timezone.utc`). The frontend is responsible for converting these UTC slots into the patient's local timezone. This is fully implemented in the frontend slot selection flow, ensuring patients see their exact appointment times accurately before booking, and similarly in the "My Appointments" dashboard for newly booked appointments.
 
 ---
 

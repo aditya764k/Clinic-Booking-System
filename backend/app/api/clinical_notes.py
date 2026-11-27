@@ -42,7 +42,7 @@ from app.core.database import get_db
 from app.core.dependencies import get_current_user, require_role
 from app.core.exceptions import AIDraftGenerationError
 from app.models.appointment import Appointment, AppointmentStatus, ClinicalNote
-from app.models.identity import DoctorProfile, User
+from app.models.identity import DoctorProfile, User, UserRole
 from app.models.scheduling import AppointmentSlot
 from app.schemas.clinical_note import (
     AIDraftOut,
@@ -115,9 +115,12 @@ def _note_out(note: ClinicalNote) -> ClinicalNoteOut:
         appointment_id=note.appointment_id,
         shorthand_input=note.shorthand_input,
         ai_draft_json=note.ai_draft_json,
-        final_chief_complaint=note.final_chief_complaint,
-        final_assessment=note.final_assessment,
-        final_suggested_rx=note.final_suggested_rx,
+        symptoms=note.symptoms,
+        diagnosis=note.diagnosis,
+        treatment_plan=note.treatment_plan,
+        prescriptions=note.prescriptions,
+        lab_tests_recommended=note.lab_tests_recommended,
+        follow_up_date=note.follow_up_date,
         finalized_by_doctor_id=note.finalized_by_doctor_id,
         finalized_at=note.finalized_at,
     )
@@ -235,9 +238,23 @@ def finalize_note(
         db.add(note)
 
     # ── THE ONLY PERMITTED WRITES TO final_ COLUMNS ───────────────────────────
-    note.final_chief_complaint = body.final_chief_complaint
-    note.final_assessment = body.final_assessment
-    note.final_suggested_rx = body.final_suggested_rx
+    note.symptoms = body.symptoms
+    note.diagnosis = body.diagnosis
+    note.treatment_plan = body.treatment_plan
+    note.prescriptions = [p.model_dump() for p in body.prescriptions]
+    note.lab_tests_recommended = [l.model_dump() for l in body.lab_tests_recommended]
+    
+    if body.follow_up_date:
+        try:
+            # Parse YYYY-MM-DD
+            note.follow_up_date = datetime.strptime(body.follow_up_date, "%Y-%m-%d").replace(tzinfo=timezone.utc)
+        except ValueError:
+            note.follow_up_date = None
+    else:
+        note.follow_up_date = None
+        
+    note.additional_treatment_charges = body.additional_treatment_charges
+    note.treatment_charge_description = body.treatment_charge_description
     note.finalized_by_doctor_id = doctor.id
     note.finalized_at = datetime.now(tz=timezone.utc)
     # ─────────────────────────────────────────────────────────────────────────
@@ -283,9 +300,96 @@ def complete_visit(
             detail="Cannot complete visit: clinical note has not been finalized",
         )
 
-    # Delegate transition to Module 4's centralized guard
-    completed_appt = transition_appointment(
-        db, appointment_id, AppointmentStatus.completed, actor=current_user
-    )
+    # Check if there are additional treatment charges
+    has_treatment_charges = note.additional_treatment_charges is not None and note.additional_treatment_charges > 0
+
+    if has_treatment_charges:
+        from app.models.billing import Invoice, InvoiceType, InvoiceStatus
+        # Create treatment_fee invoice
+        invoice = Invoice(
+            appointment_id=appt.id,
+            amount=note.additional_treatment_charges,
+            currency="INR",
+            invoice_type=InvoiceType.treatment_fee,
+            status=InvoiceStatus.pending,
+        )
+        db.add(invoice)
+        db.flush()
+        # Delegate transition to billing_pending
+        completed_appt = transition_appointment(db, appt.id, AppointmentStatus.billing_pending, actor=current_user)
+    else:
+        # Delegate transition to completed
+        completed_appt = transition_appointment(db, appt.id, AppointmentStatus.completed, actor=current_user)
+
+    db.refresh(completed_appt)
     slot = db.get(AppointmentSlot, completed_appt.slot_id)
     return _appointment_out(completed_appt, slot)
+
+# ── PDF Generation endpoint ───────────────────────────────────────────────────
+
+from fastapi.responses import StreamingResponse
+from app.services.pdf_generator import generate_prescription_pdf
+
+@router.get(
+    "/appointments/{appointment_id}/clinical-note/pdf",
+    response_class=StreamingResponse
+)
+def download_prescription_pdf(
+    appointment_id: int,
+    db: Session = Depends(get_db),
+    current_user: User = Depends(get_current_user),
+) -> Any:
+    """FR-DOC-08: Download the professional PDF prescription."""
+    appt: Appointment | None = db.get(Appointment, appointment_id)
+    if not appt:
+        raise HTTPException(status_code=404, detail="Appointment not found")
+
+    # RBAC: Doctor assigned, Patient assigned, or Receptionist
+    allowed = False
+    if current_user.role == UserRole.receptionist:
+        allowed = True
+    elif current_user.role == UserRole.doctor and appt.doctor.user_id == current_user.id:
+        allowed = True
+    elif current_user.role == UserRole.patient and appt.patient.user_id == current_user.id:
+        allowed = True
+
+    if not allowed:
+        raise HTTPException(status_code=403, detail="Not authorized to access this prescription")
+
+    note = db.query(ClinicalNote).filter(ClinicalNote.appointment_id == appointment_id).first()
+    if not note or not note.finalized_at:
+        raise HTTPException(status_code=404, detail="Prescription has not been finalized yet")
+
+    pdf_buffer = generate_prescription_pdf(appt, note)
+    
+    headers = {
+        "Content-Disposition": f'attachment; filename="prescription_{appointment_id}.pdf"'
+    }
+    
+    return StreamingResponse(
+        pdf_buffer, 
+        media_type="application/pdf", 
+        headers=headers
+    )
+
+# ── Patient History endpoint ──────────────────────────────────────────────────
+
+@router.get(
+    "/patients/{patient_id}/history",
+    response_model=list[ClinicalNoteOut]
+)
+def get_patient_history(
+    patient_id: int,
+    db: Session = Depends(get_db),
+    current_user: User = Depends(require_role("doctor")),
+) -> Any:
+    """Fetch all finalized clinical notes for a given patient."""
+    notes = (
+        db.query(ClinicalNote)
+        .join(Appointment)
+        .filter(Appointment.patient_id == patient_id)
+        .filter(ClinicalNote.finalized_at.is_not(None))
+        .order_by(ClinicalNote.finalized_at.desc())
+        .all()
+    )
+    return [_note_out(n) for n in notes]

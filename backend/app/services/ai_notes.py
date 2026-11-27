@@ -39,18 +39,18 @@ notes from a patient consultation. Your task is to expand them into a \
 structured clinical record.
 
 Return ONLY a JSON object — no markdown, no code fences, no explanation — \
-with exactly three keys:
-  "chief_complaint" : the patient's primary presenting complaint
-  "assessment"      : your clinical assessment summary
-  "suggested_rx"    : suggested treatment or prescription notes
+with exactly these keys:
+  "symptoms" : the patient's primary presenting complaints and symptoms
+  "diagnosis" : your clinical assessment or diagnosis
+  "treatment_plan" : general treatment plan and advice
+  "prescriptions" : A JSON array of medicine objects. Each object MUST have: {{"medicine_name", "dosage", "frequency", "duration", "instructions"}}. If none, return [].
+  "lab_tests_recommended" : A JSON array of lab test objects. Each object MUST have: {{"test_name", "reason"}}. If none, return [].
+  "follow_up_date" : Recommended follow up date in "YYYY-MM-DD" string format, or null.
 
-Examples:
+Example:
 
-Input: "fever 3d, dry cough, no sob, temp 38.5C, lungs clear"
-Output: {{"chief_complaint": "Fever for 3 days with dry cough, no shortness of breath", "assessment": "Likely viral upper respiratory tract infection. Temperature 38.5°C, lungs clear on auscultation.", "suggested_rx": "Paracetamol 500mg TDS for 3 days, adequate hydration, rest. Review if fever persists beyond 5 days."}}
-
-Input: "BP 160/100 chronic htn, c/o headache 2d, no visual changes, meds: amlodipine 5mg"
-Output: {{"chief_complaint": "Headache for 2 days in a patient with chronic hypertension", "assessment": "Hypertension poorly controlled, BP 160/100. No visual symptoms or signs of hypertensive urgency.", "suggested_rx": "Increase Amlodipine to 10mg OD. Low-salt diet reinforced. Follow-up in 1 week for BP check."}}
+Input: "3d fever, cough, viral pharyngitis, paracetamol 500mg bid 3d, cbc test, see me nxt wk"
+Output: {{"symptoms": "Fever for 3 days, cough", "diagnosis": "Viral pharyngitis", "treatment_plan": "Rest and hydration. Follow up next week.", "prescriptions": [{{"medicine_name": "Paracetamol", "dosage": "500mg", "frequency": "BID (Twice a day)", "duration": "3 days", "instructions": "Take after meals"}}], "lab_tests_recommended": [{{"test_name": "Complete Blood Count (CBC)", "reason": "To rule out bacterial infection"}}], "follow_up_date": "1 week from today"}}
 
 Now process the following doctor's shorthand:
 
@@ -68,7 +68,7 @@ def _build_payload(prompt: str) -> dict:
         "contents": [{"parts": [{"text": prompt}]}],
         "generationConfig": {
             "temperature": 0.3,
-            "maxOutputTokens": 512,
+            "maxOutputTokens": 2048,
         },
     }
 
@@ -122,7 +122,7 @@ def generate_clinical_draft(shorthand_input: str) -> AIDraftOut:
         logger.warning("Gemini API timed out: %s", exc)
         raise AIDraftGenerationError(
             cause_type="timeout",
-            message=f"Gemini API did not respond within {settings.GEMINI_TIMEOUT_SECONDS}s",
+            message=f"Gemini API did not respond within {settings.GEMINI_TIMEOUT_SECONDS}s", 
         ) from exc
     except httpx.HTTPError as exc:
         logger.warning("Gemini HTTP error: %s", exc)

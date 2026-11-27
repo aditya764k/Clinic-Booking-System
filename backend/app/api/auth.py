@@ -46,6 +46,7 @@ oauth.register(
     client_secret=settings.GOOGLE_CLIENT_SECRET,
     server_metadata_url="https://accounts.google.com/.well-known/openid-configuration",
     client_kwargs={"scope": "openid email profile"},
+    jwt_options={"leeway": 3600},
 )
 
 
@@ -59,7 +60,8 @@ def _set_auth_cookies(response: Response, user: User) -> None:
     cookie_kwargs: dict[str, Any] = {
         "httponly": True,
         "secure": settings.COOKIE_SECURE,
-        "samesite": "strict",
+        "samesite": "lax",
+        "path": "/",
     }
 
     response.set_cookie(
@@ -78,8 +80,20 @@ def _set_auth_cookies(response: Response, user: User) -> None:
 
 def _clear_auth_cookies(response: Response) -> None:
     """Expire both auth cookies (effectively logging the user out)."""
-    response.delete_cookie("access_token", httponly=True, samesite="strict")
-    response.delete_cookie("refresh_token", httponly=True, samesite="strict")
+    response.delete_cookie(
+        "access_token", 
+        path="/", 
+        httponly=True, 
+        secure=settings.COOKIE_SECURE, 
+        samesite="lax"
+    )
+    response.delete_cookie(
+        "refresh_token", 
+        path="/", 
+        httponly=True, 
+        secure=settings.COOKIE_SECURE, 
+        samesite="lax"
+    )
 
 
 def _role_str(user: User) -> str:
@@ -90,15 +104,22 @@ def _role_str(user: User) -> str:
 def _user_out(user: User) -> UserOut:
     profile_id = None
     role = _role_str(user)
+    full_name = "User"
+    
     if role == "doctor" and user.doctor_profile:
         profile_id = user.doctor_profile.id
+        full_name = user.doctor_profile.full_name
     elif role == "patient" and user.patient_profile:
         profile_id = user.patient_profile.id
+        full_name = user.patient_profile.full_name
+    elif role == "receptionist":
+        full_name = "Receptionist"
 
     return UserOut(
         id=user.id,
         email=user.email,
         role=role,
+        full_name=full_name,
         created_at=user.created_at,
         profile_id=profile_id,
     )
@@ -230,6 +251,7 @@ def refresh_access_token(
         httponly=True,
         secure=settings.COOKIE_SECURE,
         samesite="strict",
+        path="/",
     )
 
 
@@ -247,12 +269,15 @@ def logout(response: Response) -> None:
 # ── Whoami ────────────────────────────────────────────────────────────────────
 
 @router.get("/whoami", response_model=UserOut)
-def whoami(current_user: User = Depends(get_current_user)) -> Any:
+def whoami(response: Response, current_user: User = Depends(get_current_user)) -> Any:
     """Return the identity of the currently authenticated user.
 
     Identity is derived entirely from the access_token cookie + DB lookup.
     No query params or headers are used for identity.
     """
+    response.headers["Cache-Control"] = "no-store, no-cache, must-revalidate, max-age=0"
+    response.headers["Pragma"] = "no-cache"
+    response.headers["Expires"] = "0"
     return _user_out(current_user)
 
 
@@ -261,6 +286,8 @@ def whoami(current_user: User = Depends(get_current_user)) -> Any:
 @router.get("/google/login")
 async def google_login(request: Request) -> RedirectResponse:
     """Redirect the browser to Google's OAuth consent screen."""
+    # Clear old session data to prevent cookie bloat from multiple failed attempts
+    request.session.clear()
     redirect_uri = settings.GOOGLE_REDIRECT_URI
     return await oauth.google.authorize_redirect(request, redirect_uri)
 

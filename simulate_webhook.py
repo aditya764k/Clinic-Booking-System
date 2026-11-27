@@ -7,14 +7,19 @@ import sys
 # This must exactly match the RAZORPAY_WEBHOOK_SECRET in your .env file
 SECRET = "aditya@1906" 
 
+import uuid
+
 def simulate_webhook(order_id: str):
     # This is the exact shape Razorpay sends when a payment succeeds
+    # We generate a random payment ID so we don't trigger the idempotency guard on multiple runs
+    random_payment_id = f"pay_{uuid.uuid4().hex[:12]}"
+    
     payload = {
         "event": "payment.captured",
         "payload": {
             "payment": {
                 "entity": {
-                    "id": "pay_test_random123", # Fake payment ID
+                    "id": random_payment_id,
                     "order_id": order_id,       # The order ID you got from Swagger
                     "amount": 50000             # 500.00 INR in paise (Must match invoice)
                 }

@@ -30,6 +30,7 @@ from app.core.exceptions import IllegalTransitionError
 from app.models.appointment import Appointment, AppointmentStatus
 from app.models.identity import DoctorProfile, PatientProfile, User
 from app.models.scheduling import AppointmentSlot
+from app.schemas.billing import InvoiceOut
 from app.schemas.scheduling import AppointmentOut, AppointmentQueueItem
 from app.services.appointment_state import transition_appointment
 
@@ -67,8 +68,41 @@ def _appointment_out(appt: Appointment, slot: AppointmentSlot) -> AppointmentOut
     )
 
 
+def _build_invoice_out(appt: Appointment) -> Optional[InvoiceOut]:
+    """Return a nested InvoiceOut for the appointment, or None if not yet billed."""
+    # For queue items, we usually want the most relevant invoice.
+    # We will pick the treatment_fee if it exists and is pending, otherwise booking_fee.
+    if not appt.invoices:
+        return None
+        
+    # Sort so that treatment_fee comes first, or just find pending ones
+    pending_invoices = [i for i in appt.invoices if hasattr(i.status, "value") and i.status.value == "pending" or i.status == "pending"]
+    inv = pending_invoices[0] if pending_invoices else appt.invoices[-1]
+    
+    if inv is None:
+        return None
+    return InvoiceOut(
+        id=inv.id,
+        appointment_id=inv.appointment_id,
+        amount=inv.amount,
+        currency=inv.currency,
+        status=inv.status.value if hasattr(inv.status, "value") else str(inv.status),
+        payment_method=(
+            inv.payment_method.value
+            if inv.payment_method and hasattr(inv.payment_method, "value")
+            else inv.payment_method
+        ),
+        razorpay_order_id=inv.razorpay_order_id,
+        cash_amount_received=inv.cash_amount_received,
+        receipt_number=inv.receipt_number,
+        collected_by_user_id=inv.collected_by_user_id,
+        created_at=inv.created_at,
+        paid_at=inv.paid_at,
+    )
+
+
 def _queue_item(appt: Appointment, slot: AppointmentSlot) -> AppointmentQueueItem:
-    """Build an AppointmentQueueItem for queue responses."""
+    """Build an AppointmentQueueItem for queue responses, including nested invoice."""
     return AppointmentQueueItem(
         id=appt.id,
         status=_status_val(appt),
@@ -76,6 +110,7 @@ def _queue_item(appt: Appointment, slot: AppointmentSlot) -> AppointmentQueueIte
         doctor_name=appt.doctor.full_name if appt.doctor else "Unknown",
         slot_start=slot.slot_start,
         slot_end=slot.slot_end,
+        invoice=_build_invoice_out(appt),
     )
 
 
@@ -98,6 +133,11 @@ def _today_utc_range() -> tuple[datetime, datetime]:
     response_model=List[AppointmentQueueItem],
 )
 def receptionist_queue_today(
+    target_date: Optional[date] = Query(
+        default=None,
+        alias="date",
+        description="YYYY-MM-DD; defaults to UTC today if omitted",
+    ),
     db: Session = Depends(get_db),
     current_user: User = Depends(require_role("receptionist")),
 ) -> Any:
@@ -106,7 +146,12 @@ def receptionist_queue_today(
     Returns a flat list sorted by status lifecycle order (booked first,
     terminal states last). Matches the existing flat-list response convention.
     """
-    start, end = _today_utc_range()
+    if target_date is not None:
+        start = datetime(target_date.year, target_date.month, target_date.day, tzinfo=timezone.utc)
+        end = start + timedelta(days=1)
+    else:
+        start, end = _today_utc_range()
+        
     appointments: list[Appointment] = (
         db.query(Appointment)
         .join(AppointmentSlot, Appointment.slot_id == AppointmentSlot.id)
@@ -129,47 +174,44 @@ def receptionist_queue_today(
     "/appointments/queue/mine",
     response_model=List[AppointmentQueueItem],
 )
-def doctor_queue_mine(
+def my_queue(
     target_date: Optional[date] = Query(
         default=None,
         alias="date",
         description="YYYY-MM-DD; defaults to today",
     ),
     db: Session = Depends(get_db),
-    current_user: User = Depends(require_role("doctor")),
+    current_user: User = Depends(require_role("doctor", "patient")),
 ) -> Any:
-    """FR-DOC-01: Doctor's own appointments for today (or a specific date).
+    """Get appointments for the currently authenticated user (doctor or patient)."""
+    role_val = current_user.role.value if hasattr(current_user.role, "value") else str(current_user.role)
 
-    The doctor_id is always resolved from the JWT-derived current_user.
-    A doctor cannot pass a different doctor's id to see their queue.
+    if role_val == "doctor":
+        profile = db.query(DoctorProfile).filter(DoctorProfile.user_id == current_user.id).first()
+        if profile is None:
+            raise HTTPException(status_code=404, detail="Doctor profile not found")
+        query_filter = (Appointment.doctor_id == profile.id)
+    else:
+        profile = db.query(PatientProfile).filter(PatientProfile.user_id == current_user.id).first()
+        if profile is None:
+            raise HTTPException(status_code=404, detail="Patient profile not found")
+        query_filter = (Appointment.patient_id == profile.id)
 
-    Accepts an optional ?date=YYYY-MM-DD query param for past/future days.
-    """
-    doctor: DoctorProfile | None = (
-        db.query(DoctorProfile)
-        .filter(DoctorProfile.user_id == current_user.id)
-        .first()
-    )
-    if doctor is None:
-        raise HTTPException(
-            status_code=status.HTTP_404_NOT_FOUND,
-            detail="Doctor profile not found for current user",
-        )
+    query = db.query(Appointment).join(AppointmentSlot, Appointment.slot_id == AppointmentSlot.id).filter(query_filter)
 
-    if target_date is None:
+    if target_date is not None:
+        start = datetime(target_date.year, target_date.month, target_date.day, tzinfo=timezone.utc)
+        end = start + timedelta(days=1)
+        query = query.filter(AppointmentSlot.slot_start >= start, AppointmentSlot.slot_start < end)
+    elif role_val == "doctor":
+        # Doctors default to today to avoid loading entire history
         target_date = datetime.now(tz=timezone.utc).date()
+        start = datetime(target_date.year, target_date.month, target_date.day, tzinfo=timezone.utc)
+        end = start + timedelta(days=1)
+        query = query.filter(AppointmentSlot.slot_start >= start, AppointmentSlot.slot_start < end)
+    # Patients fetch all history/upcoming if no date is provided.
 
-    start = datetime(target_date.year, target_date.month, target_date.day, tzinfo=timezone.utc)
-    end = start + timedelta(days=1)
-
-    appointments: list[Appointment] = (
-        db.query(Appointment)
-        .join(AppointmentSlot, Appointment.slot_id == AppointmentSlot.id)
-        .filter(Appointment.doctor_id == doctor.id)
-        .filter(AppointmentSlot.slot_start >= start)
-        .filter(AppointmentSlot.slot_start < end)
-        .all()
-    )
+    appointments: list[Appointment] = query.all()
 
     items = []
     for appt in appointments:
@@ -294,6 +336,19 @@ def start_consultation(
         raise HTTPException(
             status_code=status.HTTP_403_FORBIDDEN,
             detail="You can only start consultations for your own patients",
+        )
+
+    # Concurrency guard: A doctor can only have one active consultation at a time
+    active_consultation = (
+        db.query(Appointment)
+        .filter(Appointment.doctor_id == doctor.id)
+        .filter(Appointment.status == AppointmentStatus.in_consultation)
+        .first()
+    )
+    if active_consultation is not None:
+        raise HTTPException(
+            status_code=status.HTTP_409_CONFLICT,
+            detail="You already have an active consultation. Please complete it before starting a new one.",
         )
 
     appt = transition_appointment(

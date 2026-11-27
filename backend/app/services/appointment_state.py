@@ -32,6 +32,11 @@ if TYPE_CHECKING:
 # - COMPLETED, BILLING_PENDING, and PAID entries are wired here so the map
 #   never needs to change when Modules 5 & 6 add their endpoints.
 LEGAL_TRANSITIONS: dict[AppointmentStatus, set[AppointmentStatus]] = {
+    AppointmentStatus.payment_pending: {
+        AppointmentStatus.booked,
+        AppointmentStatus.checked_in,
+        AppointmentStatus.cancelled,
+    },
     AppointmentStatus.booked: {
         AppointmentStatus.checked_in,
         AppointmentStatus.cancelled,
@@ -43,6 +48,7 @@ LEGAL_TRANSITIONS: dict[AppointmentStatus, set[AppointmentStatus]] = {
     },
     AppointmentStatus.in_consultation: {
         AppointmentStatus.completed,
+        AppointmentStatus.billing_pending,
     },
     AppointmentStatus.completed: {
         AppointmentStatus.billing_pending,

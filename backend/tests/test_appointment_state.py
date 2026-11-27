@@ -317,8 +317,10 @@ class TestQueueEndpoints:
         r = client.get("/appointments/queue/mine")
         assert r.status_code == 200
         item = r.json()[0]
-        for f in ("id", "status", "patient_name", "doctor_name", "slot_start", "slot_end"):
+        for f in ("id", "status", "patient_name", "doctor_name", "slot_start", "slot_end", "invoice"):
             assert f in item, f"Missing field: {f}"
+        # invoice is null for appointments that haven't been billed yet
+        assert item["invoice"] is None or isinstance(item["invoice"], dict)
 
 
 # ══════════════════════════════════════════════════════════════════════════════
